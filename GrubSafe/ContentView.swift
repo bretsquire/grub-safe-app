@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    let userName = "[userName]"
     var body: some View {
         VStack {
             HStack {
-                Text("Welcome,\n Bret Squire")
+                Text("Welcome, \(userName).")
                     .font(.title3)
                     .bold()
                     .padding()
