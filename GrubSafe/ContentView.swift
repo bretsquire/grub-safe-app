@@ -13,10 +13,17 @@ struct ContentView: View {
         VStack {
             HStack {
                 Text("Welcome, \(userName).")
-                    .font(.title3)
+                    .font(.title)
                     .bold()
                     .padding()
                 Spacer()
+                Button {
+                    print("open onboarding modal")
+                } label: {
+                    Image(systemName: "person.crop.circle.badge.questionmark.fill")
+                        .font(.title)
+                }
+                .padding()
             }
             Spacer()
         }
