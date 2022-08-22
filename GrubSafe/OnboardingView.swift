@@ -9,26 +9,25 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.verticalSizeClass) var verticalSizeClass
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
         VStack {
             Capsule()
                 .fill(Color.secondary)
-                .opacity(0.15)
-                .frame(width: 35, height: 5)
-                .padding(.top, 10)
+                .opacity(Constants.Onboarding.dismissHandleOpacity)
+                .frame(width: Constants.Onboarding.dismissHandleWidth, height: Constants.Onboarding.dismissHandleHeight)
+                .padding(.top, Constants.Onboarding.dismissHandleTopPadding)
             Text("GrubSafe")
                 .font(.largeTitle)
-                .padding(.top, 1)
+                .padding(.top, Constants.Onboarding.rowsTopPadding)
             Text("A minimal contact restaurant app for safe and healthy dining.")
                 .font(.title3)
-                .padding(.top, 1)
+                .padding(.top, Constants.Onboarding.rowsTopPadding)
+                .padding(.horizontal, Constants.Onboarding.descriptionHorizontalPadding)
             VStack(alignment: .leading) {
-                FeatureRow(text: "View the full menu.")
-                FeatureRow(text: "Select and order your meals.")
-                FeatureRow(text: "Add photos of your meals.")
-                FeatureRow(text: "Write reviews of your meals.")
+                FeaturesRow(text: "View the full menu.")
+                FeaturesRow(text: "Select and order your meals.")
+                FeaturesRow(text: "Add photos of your meals.")
+                FeaturesRow(text: "Write reviews of your meals.")
             }
             Spacer()
             Button("Press to dismiss") {
@@ -38,7 +37,7 @@ struct OnboardingView: View {
     }
 }
 
-struct FeatureRow: View {
+struct FeaturesRow: View {
     let text: String
     var body: some View {
         HStack {
@@ -48,7 +47,7 @@ struct FeatureRow: View {
             Text(text)
                 .font(.body)
         }
-        .padding(.top, 5)
+        .padding(.top, Constants.Onboarding.rowsTopPadding)
     }
 }
 
@@ -58,6 +57,9 @@ struct OnboardingView_Previews: PreviewProvider {
         OnboardingView()
             .preferredColorScheme(.dark)
         OnboardingView()
+            .previewLayout(.fixed(width: 568, height: 320))
+        OnboardingView()
+            .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))
     }
 }
