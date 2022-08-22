@@ -10,8 +10,17 @@ import SwiftUI
 struct OnboardingView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
-        Button("Press to dismiss") {
-            dismiss()
+        VStack {
+            Capsule()
+                .fill(Color.secondary)
+                .opacity(0.15)
+                .frame(width: 35, height: 5)
+                .padding()
+            Spacer()
+            Button("Press to dismiss") {
+                dismiss()
+            }
+            Spacer()
         }
     }
 }
