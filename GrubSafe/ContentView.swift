@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var onboardingIsVisable = false
     let userName = "[userName]"
     var body: some View {
         VStack {
@@ -18,14 +19,26 @@ struct ContentView: View {
                     .padding()
                 Spacer()
                 Button {
-                    print("open onboarding modal")
+                    onboardingIsVisable.toggle()
                 } label: {
                     Image(systemName: "person.crop.circle.badge.questionmark.fill")
                         .font(.title)
                 }
                 .padding()
+                .sheet(isPresented: $onboardingIsVisable) {
+                    OnboardingView()
+                }
             }
             Spacer()
+        }
+    }
+}
+
+struct OnboardingView: View {
+    @Environment(\.dismiss) var dismiss
+    var body: some View {
+        Button("Press to dismiss") {
+            dismiss()
         }
     }
 }
