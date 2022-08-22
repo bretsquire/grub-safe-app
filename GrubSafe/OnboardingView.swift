@@ -9,18 +9,21 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
         VStack {
             Capsule()
                 .fill(Color.secondary)
                 .opacity(0.15)
                 .frame(width: 35, height: 5)
-                .padding()
+                .padding(.top, 10)
             Text("GrubSafe")
                 .font(.largeTitle)
+                .padding(.top, 1)
             Text("A minimal contact restaurant app for safe and healthy dining.")
                 .font(.title3)
-                .padding()
+                .padding(.top, 1)
             VStack(alignment: .leading) {
                 FeatureRow(text: "View the full menu.")
                 FeatureRow(text: "Select and order your meals.")
@@ -31,7 +34,6 @@ struct OnboardingView: View {
             Button("Press to dismiss") {
                 dismiss()
             }
-            
         }
     }
 }
@@ -42,16 +44,20 @@ struct FeatureRow: View {
         HStack {
             Image(systemName: "checkmark")
                 .font(.body)
-                .padding()
+                .padding(.trailing)
             Text(text)
                 .font(.body)
         }
-        .padding()
+        .padding(.top, 5)
     }
 }
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()
+        OnboardingView()
+            .preferredColorScheme(.dark)
+        OnboardingView()
+            .previewLayout(.fixed(width: 568, height: 320))
     }
 }
