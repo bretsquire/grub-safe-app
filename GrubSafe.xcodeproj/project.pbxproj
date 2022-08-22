@@ -12,7 +12,6 @@
 		6FC5C35128B32EA60070DEEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FC5C35028B32EA60070DEEE /* Assets.xcassets */; };
 		6FC5C35428B32EA60070DEEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FC5C35328B32EA60070DEEE /* Preview Assets.xcassets */; };
 		6FC5C35B28B3406A0070DEEE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5C35A28B3406A0070DEEE /* OnboardingView.swift */; };
-		6FC5C35D28B35A000070DEEE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6FC5C35C28B35A000070DEEE /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +21,6 @@
 		6FC5C35028B32EA60070DEEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FC5C35328B32EA60070DEEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6FC5C35A28B3406A0070DEEE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		6FC5C35C28B35A000070DEEE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = GrubSafe/README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +57,6 @@
 				6FC5C34E28B32EA50070DEEE /* ContentView.swift */,
 				6FC5C35A28B3406A0070DEEE /* OnboardingView.swift */,
 				6FC5C35028B32EA60070DEEE /* Assets.xcassets */,
-				6FC5C35C28B35A000070DEEE /* README.md */,
 				6FC5C35228B32EA60070DEEE /* Preview Content */,
 			);
 			path = GrubSafe;
@@ -131,7 +128,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FC5C35D28B35A000070DEEE /* README.md in Resources */,
 				6FC5C35428B32EA60070DEEE /* Preview Assets.xcassets in Resources */,
 				6FC5C35128B32EA60070DEEE /* Assets.xcassets in Resources */,
 			);
