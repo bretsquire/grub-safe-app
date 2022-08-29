@@ -23,6 +23,7 @@
 		6FC5C35328B32EA60070DEEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6FC5C35A28B3406A0070DEEE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		6FC5C36028B360C90070DEEE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6FDAF4D028BCA99F007C1EB6 /* GrubSafePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GrubSafePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 				6FC5C35A28B3406A0070DEEE /* OnboardingView.swift */,
 				6FC5C36028B360C90070DEEE /* Constants.swift */,
 				6FC5C35028B32EA60070DEEE /* Assets.xcassets */,
+				6FDAF4D028BCA99F007C1EB6 /* GrubSafePlayground.playground */,
 				6FC5C35228B32EA60070DEEE /* Preview Content */,
 			);
 			path = GrubSafe;
