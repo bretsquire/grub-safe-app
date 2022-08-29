@@ -10,8 +10,9 @@ struct Menu {
     var menuItems: [MenuItem] = []
     
     // MARK: - Mutating Methods
-    mutating func addMenuItem(_ item: MenuItem) {
+    mutating func addMenuItem(_ item: MenuItem) -> [MenuItem] {
         menuItems.append(item)
+        return menuItems
     }
     
     // MARK: - Methods
