@@ -19,11 +19,11 @@ print("****** Assignment 1 ******")
 print(hotdog)
 
 //: ## Assignmet 2:
-var menuItems: [MenuItemA] = []
-menuItems.append(hotdog)
+var menuItemsA: [MenuItemA] = []
+menuItemsA.append(hotdog)
 
 print("\n****** Assignment 2 ******")
-print(menuItems)
+print(menuItemsA)
 
 //: ## Assignmet 3:
 struct MenuItem {
@@ -76,3 +76,18 @@ print(frenchFries)
 print(iceCream)
 print(colaDrink)
 print(rootbeerDrink)
+
+//: ## Assignmet 5:
+var menuItems: [MenuItem] = []
+
+func addMenuItem(_ item: MenuItem) {
+    menuItems.append(item)
+}
+addMenuItem(porkHotDog)
+addMenuItem(beefHotDog)
+addMenuItem(frenchFries)
+addMenuItem(iceCream)
+addMenuItem(colaDrink)
+addMenuItem(rootbeerDrink)
+print("\n****** Assignment 5 ******")
+print(menuItems)
