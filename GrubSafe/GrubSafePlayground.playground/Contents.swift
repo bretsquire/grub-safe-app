@@ -91,3 +91,13 @@ addMenuItem(colaDrink)
 addMenuItem(rootbeerDrink)
 print("\n****** Assignment 5 ******")
 print(menuItems)
+
+//: ## Assignmet 6:
+func printMeals(_ items: [MenuItem]) {
+    for item in items where item.description != nil {
+        print(item)
+    }
+}
+
+print("\n****** Assignment 6 ******")
+printMeals(menuItems)
