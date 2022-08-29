@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FBD673A28BCBA870003B8EA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD673928BCBA870003B8EA /* Menu.swift */; };
+		6FBD673C28BCBB010003B8EA /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD673B28BCBB010003B8EA /* MenuItem.swift */; };
 		6FC5C34D28B32EA50070DEEE /* GrubSafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5C34C28B32EA50070DEEE /* GrubSafeApp.swift */; };
 		6FC5C34F28B32EA50070DEEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5C34E28B32EA50070DEEE /* ContentView.swift */; };
 		6FC5C35128B32EA60070DEEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FC5C35028B32EA60070DEEE /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6FBD673928BCBA870003B8EA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		6FBD673B28BCBB010003B8EA /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		6FC5C34928B32EA50070DEEE /* GrubSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FC5C34C28B32EA50070DEEE /* GrubSafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubSafeApp.swift; sourceTree = "<group>"; };
 		6FC5C34E28B32EA50070DEEE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +41,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FBD673728BCB9BC0003B8EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6FC5C34E28B32EA50070DEEE /* ContentView.swift */,
+				6FC5C35A28B3406A0070DEEE /* OnboardingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6FBD673828BCBA260003B8EA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6FBD673928BCBA870003B8EA /* Menu.swift */,
+				6FBD673B28BCBB010003B8EA /* MenuItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6FC5C34028B32EA50070DEEE = {
 			isa = PBXGroup;
 			children = (
@@ -57,10 +79,10 @@
 			isa = PBXGroup;
 			children = (
 				6FC5C34C28B32EA50070DEEE /* GrubSafeApp.swift */,
-				6FC5C34E28B32EA50070DEEE /* ContentView.swift */,
-				6FC5C35A28B3406A0070DEEE /* OnboardingView.swift */,
 				6FC5C36028B360C90070DEEE /* Constants.swift */,
 				6FC5C35028B32EA60070DEEE /* Assets.xcassets */,
+				6FBD673728BCB9BC0003B8EA /* Views */,
+				6FBD673828BCBA260003B8EA /* Models */,
 				6FDAF4D028BCA99F007C1EB6 /* GrubSafePlayground.playground */,
 				6FC5C35228B32EA60070DEEE /* Preview Content */,
 			);
@@ -148,7 +170,9 @@
 				6FC5C35B28B3406A0070DEEE /* OnboardingView.swift in Sources */,
 				6FC5C34F28B32EA50070DEEE /* ContentView.swift in Sources */,
 				6FC5C34D28B32EA50070DEEE /* GrubSafeApp.swift in Sources */,
+				6FBD673C28BCBB010003B8EA /* MenuItem.swift in Sources */,
 				6FC5C36128B360C90070DEEE /* Constants.swift in Sources */,
+				6FBD673A28BCBA870003B8EA /* Menu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
