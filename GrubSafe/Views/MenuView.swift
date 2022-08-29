@@ -13,7 +13,7 @@ struct MenuView: View {
         VStack(alignment: .leading) {
             Text("GrubSafe Menu")
                 .font(.largeTitle)
-                .padding(.top, Constants.Onboarding.rowsTopPadding)
+                .padding(.top, Constants.Menu.rowsTopPadding)
             ForEach(menu.menuItems, id: \.id) { item in
                 MenuItemRow(text: item.name)
             }
@@ -26,13 +26,13 @@ struct MenuItemRow: View {
     let text: String
     var body: some View {
         HStack {
-            Image(systemName: "circle")
+            Image(systemName: Constants.SFSymbols.circle)
                 .font(.body)
                 .padding(.trailing)
             Text(text)
                 .font(.body)
         }
-        .padding(.top, Constants.Onboarding.rowsTopPadding)
+        .padding(.top, Constants.Menu.rowsTopPadding)
     }
 }
 

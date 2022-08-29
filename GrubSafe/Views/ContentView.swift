@@ -22,7 +22,7 @@ struct ContentView: View {
                 Button {
                     onboardingIsVisable.toggle()
                 } label: {
-                    Image(systemName: "person.crop.circle.badge.questionmark.fill")
+                    Image(systemName: Constants.SFSymbols.questionmark)
                         .font(.title)
                 }
                 .padding()
@@ -30,12 +30,7 @@ struct ContentView: View {
                     OnboardingView()
                 }
             }
-            ForEach(menu.menuItems, id: \.id) { item in
-                HStack {
-                    Text(item.name)
-                    Spacer()
-                }
-            }
+            MenuView()
             Spacer()
         }
     }
