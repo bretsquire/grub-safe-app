@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6FBD673A28BCBA870003B8EA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD673928BCBA870003B8EA /* Menu.swift */; };
 		6FBD673C28BCBB010003B8EA /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD673B28BCBB010003B8EA /* MenuItem.swift */; };
+		6FBD673E28BCC3550003B8EA /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD673D28BCC3540003B8EA /* MenuView.swift */; };
 		6FC5C34D28B32EA50070DEEE /* GrubSafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5C34C28B32EA50070DEEE /* GrubSafeApp.swift */; };
 		6FC5C34F28B32EA50070DEEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5C34E28B32EA50070DEEE /* ContentView.swift */; };
 		6FC5C35128B32EA60070DEEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FC5C35028B32EA60070DEEE /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		6FBD673928BCBA870003B8EA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		6FBD673B28BCBB010003B8EA /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		6FBD673D28BCC3540003B8EA /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		6FC5C34928B32EA50070DEEE /* GrubSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FC5C34C28B32EA50070DEEE /* GrubSafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubSafeApp.swift; sourceTree = "<group>"; };
 		6FC5C34E28B32EA50070DEEE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 			children = (
 				6FC5C34E28B32EA50070DEEE /* ContentView.swift */,
 				6FC5C35A28B3406A0070DEEE /* OnboardingView.swift */,
+				6FBD673D28BCC3540003B8EA /* MenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FBD673E28BCC3550003B8EA /* MenuView.swift in Sources */,
 				6FC5C35B28B3406A0070DEEE /* OnboardingView.swift in Sources */,
 				6FC5C34F28B32EA50070DEEE /* ContentView.swift in Sources */,
 				6FC5C34D28B32EA50070DEEE /* GrubSafeApp.swift in Sources */,
