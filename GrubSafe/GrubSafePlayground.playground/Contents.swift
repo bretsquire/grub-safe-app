@@ -109,15 +109,10 @@ struct MenuOrder {
             return totalAfterDiscount(totalAmount: total, discountPercentage: currentDiscount)
         }
     }
-    
-    func totalAfterDiscount(totalAmount: Double, discountPercentage: Double) -> Double {
-        let discountedAmount = totalAmount * discountPercentage
-        return totalAmount - discountedAmount
-    }
 }
 
 let menuOrder = MenuOrder.init()
-let currentDiscountedAmount = menuOrder.currentDiscountedAmount
+var currentDiscountedAmount = menuOrder.currentDiscountedAmount
 print("\nAssignment 8:\n the current discount amount is \(currentDiscountedAmount)")
 
 //: ## Assignmet 9: Lazy property
@@ -130,3 +125,24 @@ var discounts = Discounts.init()
 print("\nAssignment 9:\nThe max discount is \(discounts.maxDiscount) for \(discounts.discountTypes) ")
 discounts.discountTypes = ["Default discount (5%)": 0.05, "Thanksgiving discount (10%)": 0.1, "Christmas discount (15%)": 0.15]
 print("Note the lazy property max discount \(discounts.maxDiscount) does not change for \(discounts.discountTypes) ")
+
+//: ## Assignmet 10: Method
+struct UserOrder {
+    var itemPrices = [1.99, 2.99, 3.25, 0.99, 1.75, 6.99]
+    var currentDiscount = 0.15
+    var currentDiscountedAmount: Double {
+        get {
+            let total = itemPrices.reduce(0, +)
+            return self.totalAmountAfterApplyingDiscount(totalAmount: total, discountPercentage: currentDiscount)
+        }
+    }
+    
+    func totalAmountAfterApplyingDiscount(totalAmount: Double, discountPercentage: Double) -> Double {
+        let discountedAmount = totalAmount * discountPercentage
+        return totalAmount - discountedAmount
+    }
+}
+
+let userOrder = UserOrder.init()
+currentDiscountedAmount = userOrder.currentDiscountedAmount
+print("\nAssignment 10:\n the total discounted amount is \(currentDiscountedAmount)")
