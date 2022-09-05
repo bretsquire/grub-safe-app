@@ -26,3 +26,18 @@ func totalAfterDiscount(totalAmount: Double) -> Double {
 
 totalAmountAfterDiscount = totalAfterDiscount(totalAmount: 1.99)
 print("Assignment 2:\n \(totalAmountAfterDiscount) = 1.99 - (1.99 * 0.05)   5% Default Discount")
+
+//: ## Assignmet 3: typealias
+typealias ApplyDiscount = (Double, String) -> Double
+func printDiscount(applyDiscount: ApplyDiscount, for total: Double, with discount: String) {
+    let discountedTotal = applyDiscount(total, discount)
+    print("A \(discount) discount applied to \(total) is \(discountedTotal)")
+}
+
+func testApplyDiscount(totalAmount: Double, discountType: String) -> Double {
+    // pretend for now it will get double value from discountType string
+    return totalAfterDiscount(totalAmount: totalAmount)
+}
+let totalAmount = 1.99
+let discountType = "Default discount (5%)"
+printDiscount(applyDiscount: testApplyDiscount, for: totalAmount, with: discountType)
