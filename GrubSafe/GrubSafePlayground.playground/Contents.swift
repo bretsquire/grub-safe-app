@@ -99,3 +99,23 @@ print("\nAssignment 7:")
 let discount = DiscountTypes(rawValue: "Thanksgiving discount (10%)") ?? .default
 printDiscount(discountType: discount)
 
+//: ## Assignmet 8: Computed property
+struct MenuOrder {
+    var itemPrices = [1.99, 2.99, 3.25, 0.99, 1.75, 6.99]
+    var currentDiscount = 0.15
+    var currentDiscountedAmount: Double {
+        get {
+            let total = itemPrices.reduce(0, +)
+            return totalAfterDiscount(totalAmount: total, discountPercentage: currentDiscount)
+        }
+    }
+    
+    func totalAfterDiscount(totalAmount: Double, discountPercentage: Double) -> Double {
+        let discountedAmount = totalAmount * discountPercentage
+        return totalAmount - discountedAmount
+    }
+}
+
+let menuOrder = MenuOrder.init()
+let currentDiscountedAmount = menuOrder.currentDiscountedAmount
+print("\nAssignment 8:\n the current discount amount is \(currentDiscountedAmount)")
