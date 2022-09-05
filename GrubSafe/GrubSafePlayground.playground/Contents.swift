@@ -72,3 +72,30 @@ let sortedDiscountTypes = discountTypes.sorted {
 }
 
 print("sorted discounts \(sortedDiscountTypes)")
+
+//: ## Assignmet 7: Enums and Switch cases
+enum DiscountTypes: String {
+    case `default` = "Default discount (5%)"
+    case thanksgiving = "Thanksgiving discount (10%)"
+    case christmas = "Christmas discount (15%)"
+    case newYear = "New year discount (20%)"
+}
+func printDiscount(discountType: DiscountTypes) {
+    var discountPercentage: Double
+    switch discountType {
+    case .`default`:
+        discountPercentage = 0.05
+    case .thanksgiving:
+        discountPercentage = 0.05
+    case .christmas:
+        discountPercentage = 0.05
+    case .newYear:
+        discountPercentage = 0.05
+    }
+    print("the discount value is \(discountPercentage) for \(discountType.rawValue)")
+}
+
+print("\nAssignment 7:")
+let discount = DiscountTypes(rawValue: "Thanksgiving discount (10%)") ?? .default
+printDiscount(discountType: discount)
+
