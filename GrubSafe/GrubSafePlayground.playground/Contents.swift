@@ -119,3 +119,14 @@ struct MenuOrder {
 let menuOrder = MenuOrder.init()
 let currentDiscountedAmount = menuOrder.currentDiscountedAmount
 print("\nAssignment 8:\n the current discount amount is \(currentDiscountedAmount)")
+
+//: ## Assignmet 9: Lazy property
+struct Discounts {
+    var discountTypes = ["Default discount (5%)": 0.05, "Thanksgiving discount (10%)": 0.1, "Christmas discount (15%)": 0.15, "New year discount (20%)": 0.2]
+    lazy var maxDiscount = discountTypes.values.max() ?? 0.0
+}
+
+var discounts = Discounts.init()
+print("\nAssignment 9:\nThe max discount is \(discounts.maxDiscount) for \(discounts.discountTypes) ")
+discounts.discountTypes = ["Default discount (5%)": 0.05, "Thanksgiving discount (10%)": 0.1, "Christmas discount (15%)": 0.15]
+print("Note the lazy property max discount \(discounts.maxDiscount) does not change for \(discounts.discountTypes) ")
