@@ -15,7 +15,7 @@ func totalAfterDiscount(totalAmount: Double, discountPercentage: Double) -> Doub
 }
 
 var totalAmountAfterDiscount = totalAfterDiscount(totalAmount: 1.99, discountPercentage: 0.1)
-print("Assignment 1:\n \(totalAmountAfterDiscount) = 1.99 - (1.99 * 0.1)")
+print("\nAssignment 1:\n \(totalAmountAfterDiscount) = 1.99 - (1.99 * 0.1)")
 
 //: ## Assignmet 2: Function
 func totalAfterDiscount(totalAmount: Double) -> Double {
@@ -25,7 +25,7 @@ func totalAfterDiscount(totalAmount: Double) -> Double {
 }
 
 totalAmountAfterDiscount = totalAfterDiscount(totalAmount: 1.99)
-print("Assignment 2:\n \(totalAmountAfterDiscount) = 1.99 - (1.99 * 0.05)   5% Default Discount")
+print("\nAssignment 2:\n \(totalAmountAfterDiscount) = 1.99 - (1.99 * 0.05)   5% Default Discount")
 
 //: ## Assignmet 3: typealias
 typealias ApplyDiscount = (Double, String) -> Double
@@ -40,6 +40,7 @@ func testApplyDiscount(totalAmount: Double, discountType: String) -> Double {
 }
 var totalAmount = 1.99
 var discountType = "Default discount (5%)"
+print("\nAssignment 3:")
 printDiscount(applyDiscount: testApplyDiscount, for: totalAmount, with: discountType)
 
 //: ## Assignmet 4: Closure
@@ -49,12 +50,25 @@ let applyDiscount = { (totalAmount: Double, discountType: String) -> Double in
 }
 
 totalAmount = 2.99
+print("\nAssignment 4:")
 printDiscount(applyDiscount: testApplyDiscount, for: totalAmount, with: discountType)
 
 //: ## Assignmet 5: Map
 var itemPrices = [1.99, 2.99, 3.25, 0.99, 1.75, 6.99]
+print("\nAssignment 5:")
 itemPrices = itemPrices.map {
     let newPrices = $0 * 0.5
     print("The new price for \($0) is now \(newPrices)")
     return newPrices
 }
+
+//: ## Assignmet 6: Sorted
+let discountTypes = ["Default discount (5%)": 0.05, "Thanksgiving discount (10%)": 0.1, "Christmas discount (15%)": 0.15, "New year discount (20%)": 0.2]
+print("\nAssignment 6:")
+print("unsorted discounts \(discountTypes)")
+
+let sortedDiscountTypes = discountTypes.sorted {
+    $0.value > $1.value
+}
+
+print("sorted discounts \(sortedDiscountTypes)")
