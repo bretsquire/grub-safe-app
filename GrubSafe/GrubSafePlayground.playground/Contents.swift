@@ -50,3 +50,11 @@ let applyDiscount = { (totalAmount: Double, discountType: String) -> Double in
 
 totalAmount = 2.99
 printDiscount(applyDiscount: testApplyDiscount, for: totalAmount, with: discountType)
+
+//: ## Assignmet 5: Map
+var itemPrices = [1.99, 2.99, 3.25, 0.99, 1.75, 6.99]
+itemPrices = itemPrices.map {
+    let newPrices = $0 * 0.5
+    print("The new price for \($0) is now \(newPrices)")
+    return newPrices
+}
