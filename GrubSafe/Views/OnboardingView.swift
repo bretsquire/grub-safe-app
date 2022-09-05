@@ -41,7 +41,7 @@ struct FeaturesRow: View {
     let text: String
     var body: some View {
         HStack {
-            Image(systemName: "checkmark")
+            Image(systemName: Constants.SFSymbols.checkmark)
                 .font(.body)
                 .padding(.trailing)
             Text(text)

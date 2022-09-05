@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var onboardingIsVisable = false
     let userName = "[userName]"
+    let menu = Menu()
     var body: some View {
         VStack {
             HStack {
@@ -21,7 +22,7 @@ struct ContentView: View {
                 Button {
                     onboardingIsVisable.toggle()
                 } label: {
-                    Image(systemName: "person.crop.circle.badge.questionmark.fill")
+                    Image(systemName: Constants.SFSymbols.questionmark)
                         .font(.title)
                 }
                 .padding()
@@ -29,6 +30,7 @@ struct ContentView: View {
                     OnboardingView()
                 }
             }
+            MenuView()
             Spacer()
         }
     }
