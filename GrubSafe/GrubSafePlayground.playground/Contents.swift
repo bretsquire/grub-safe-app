@@ -12,6 +12,7 @@ var itemPrices = [1.99, 2.99, 3.25, 0.99, 1.75, 6.99]
 var totalAmount = itemPrices.reduce(0, +)
 var discountPercentage = 0.1
 var discountType = "Thanksgiving discount (10%)"
+let discountTypes = ["Default discount (5%)": 0.05, "Thanksgiving discount (10%)": 0.1, "Christmas discount (15%)": 0.15, "New year discount (20%)": 0.2]
 
 //: ## Assignmet 1: Function
 func totalAfterDiscount(totalAmount: Double, discountPercentage: Double) -> Double {
@@ -39,16 +40,16 @@ func printDiscount(applyDiscount: ApplyDiscount, for total: Double, with discoun
 }
 
 func testApplyDiscount(totalAmount: Double, discountType: String) -> Double {
-    // pretend for now it will get double value from discountType string
-    return totalAfterDiscount(totalAmount: totalAmount)
+    let discount = discountTypes[discountType] ?? 0.05
+    return totalAfterDiscount(totalAmount: totalAmount, discountPercentage: discount)
 }
 print("\nAssignment 3:")
 printDiscount(applyDiscount: testApplyDiscount, for: totalAmount, with: discountType)
 
 //: ## Assignmet 4: Closure
 let applyDiscount = { (totalAmount: Double, discountType: String) -> Double in
-    // pretend for now it will get double value from discountType string
-    return totalAfterDiscount(totalAmount: totalAmount)
+    let discount = discountTypes[discountType] ?? 0.05
+    return totalAfterDiscount(totalAmount: totalAmount, discountPercentage: discount)
 }
 
 totalAmount = 2.99
@@ -64,7 +65,6 @@ itemPrices = itemPrices.map {
 }
 
 //: ## Assignmet 6: Sorted
-let discountTypes = ["Default discount (5%)": 0.05, "Thanksgiving discount (10%)": 0.1, "Christmas discount (15%)": 0.15, "New year discount (20%)": 0.2]
 print("\nAssignment 6:")
 print("unsorted discounts \(discountTypes)")
 
