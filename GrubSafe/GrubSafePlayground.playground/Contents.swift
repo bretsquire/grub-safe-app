@@ -148,3 +148,80 @@ struct UserOrder {
 let userOrder = UserOrder.init()
 currentDiscountedAmount = userOrder.currentDiscountedAmount
 print("\nAssignment 10:\n the total discounted amount is \(currentDiscountedAmount)")
+
+//: ## Assignmet 13: Final code reasoning
+/*:
+ I think there will need to be two new objects to add:
+ * Discount
+ * Order
+ 
+ The Discount object will be an Enum that contains:
+ * the discountPercentage as the raw values
+ * a computed property to return the human readable description of the discount
+ * a method to take in a total and return the total with current discount applied
+ 
+ The Order object will be an Struct that contains:
+ * an array property for menu items selected
+ * a property for current discount
+ * a property for total set by a property observer on the selection property
+ * a computed property for discounted total
+ * a method for printing out order total, discount applied and total after discount
+ */
+enum Discount: Double {
+    case `default` = 0.05
+    case thanksgiving = 0.10
+    case christmas = 0.15
+    case newYear = 0.20
+
+    var description: String {
+        get {
+            switch self {
+            case .`default`:
+                return "Default discount (5%)"
+            case .thanksgiving:
+                return "Thanksgiving discount (10%)"
+            case .christmas:
+                return "Christmas discount (15%)"
+            case .newYear:
+                return "New year discount (20%)"
+            }
+        }
+    }
+    
+    func applyDiscount(_ total: Double) -> Double {
+        return total - total * self.rawValue
+    }
+}
+
+let discountEnum: Discount = .thanksgiving
+let discountTotal = discountEnum.applyDiscount(totalAmount)
+print("\nAssignment 13:\nThe discount total is \(discountTotal) by applying \(discountEnum.description) to \(totalAmount) ")
+
+struct Order {
+    var total = 0.0
+    var selection: [MenuItem] = [] {
+        didSet {
+            total = 0.0
+            selection.forEach { item in
+                total += item.cost
+            }
+        }
+    }
+    var discount: Discount = .`default`
+    var discountedTotal: Double {
+        get {
+            discount.applyDiscount(total)
+        }
+    }
+    
+    func printOrder() {
+        print("The discounted order total is \(discountedTotal) with a \(discount.description) applied to a order total of \(total)")
+    }
+}
+
+let menu = Menu.init()
+let userSelection = menu.menuItems
+var order = Order.init()
+order.selection = userSelection
+order.discount = .thanksgiving
+order.printOrder()
