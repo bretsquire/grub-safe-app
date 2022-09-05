@@ -8,24 +8,28 @@
  * discountedAmount: Amount after applying discount on totalAmount. Formula: totalAmount * 0.05 (if a discount of 5% is applied).
  * totalAmountAfterDiscount: total Amount - discountedAmount.
  */
+var itemPrices = [1.99, 2.99, 3.25, 0.99, 1.75, 6.99]
+var totalAmount = itemPrices.reduce(0, +)
+var discountPercentage = 0.1
+var discountType = "Thanksgiving discount (10%)"
+
 //: ## Assignmet 1: Function
 func totalAfterDiscount(totalAmount: Double, discountPercentage: Double) -> Double {
     let discountedAmount = totalAmount * discountPercentage
     return totalAmount - discountedAmount
 }
 
-var totalAmountAfterDiscount = totalAfterDiscount(totalAmount: 1.99, discountPercentage: 0.1)
-print("\nAssignment 1:\n \(totalAmountAfterDiscount) = 1.99 - (1.99 * 0.1)")
+var totalAmountAfterDiscount = totalAfterDiscount(totalAmount: totalAmount, discountPercentage: discountPercentage)
+print("\nAssignment 1:\n \(totalAmountAfterDiscount) = \(totalAmount) - (\(totalAmount) * \(discountPercentage))")
 
 //: ## Assignmet 2: Function
 func totalAfterDiscount(totalAmount: Double) -> Double {
-    let discountPercentage = 0.05
     let discountedAmount = totalAmount * discountPercentage
     return totalAmount - discountedAmount
 }
 
-totalAmountAfterDiscount = totalAfterDiscount(totalAmount: 1.99)
-print("\nAssignment 2:\n \(totalAmountAfterDiscount) = 1.99 - (1.99 * 0.05)   5% Default Discount")
+totalAmountAfterDiscount = totalAfterDiscount(totalAmount: totalAmount)
+print("\nAssignment 2:\n \(totalAmountAfterDiscount) = \(totalAmount) - (\(totalAmount) * \(discountPercentage)   Default Discount")
 
 //: ## Assignmet 3: typealias
 typealias ApplyDiscount = (Double, String) -> Double
@@ -38,8 +42,6 @@ func testApplyDiscount(totalAmount: Double, discountType: String) -> Double {
     // pretend for now it will get double value from discountType string
     return totalAfterDiscount(totalAmount: totalAmount)
 }
-var totalAmount = 1.99
-var discountType = "Default discount (5%)"
 print("\nAssignment 3:")
 printDiscount(applyDiscount: testApplyDiscount, for: totalAmount, with: discountType)
 
@@ -54,7 +56,6 @@ print("\nAssignment 4:")
 printDiscount(applyDiscount: testApplyDiscount, for: totalAmount, with: discountType)
 
 //: ## Assignmet 5: Map
-var itemPrices = [1.99, 2.99, 3.25, 0.99, 1.75, 6.99]
 print("\nAssignment 5:")
 itemPrices = itemPrices.map {
     let newPrices = $0 * 0.5
@@ -79,25 +80,26 @@ enum DiscountTypes: String {
     case thanksgiving = "Thanksgiving discount (10%)"
     case christmas = "Christmas discount (15%)"
     case newYear = "New year discount (20%)"
-}
-func printDiscount(discountType: DiscountTypes) {
-    var discountPercentage: Double
-    switch discountType {
-    case .`default`:
-        discountPercentage = 0.05
-    case .thanksgiving:
-        discountPercentage = 0.05
-    case .christmas:
-        discountPercentage = 0.05
-    case .newYear:
-        discountPercentage = 0.05
+    
+    func printDiscount(discountType: DiscountTypes) {
+        var discountPercentage: Double
+        switch discountType {
+        case .`default`:
+            discountPercentage = 0.05
+        case .thanksgiving:
+            discountPercentage = 0.10
+        case .christmas:
+            discountPercentage = 0.15
+        case .newYear:
+            discountPercentage = 0.20
+        }
+        print("the discount value is \(discountPercentage) for \(discountType.rawValue)")
     }
-    print("the discount value is \(discountPercentage) for \(discountType.rawValue)")
 }
 
 print("\nAssignment 7:")
-let discount = DiscountTypes(rawValue: "Thanksgiving discount (10%)") ?? .default
-printDiscount(discountType: discount)
+let discount = DiscountTypes(rawValue: discountType) ?? .default
+discount.printDiscount(discountType: discount)
 
 //: ## Assignmet 8: Computed property
 struct MenuOrder {
