@@ -38,6 +38,15 @@ func testApplyDiscount(totalAmount: Double, discountType: String) -> Double {
     // pretend for now it will get double value from discountType string
     return totalAfterDiscount(totalAmount: totalAmount)
 }
-let totalAmount = 1.99
-let discountType = "Default discount (5%)"
+var totalAmount = 1.99
+var discountType = "Default discount (5%)"
+printDiscount(applyDiscount: testApplyDiscount, for: totalAmount, with: discountType)
+
+//: ## Assignmet 4: Closure
+let applyDiscount = { (totalAmount: Double, discountType: String) -> Double in
+    // pretend for now it will get double value from discountType string
+    return totalAfterDiscount(totalAmount: totalAmount)
+}
+
+totalAmount = 2.99
 printDiscount(applyDiscount: testApplyDiscount, for: totalAmount, with: discountType)
