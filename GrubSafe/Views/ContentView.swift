@@ -30,7 +30,12 @@ struct ContentView: View {
                     OnboardingView()
                 }
             }
-            MenuView()
+            HStack(alignment: .top) {
+                MenuView(menu: menu)
+                Spacer()
+                OrderView()
+            }
+            .padding(.horizontal, Constants.Menu.horizontalPadding)
             Spacer()
         }
     }
@@ -39,6 +44,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.landscapeLeft)
         ContentView()
             .preferredColorScheme(.dark)
         ContentView()

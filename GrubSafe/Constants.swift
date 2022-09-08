@@ -24,6 +24,7 @@ enum Constants {
         public static let descriptionHorizontalPadding = CGFloat(5)
     }
     enum Menu {
-        public static let rowsTopPadding = CGFloat(1)
+        public static let rowsTopPadding = CGFloat(0.1)
+        public static let horizontalPadding = CGFloat(5)
     }
 }

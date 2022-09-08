@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
-    let menu = Menu()
+    var menu: Menu
     var body: some View {
         VStack(alignment: .leading) {
             Text("GrubSafe Menu")
@@ -38,12 +38,13 @@ struct MenuItemRow: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
-        MenuView()
+        let menu = Menu()
+        MenuView(menu: menu)
+        MenuView(menu: menu)
             .preferredColorScheme(.dark)
-        MenuView()
+        MenuView(menu: menu)
             .previewLayout(.fixed(width: 568, height: 320))
-        MenuView()
+        MenuView(menu: menu)
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))
     }
