@@ -12,4 +12,10 @@ struct MenuItem {
     let description: String?
     let cost: Double
     let allergens: String?
+    
+    var costAsString: String {
+        get {
+            String(format: "$%.02f", cost)
+        }
+    }
 }
