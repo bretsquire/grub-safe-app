@@ -14,10 +14,12 @@ struct MenuView: View {
             Text("GrubSafe Menu")
                 .font(.largeTitle)
                 .padding(.top, Constants.Menu.rowsTopPadding)
-            Divider()
-            ForEach(menu.menuItems, id: \.id) { item in
-                MenuItemRow(item: item)
+            ScrollView {
                 Divider()
+                ForEach(menu.menuItems, id: \.id) { item in
+                    MenuItemRow(item: item)
+                    Divider()
+                }
             }
             Spacer()
         }
