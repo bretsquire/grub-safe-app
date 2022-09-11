@@ -10,12 +10,14 @@ import SwiftUI
 struct MenuView: View {
     var menu: Menu
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Text("GrubSafe Menu")
                 .font(.largeTitle)
                 .padding(.top, Constants.Menu.rowsTopPadding)
+            Divider()
             ForEach(menu.menuItems, id: \.id) { item in
-                MenuItemRow(text: item.name)
+                MenuItemRow(item: item)
+                Divider()
             }
             Spacer()
         }
@@ -23,16 +25,14 @@ struct MenuView: View {
 }
 
 struct MenuItemRow: View {
-    let text: String
+    let item: MenuItem
     var body: some View {
         HStack {
-            Image(systemName: Constants.SFSymbols.circle)
+            Text("\(item.name) \(item.costAsString)")
                 .font(.body)
-                .padding(.trailing)
-            Text(text)
-                .font(.body)
+            Spacer()
         }
-        .padding(.top, Constants.Menu.rowsTopPadding)
+        .padding()
     }
 }
 

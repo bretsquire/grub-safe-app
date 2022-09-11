@@ -32,8 +32,6 @@ struct ContentView: View {
             }
             HStack(alignment: .top) {
                 MenuView(menu: menu)
-                Spacer()
-                OrderView()
             }
             .padding(.horizontal, Constants.Menu.horizontalPadding)
             Spacer()
