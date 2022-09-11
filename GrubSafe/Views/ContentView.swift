@@ -13,27 +13,8 @@ struct ContentView: View {
     let menu = Menu()
     var body: some View {
         VStack {
-            HStack {
-                Text("Welcome, \(userName).")
-                    .font(.title)
-                    .bold()
-                    .padding()
-                Spacer()
-                Button {
-                    onboardingIsVisable.toggle()
-                } label: {
-                    Image(systemName: Constants.SFSymbols.questionmark)
-                        .font(.title)
-                }
-                .padding()
-                .sheet(isPresented: $onboardingIsVisable) {
-                    OnboardingView()
-                }
-            }
-            HStack(alignment: .top) {
-                MenuView(menu: menu)
-            }
-            .padding(.horizontal, Constants.Menu.horizontalPadding)
+            HeaderView(userName: userName, onboardingIsVisable: $onboardingIsVisable)
+            MenuView(menu: menu)
             Spacer()
         }
     }
@@ -50,5 +31,29 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))
+    }
+}
+
+struct HeaderView: View {
+    var userName: String
+    @Binding var onboardingIsVisable: Bool
+    var body: some View {
+        HStack {
+            Text("Welcome, \(userName).")
+                .font(.title)
+                .bold()
+                .padding()
+            Spacer()
+            Button {
+                onboardingIsVisable.toggle()
+            } label: {
+                Image(systemName: Constants.SFSymbols.questionmark)
+                    .font(.title)
+            }
+            .padding()
+            .sheet(isPresented: $onboardingIsVisable) {
+                OnboardingView()
+            }
+        }
     }
 }
