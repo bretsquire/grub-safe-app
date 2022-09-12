@@ -12,22 +12,26 @@ struct MenuView: View {
     var body: some View {
         NavigationView {
             VStack {
-//                Text("GrubSafe Menu")
-//                    .font(.largeTitle)
-//                    .padding(.top, Constants.Menu.rowsTopPadding)
-                ScrollView {
-                    Divider()
-                    ForEach(menu.menuItems, id: \.id) { item in
-                        NavigationLink(destination: MenuItemView(item: item)) {
-                            MenuItemRow(item: item)
-                        }
-                        Divider()
-                    }
-                }
+                ScrollableMenuView(menu: menu)
                 Spacer()
             }
             .navigationBarTitle("GrubSafe Menu")
             .navigationBarTitleDisplayMode(.large)
+        }
+    }
+}
+
+struct ScrollableMenuView: View {
+    var menu: Menu
+    var body: some View {
+        ScrollView {
+            Divider()
+            ForEach(menu.menuItems, id: \.id) { item in
+                NavigationLink(destination: MenuItemView(item: item)) {
+                    MenuItemRow(item: item)
+                }
+                Divider()
+            }
         }
     }
 }
@@ -59,3 +63,5 @@ struct MenuView_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 568, height: 320))
     }
 }
+
+
