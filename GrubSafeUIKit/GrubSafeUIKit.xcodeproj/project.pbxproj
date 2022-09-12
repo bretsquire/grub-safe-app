@@ -62,7 +62,7 @@
 		6F2D7CAD28CE3F7B008FBA9F /* GrubSafeUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				6F2D7CCC28CF7738008FBA9F /* Views */,
+				6F2D7CCC28CF7738008FBA9F /* SwiftUI Views */,
 				6F2D7CC228CE413E008FBA9F /* ViewControllers */,
 				6F2D7CC328CE414B008FBA9F /* Models */,
 				6F2D7CAE28CE3F7B008FBA9F /* AppDelegate.swift */,
@@ -92,12 +92,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		6F2D7CCC28CF7738008FBA9F /* Views */ = {
+		6F2D7CCC28CF7738008FBA9F /* SwiftUI Views */ = {
 			isa = PBXGroup;
 			children = (
 				6F2D7CCD28CF775B008FBA9F /* MenuItemView.swift */,
 			);
-			path = Views;
+			path = "SwiftUI Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

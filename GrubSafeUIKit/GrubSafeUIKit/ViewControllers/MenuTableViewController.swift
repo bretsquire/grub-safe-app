@@ -12,13 +12,6 @@ class MenuTableViewController: UITableViewController {
     
     let menu = Menu()
     
-    @IBSegueAction func showMenuItemView(_ coder: NSCoder) -> UIViewController? {
-        guard let row = tableView.indexPathForSelectedRow?.row else { return nil }
-        let item = menu.menuItems[row]
-        let menuItemView = MenuItemView(item: item)
-        return UIHostingController(coder: coder, rootView: menuItemView)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -41,4 +34,16 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
 
+}
+
+extension MenuTableViewController {
+    
+    // MARK: - SwiftUI Detail View for selected menu item in UIKit TableView
+    @IBSegueAction func showMenuItemView(_ coder: NSCoder) -> UIViewController? {
+        guard let row = tableView.indexPathForSelectedRow?.row else { return nil }
+        let item = menu.menuItems[row]
+        let menuItemView = MenuItemView(item: item)
+        return UIHostingController(coder: coder, rootView: menuItemView)
+    }
+    
 }
