@@ -18,6 +18,7 @@ struct MenuView: View {
             .navigationBarTitle("GrubSafe Menu")
             .navigationBarTitleDisplayMode(.large)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
