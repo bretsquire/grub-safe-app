@@ -5,12 +5,20 @@
 //  Created by Bret Squire on 9/11/22.
 //
 
+import SwiftUI
 import UIKit
 
 class MenuTableViewController: UITableViewController {
     
     let menu = Menu()
-
+    
+    @IBSegueAction func showMenuItemView(_ coder: NSCoder) -> UIViewController? {
+        guard let row = tableView.indexPathForSelectedRow?.row else { return nil }
+        let item = menu.menuItems[row]
+        let menuItemView = MenuItemView(item: item)
+        return UIHostingController(coder: coder, rootView: menuItemView)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

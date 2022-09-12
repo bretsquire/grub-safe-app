@@ -24,7 +24,6 @@ struct MenuItemView: View {
                 .font(.body)
                 .padding()
             Spacer()
-                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

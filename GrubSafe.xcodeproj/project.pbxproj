@@ -57,8 +57,8 @@
 				6FC5C34E28B32EA50070DEEE /* ContentView.swift */,
 				6FC5C35A28B3406A0070DEEE /* OnboardingView.swift */,
 				6FBD673D28BCC3540003B8EA /* MenuView.swift */,
-				6FE5E38428C6336300283B5F /* OrderView.swift */,
 				6F2D7CCA28CF692E008FBA9F /* MenuItemView.swift */,
+				6FE5E38428C6336300283B5F /* OrderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -66,10 +66,10 @@
 		6FBD673828BCBA260003B8EA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6FE5E38028C632B400283B5F /* Discount.swift */,
 				6FBD673928BCBA870003B8EA /* Menu.swift */,
 				6FBD673B28BCBB010003B8EA /* MenuItem.swift */,
 				6FE5E38228C632E800283B5F /* Order.swift */,
+				6FE5E38028C632B400283B5F /* Discount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
