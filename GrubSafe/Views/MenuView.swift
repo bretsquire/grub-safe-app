@@ -10,18 +10,24 @@ import SwiftUI
 struct MenuView: View {
     var menu: Menu
     var body: some View {
-        VStack {
-            Text("GrubSafe Menu")
-                .font(.largeTitle)
-                .padding(.top, Constants.Menu.rowsTopPadding)
-            ScrollView {
-                Divider()
-                ForEach(menu.menuItems, id: \.id) { item in
-                    MenuItemRow(item: item)
+        NavigationView {
+            VStack {
+//                Text("GrubSafe Menu")
+//                    .font(.largeTitle)
+//                    .padding(.top, Constants.Menu.rowsTopPadding)
+                ScrollView {
                     Divider()
+                    ForEach(menu.menuItems, id: \.id) { item in
+                        NavigationLink(destination: MenuItemView(item: item)) {
+                            MenuItemRow(item: item)
+                        }
+                        Divider()
+                    }
                 }
+                Spacer()
             }
-            Spacer()
+            .navigationBarTitle("GrubSafe Menu")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
@@ -30,9 +36,11 @@ struct MenuItemRow: View {
     let item: MenuItem
     var body: some View {
         HStack {
-            Text("\(item.name) \(item.costAsString)")
+            Text("\(item.name)")
                 .font(.body)
             Spacer()
+            Text("\(item.costAsString)")
+                .font(.body)
         }
         .padding()
     }
