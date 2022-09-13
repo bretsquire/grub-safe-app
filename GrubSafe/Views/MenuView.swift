@@ -10,29 +10,44 @@ import SwiftUI
 struct MenuView: View {
     var menu: Menu
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("GrubSafe Menu")
-                .font(.largeTitle)
-                .padding(.top, Constants.Menu.rowsTopPadding)
-            ForEach(menu.menuItems, id: \.id) { item in
-                MenuItemRow(text: item.name)
+        NavigationView {
+            VStack {
+                ScrollableMenuView(menu: menu)
+                Spacer()
             }
-            Spacer()
+            .navigationBarTitle("GrubSafe Menu")
+            .navigationBarTitleDisplayMode(.large)
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+    }
+}
+
+struct ScrollableMenuView: View {
+    var menu: Menu
+    var body: some View {
+        ScrollView {
+            Divider()
+            ForEach(menu.menuItems, id: \.id) { item in
+                NavigationLink(destination: MenuItemView(item: item)) {
+                    MenuItemRow(item: item)
+                }
+                Divider()
+            }
         }
     }
 }
 
 struct MenuItemRow: View {
-    let text: String
+    let item: MenuItem
     var body: some View {
         HStack {
-            Image(systemName: Constants.SFSymbols.circle)
+            Text("\(item.name)")
                 .font(.body)
-                .padding(.trailing)
-            Text(text)
+            Spacer()
+            Text("\(item.costAsString)")
                 .font(.body)
         }
-        .padding(.top, Constants.Menu.rowsTopPadding)
+        .padding()
     }
 }
 
@@ -49,3 +64,5 @@ struct MenuView_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 568, height: 320))
     }
 }
+
+
