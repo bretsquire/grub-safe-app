@@ -27,7 +27,7 @@ class Menu {
                                   description: "All natural thick cut french fries seasoned with salt.",
                                   cost: 1.90,
                                   allergens: nil,
-                                  imageName: "fenchFries")
+                                  imageName: "frenchFries")
         let iceCream = MenuItem(id: "unique-GUID-4",
                                   name: "🍦Soft Serve Ice Cream",
                                   description: "The creamiest vanilla soft serve ice cream on a cone.",
