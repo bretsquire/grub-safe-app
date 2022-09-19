@@ -15,3 +15,10 @@ The following are the next set of todo items to complete for the app.
 - [ ] display review for menu item
 - [ ] add button to add photo to menu item
 - [ ] display added photo for menu item
+
+Food images sourced from the following sites:
+- pork hotdog https://www.bestrecipes.com.au/recipes/glorified-pork-hot-dogs-recipe/43kdcmth
+- beef hotdog https://www.kansascitysteaks.com/product/all-beef-hot-dogs
+- french fries https://commons.wikimedia.org/wiki/File:French_Fries.JPG
+- softserve ice cream https://havediaperswilltravel.com/2020/02/05/the-best-ice-cream-in-orlando/
+- large drink https://www.mediapost.com/publications/article/228864/appeals-court-kills-new-york-citys-big-soda-ban.html?edition=
