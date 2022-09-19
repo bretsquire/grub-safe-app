@@ -12,6 +12,11 @@ struct MenuItemView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
+                Image(item.imageName ?? "beefHotdog")
+                    .resizable()
+                .scaledToFill()
+            }
+            HStack {
                 Text("\(item.name)")
                     .font(.headline)
                     .padding()
@@ -23,8 +28,8 @@ struct MenuItemView: View {
             Text("\(item.description ?? "")")
                 .font(.body)
                 .padding()
-            Spacer()
         }
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 
