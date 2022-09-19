@@ -15,8 +15,8 @@ struct MenuView: View {
                 ScrollableMenuView(menu: menu)
                 Spacer()
             }
-            .navigationBarTitle("GrubSafe Menu")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitle("Menu")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
