@@ -36,7 +36,7 @@ struct ContentView: View {
                             Text("Order")
                         }
                         .tag("Order")
-                        .badge(3)
+                        .badge(order.selection.count)
                 }
             }
             Spacer()
