@@ -13,6 +13,7 @@ enum Constants {
         public static let checkmark = "checkmark"
         public static let circle = "circle"
         public static let questionmark = "person.crop.circle.badge.questionmark.fill"
+        public static let addToOrder = "bag.fill.badge.plus"
     }
     
     enum Onboarding {
