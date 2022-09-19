@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MenuItemView: View {
     var item: MenuItem
+    @Binding var order: Order
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -24,7 +25,7 @@ struct MenuItemView: View {
                         .font(.body)
                         .padding()
                     Button {
-                        
+                        order.selection.append(item)
                     } label: {
                         Image(systemName: Constants.SFSymbols.addToOrder)
                             .font(.title)
@@ -41,10 +42,11 @@ struct MenuItemView: View {
 }
 
 struct MenuItemView_Previews: PreviewProvider {
+    @State static var dummyorder = Order.initDummy()
     static var previews: some View {
         let menu = Menu()
-        MenuItemView(item: menu.menuItems[3])
-        MenuItemView(item: menu.menuItems[0])
+        MenuItemView(item: menu.menuItems[3], order: $dummyorder)
+        MenuItemView(item: menu.menuItems[0], order: $dummyorder)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

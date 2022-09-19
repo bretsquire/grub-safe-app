@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var onboardingIsVisable = false
     @State private var selectedTab = "Menu"
+    @State private var order = Order()
     let userName = "[userName]"
     let menu = Menu()
     var body: some View {
@@ -23,13 +24,13 @@ struct ContentView: View {
                             Text("Welcome")
                         }
                         .tag("Welcome")
-                    MenuView(menu: menu)
+                    MenuView(menu: menu, order: $order)
                         .tabItem {
                             Image(systemName: "menucard")
                             Text("Menu")
                         }
                         .tag("Menu")
-                    Text("Your Order")
+                    OrderView(order: $order)
                         .tabItem {
                             Image(systemName: "bag")
                             Text("Order")

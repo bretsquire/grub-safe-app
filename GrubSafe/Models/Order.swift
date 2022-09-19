@@ -27,7 +27,9 @@ struct Order {
             String("The discounted order total is \(discountedTotal) with a \"\(discount.description)\" applied to a order total of \(total)")
         }
     }
+    
+    static func initDummy() -> Order {
+        let menu = Menu()
+        return Order(selection: menu.menuItems)
+    }
 }
-
-let menu = Menu()
-var order = Order(selection: menu.menuItems)
