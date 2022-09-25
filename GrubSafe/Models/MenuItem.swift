@@ -12,6 +12,7 @@ struct MenuItem: Identifiable {
     let description: String?
     let cost: Double
     let allergens: String?
+    let imageName: String?
     
     var costAsString: String {
         get {

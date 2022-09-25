@@ -9,12 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var onboardingIsVisable = false
+    @State private var selectedTab = "Menu"
+    @State private var order = Order()
     let userName = "[userName]"
     let menu = Menu()
     var body: some View {
         VStack {
-            HeaderView(userName: userName, onboardingIsVisable: $onboardingIsVisable)
-            MenuView(menu: menu)
+            HeaderView()
+            HStack {
+                TabView(selection: $selectedTab) {
+                    WelcomeView(userName: userName, onboardingIsVisable: $onboardingIsVisable)
+                        .tabItem {
+                            Image(systemName: "figure.wave")
+                            Text("Welcome")
+                        }
+                        .tag("Welcome")
+                    MenuView(menu: menu, order: $order)
+                        .tabItem {
+                            Image(systemName: "menucard")
+                            Text("Menu")
+                        }
+                        .tag("Menu")
+                    OrderView(order: $order)
+                        .tabItem {
+                            Image(systemName: "bag")
+                            Text("Order")
+                        }
+                        .tag("Order")
+                        .badge(order.selection.count)
+                }
+            }
             Spacer()
         }
     }
@@ -36,6 +60,18 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct HeaderView: View {
+    var body: some View {
+        HStack {
+            Text("GrubSafe")
+                .font(.title)
+                .bold()
+                .padding()
+            Spacer()
+        }
+    }
+}
+
+struct WelcomeView: View {
     var userName: String
     @Binding var onboardingIsVisable: Bool
     var body: some View {

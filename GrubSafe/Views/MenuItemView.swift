@@ -9,17 +9,30 @@ import SwiftUI
 
 struct MenuItemView: View {
     var item: MenuItem
+    @Binding var order: Order
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("\(item.name)")
-                    .font(.headline)
-                    .padding()
-                Spacer()
-                Text("\(item.costAsString)")
-                    .font(.body)
-                    .padding()
+        VStack {
+            HStack(alignment: .center) {
+                Image(item.imageName ?? "beefHotdog")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 160)
+                VStack {
+                    Text("\(item.name)")
+                        .font(.headline)
+                        .padding()
+                    Text("\(item.costAsString)")
+                        .font(.body)
+                        .padding()
+                    Button {
+                        order.selection.append(item)
+                    } label: {
+                        Image(systemName: Constants.SFSymbols.addToOrder)
+                            .font(.title)
+                    }
+                }
             }
+            .padding()
             Text("\(item.description ?? "")")
                 .font(.body)
                 .padding()
@@ -29,8 +42,11 @@ struct MenuItemView: View {
 }
 
 struct MenuItemView_Previews: PreviewProvider {
+    @State static var dummyorder = Order.initDummy()
     static var previews: some View {
         let menu = Menu()
-        MenuItemView(item: menu.menuItems[0])
+        MenuItemView(item: menu.menuItems[3], order: $dummyorder)
+        MenuItemView(item: menu.menuItems[0], order: $dummyorder)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
