@@ -20,12 +20,13 @@ struct FavoritesView: View {
     }
 }
 
+// MARK: - Interator Pattern: Favorites is iterable
 struct ScrollableFavoritesView: View {
     @Binding var favorites: Favorites
     var body: some View {
         ScrollView {
             Divider()
-            ForEach(Array(favorites.items), id: \.id) { item in
+            ForEach(Array(favorites), id: \.id) { item in
                 FavoritesItemRow(item: item)
                 Divider()
             }

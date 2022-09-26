@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Favorites: Codable {
-    var items = Set<MenuItem>()
+    private var items = Set<MenuItem>()
     
     func isFavorite(_ item: MenuItem) -> Bool {
         items.contains(item)
@@ -26,5 +26,12 @@ public struct Favorites: Codable {
         let menu = Menu()
         let setOfItems = Set(menu.menuItems)
         return Favorites(items: setOfItems)
+    }
+}
+
+// MARK: - Interator Pattern: Conforms to interator
+extension Favorites: Sequence {
+    public func makeIterator() -> IndexingIterator<[MenuItem]> {
+        return Array(items).makeIterator()
     }
 }
