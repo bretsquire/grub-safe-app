@@ -2,6 +2,10 @@
 
 This is a minimal contact restaurant app allowing users to view and order meals as well as add reviews and photos. 
 
+Class Diagram:
+![Alt text](./GrubSafe_UML_class_diagram.svg)
+<img src="./GrubSafe_UML_class_diagram.svg">
+
 The following are the next set of todo items to complete for the app.
 - [ ] add a list of menu items
 - [ ] add a button to add item to order
