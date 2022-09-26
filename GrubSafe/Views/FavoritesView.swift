@@ -9,25 +9,37 @@ import SwiftUI
 
 struct FavoritesView: View {
     @Binding var favorites: Favorites
+    @Binding var order: Order
     var body: some View {
-        VStack {
-            Text("Your Favorites")
-                .font(.largeTitle)
-                .padding()
-            ScrollableFavoritesView(favorites: $favorites)
-            Spacer()
+        NavigationView {
+            VStack {
+                Text("Your Favorites")
+                    .font(.largeTitle)
+                    .padding()
+                ScrollableFavoritesView(favorites: $favorites,
+                                        order: $order)
+                Spacer()
+            }
+            .navigationBarTitle("Menu")
+            .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 // MARK: - Interator Pattern: Favorites is iterable
 struct ScrollableFavoritesView: View {
     @Binding var favorites: Favorites
+    @Binding var order: Order
     var body: some View {
         ScrollView {
             Divider()
             ForEach(Array(favorites), id: \.id) { item in
-                FavoritesItemRow(item: item)
+                NavigationLink(destination: MenuItemView(item: item,
+                                                         order: $order,
+                                                         favorites: $favorites)) {
+                    FavoritesItemRow(item: item)
+                }
                 Divider()
             }
         }
@@ -50,7 +62,8 @@ struct FavoritesItemRow: View {
 
 struct FavoritesView_Previews: PreviewProvider {
     @State static var dummyFaves = Favorites.initDummy()
+    @State static var dummyorder = Order.initDummy()
     static var previews: some View {
-        FavoritesView(favorites: $dummyFaves)
+        FavoritesView(favorites: $dummyFaves, order: $dummyorder)
     }
 }

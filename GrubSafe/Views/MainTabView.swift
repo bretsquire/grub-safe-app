@@ -37,7 +37,7 @@ struct MainTabView: View {
                             Text("Menu")
                         }
                         .tag("Menu")
-                    FavoritesView(favorites: $favorites)
+                    FavoritesView(favorites: $favorites, order: $order)
                         .tabItem {
                             Image(systemName: "heart")
                             Text("Favorites")
