@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Favorites {
+public struct Favorites: Codable {
     var items = Set<MenuItem>()
     
     func isFavorite(_ item: MenuItem) -> Bool {

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MenuItemView: View {
+    // MARK: - Singleton Pattern: initialize/access
+    public let appSettings = AppSettings.shared
+    
     var item: MenuItem
     @Binding var order: Order
     @Binding var favorites: Favorites
@@ -33,6 +36,8 @@ struct MenuItemView: View {
                     }
                     Button {
                         favorites.toggle(item)
+                        // MARK: - Singleton Pattern: Used for loading favorites from memento pattern
+                        appSettings.favorites = favorites
                     } label: {
                         switch favorites.isFavorite(item) {
                             case true:

@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+// MARK: - Singleton Pattern: initialize/access
+public let appSettings = AppSettings.shared
+
 struct ContentView: View {
     @State private var onboardingIsVisable = false
     @State private var selectedTab = "Menu"
     @State private var order = Order()
-    @State private var favorites = Favorites()
+    
+    // MARK: - Singleton Pattern: Used for loading favorites from memento pattern
+    @State private var favorites = appSettings.favorites
+    
     let userName = "[userName]"
     let menu = Menu()
     var body: some View {

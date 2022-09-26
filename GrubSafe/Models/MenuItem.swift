@@ -5,9 +5,9 @@
 //  Created by Bret Squire on 8/29/22.
 //
 
-struct MenuItem: Identifiable, Hashable {
+public struct MenuItem: Identifiable, Hashable, Codable {
     // MARK: - Properties
-    let id: String
+    public let id: String
     let name: String
     let description: String?
     let cost: Double

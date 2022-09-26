@@ -10,6 +10,8 @@
 		6F2D7CCB28CF692E008FBA9F /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D7CCA28CF692E008FBA9F /* MenuItemView.swift */; };
 		6F5F26E528E19AF700C5E6E4 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26E428E19AF700C5E6E4 /* Favorites.swift */; };
 		6F5F26E728E19BB200C5E6E4 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26E628E19BB200C5E6E4 /* FavoritesView.swift */; };
+		6F5F26EA28E1B1B800C5E6E4 /* FavoritesCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26E928E1B1B800C5E6E4 /* FavoritesCaretaker.swift */; };
+		6F5F26EC28E1B4A700C5E6E4 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */; };
 		6FBD673A28BCBA870003B8EA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD673928BCBA870003B8EA /* Menu.swift */; };
 		6FBD673C28BCBB010003B8EA /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD673B28BCBB010003B8EA /* MenuItem.swift */; };
 		6FBD673E28BCC3550003B8EA /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD673D28BCC3540003B8EA /* MenuView.swift */; };
@@ -28,6 +30,8 @@
 		6F2D7CCA28CF692E008FBA9F /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		6F5F26E428E19AF700C5E6E4 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		6F5F26E628E19BB200C5E6E4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		6F5F26E928E1B1B800C5E6E4 /* FavoritesCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCaretaker.swift; sourceTree = "<group>"; };
+		6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		6FBD673928BCBA870003B8EA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		6FBD673B28BCBB010003B8EA /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		6FBD673D28BCC3540003B8EA /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F5F26E828E1B17000C5E6E4 /* CareTakers */ = {
+			isa = PBXGroup;
+			children = (
+				6F5F26E928E1B1B800C5E6E4 /* FavoritesCaretaker.swift */,
+			);
+			path = CareTakers;
+			sourceTree = "<group>";
+		};
 		6FBD673728BCB9BC0003B8EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +83,7 @@
 		6FBD673828BCBA260003B8EA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */,
 				6FBD673928BCBA870003B8EA /* Menu.swift */,
 				6FBD673B28BCBB010003B8EA /* MenuItem.swift */,
 				6F5F26E428E19AF700C5E6E4 /* Favorites.swift */,
@@ -99,6 +112,7 @@
 		6FC5C34B28B32EA50070DEEE /* GrubSafe */ = {
 			isa = PBXGroup;
 			children = (
+				6F5F26E828E1B17000C5E6E4 /* CareTakers */,
 				6FC5C34C28B32EA50070DEEE /* GrubSafeApp.swift */,
 				6FC5C36028B360C90070DEEE /* Constants.swift */,
 				6FC5C35028B32EA60070DEEE /* Assets.xcassets */,
@@ -190,11 +204,13 @@
 			files = (
 				6FBD673E28BCC3550003B8EA /* MenuView.swift in Sources */,
 				6FC5C35B28B3406A0070DEEE /* OnboardingView.swift in Sources */,
+				6F5F26EA28E1B1B800C5E6E4 /* FavoritesCaretaker.swift in Sources */,
 				6F5F26E728E19BB200C5E6E4 /* FavoritesView.swift in Sources */,
 				6F2D7CCB28CF692E008FBA9F /* MenuItemView.swift in Sources */,
 				6FE5E38128C632B400283B5F /* Discount.swift in Sources */,
 				6FE5E38328C632E800283B5F /* Order.swift in Sources */,
 				6FC5C34F28B32EA50070DEEE /* ContentView.swift in Sources */,
+				6F5F26EC28E1B4A700C5E6E4 /* AppSettings.swift in Sources */,
 				6FC5C34D28B32EA50070DEEE /* GrubSafeApp.swift in Sources */,
 				6FBD673C28BCBB010003B8EA /* MenuItem.swift in Sources */,
 				6FC5C36128B360C90070DEEE /* Constants.swift in Sources */,
