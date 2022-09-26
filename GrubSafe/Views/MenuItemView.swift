@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuItemView: View {
     var item: MenuItem
     @Binding var order: Order
-    @State var isFavorite = false
+    @Binding var favorites: Favorites
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -32,9 +32,9 @@ struct MenuItemView: View {
                             .font(.title)
                     }
                     Button {
-                        isFavorite.toggle()
+                        favorites.toggle(item)
                     } label: {
-                        switch isFavorite {
+                        switch favorites.isFavorite(item) {
                             case true:
                                 Image(systemName: "heart.fill").font(.title)
                             default:
@@ -54,10 +54,15 @@ struct MenuItemView: View {
 
 struct MenuItemView_Previews: PreviewProvider {
     @State static var dummyorder = Order.initDummy()
+    @State static var dummyFaves = Favorites()
     static var previews: some View {
         let menu = Menu()
-        MenuItemView(item: menu.menuItems[3], order: $dummyorder)
-        MenuItemView(item: menu.menuItems[0], order: $dummyorder)
+        MenuItemView(item: menu.menuItems[3],
+                     order: $dummyorder,
+                     favorites: $dummyFaves)
+        MenuItemView(item: menu.menuItems[0],
+                     order: $dummyorder,
+                     favorites: $dummyFaves)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

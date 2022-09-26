@@ -25,7 +25,7 @@ struct ScrollableFavoritesView: View {
     var body: some View {
         ScrollView {
             Divider()
-            ForEach(favorites.items, id: \.id) { item in
+            ForEach(Array(favorites.items), id: \.id) { item in
                 FavoritesItemRow(item: item)
                 Divider()
             }

@@ -8,10 +8,23 @@
 import Foundation
 
 struct Favorites {
-    var items: [MenuItem] = []
+    var items = Set<MenuItem>()
+    
+    func isFavorite(_ item: MenuItem) -> Bool {
+        items.contains(item)
+    }
+    
+    mutating func toggle(_ item: MenuItem) {
+        if items.contains(item) {
+            items.remove(item)
+        } else {
+            items.insert(item)
+        }
+    }
     
     static func initDummy() -> Favorites {
         let menu = Menu()
-        return Favorites(items: menu.menuItems)
+        let setOfItems = Set(menu.menuItems)
+        return Favorites(items: setOfItems)
     }
 }

@@ -25,7 +25,7 @@ struct ContentView: View {
                             Text("Welcome")
                         }
                         .tag("Welcome")
-                    MenuView(menu: menu, order: $order)
+                    MenuView(menu: menu, order: $order, favorites: $favorites)
                         .tabItem {
                             Image(systemName: "menucard")
                             Text("Menu")
