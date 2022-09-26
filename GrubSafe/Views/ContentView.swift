@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var onboardingIsVisable = false
     @State private var selectedTab = "Menu"
     @State private var order = Order()
+    @State private var favorites = Favorites()
     let userName = "[userName]"
     let menu = Menu()
     var body: some View {
@@ -30,6 +31,12 @@ struct ContentView: View {
                             Text("Menu")
                         }
                         .tag("Menu")
+                    FavoritesView(favorites: $favorites)
+                        .tabItem {
+                            Image(systemName: "heart")
+                            Text("Favorites")
+                        }
+                        .tag("Favorites")
                     OrderView(order: $order)
                         .tabItem {
                             Image(systemName: "bag")
