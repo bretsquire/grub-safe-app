@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuItemView: View {
     var item: MenuItem
     @Binding var order: Order
+    @State var isFavorite = false
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -29,6 +30,16 @@ struct MenuItemView: View {
                     } label: {
                         Image(systemName: Constants.SFSymbols.addToOrder)
                             .font(.title)
+                    }
+                    Button {
+                        isFavorite.toggle()
+                    } label: {
+                        switch isFavorite {
+                            case true:
+                                Image(systemName: "heart.fill").font(.title)
+                            default:
+                                Image(systemName: "heart").font(.title)
+                        }
                     }
                 }
             }
