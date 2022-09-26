@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - Singleton Pattern: initialize/access
 public let appSettings = AppSettings.shared
 
-struct ContentView: View {
+struct MainTabView: View {
     @State private var onboardingIsVisable = false
     @State private var selectedTab = "Menu"
     @State private var order = Order()
@@ -59,14 +59,14 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-        ContentView()
+        MainTabView()
+        MainTabView()
             .previewInterfaceOrientation(.landscapeLeft)
-        ContentView()
+        MainTabView()
             .preferredColorScheme(.dark)
-        ContentView()
+        MainTabView()
             .previewLayout(.fixed(width: 568, height: 320))
-        ContentView()
+        MainTabView()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))
     }

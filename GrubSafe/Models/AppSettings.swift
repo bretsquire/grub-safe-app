@@ -24,14 +24,14 @@ public class AppSettings {
               return try favoritesCaretaker.load()
           } catch {
               // TODO alert user favorites could not be restored
-              // MARK: - Memento Pattern: store favorites
               return Favorites()
           }
       } set {
           do {
+              // MARK: - Memento Pattern: store favorites
               try favoritesCaretaker.save(newValue)
           } catch {
-              //
+              // TODO alert user favorites could not be saved
           }
       }
     }
