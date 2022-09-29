@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct MenuItemView: View {
+    // MARK: - Singleton Pattern: initialize/access
+    public let appSettings = AppSettings.shared
+    
     var item: MenuItem
     @Binding var order: Order
+    @Binding var favorites: Favorites
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -30,6 +34,18 @@ struct MenuItemView: View {
                         Image(systemName: Constants.SFSymbols.addToOrder)
                             .font(.title)
                     }
+                    Button {
+                        favorites.toggle(item)
+                        // MARK: - Singleton Pattern: Used for loading favorites from memento pattern
+                        appSettings.favorites = favorites
+                    } label: {
+                        switch favorites.isFavorite(item) {
+                            case true:
+                                Image(systemName: "heart.fill").font(.title)
+                            default:
+                                Image(systemName: "heart").font(.title)
+                        }
+                    }
                 }
             }
             .padding()
@@ -43,10 +59,15 @@ struct MenuItemView: View {
 
 struct MenuItemView_Previews: PreviewProvider {
     @State static var dummyorder = Order.initDummy()
+    @State static var dummyFaves = Favorites()
     static var previews: some View {
         let menu = Menu()
-        MenuItemView(item: menu.menuItems[3], order: $dummyorder)
-        MenuItemView(item: menu.menuItems[0], order: $dummyorder)
+        MenuItemView(item: menu.menuItems[3],
+                     order: $dummyorder,
+                     favorites: $dummyFaves)
+        MenuItemView(item: menu.menuItems[0],
+                     order: $dummyorder,
+                     favorites: $dummyFaves)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

@@ -7,10 +7,17 @@
 
 import SwiftUI
 
-struct ContentView: View {
+// MARK: - Singleton Pattern: initialize/access
+public let appSettings = AppSettings.shared
+
+struct MainTabView: View {
     @State private var onboardingIsVisable = false
     @State private var selectedTab = "Menu"
     @State private var order = Order()
+    
+    // MARK: - Singleton Pattern: Used for loading favorites from memento pattern
+    @State private var favorites = appSettings.favorites
+    
     let userName = "[userName]"
     let menu = Menu()
     var body: some View {
@@ -24,12 +31,18 @@ struct ContentView: View {
                             Text("Welcome")
                         }
                         .tag("Welcome")
-                    MenuView(menu: menu, order: $order)
+                    MenuView(menu: menu, order: $order, favorites: $favorites)
                         .tabItem {
                             Image(systemName: "menucard")
                             Text("Menu")
                         }
                         .tag("Menu")
+                    FavoritesView(favorites: $favorites, order: $order)
+                        .tabItem {
+                            Image(systemName: "heart")
+                            Text("Favorites")
+                        }
+                        .tag("Favorites")
                     OrderView(order: $order)
                         .tabItem {
                             Image(systemName: "bag")
@@ -46,14 +59,14 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-        ContentView()
+        MainTabView()
+        MainTabView()
             .previewInterfaceOrientation(.landscapeLeft)
-        ContentView()
+        MainTabView()
             .preferredColorScheme(.dark)
-        ContentView()
+        MainTabView()
             .previewLayout(.fixed(width: 568, height: 320))
-        ContentView()
+        MainTabView()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))
     }
