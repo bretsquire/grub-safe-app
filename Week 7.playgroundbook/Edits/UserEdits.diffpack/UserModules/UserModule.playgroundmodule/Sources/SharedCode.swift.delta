@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+</string>
+			<key>ModifiedRange</key>
+			<string>{76, 18}</string>
+			<key>OriginalContent</key>
+			<string>import UIKit
+
+public let someImageView = UIImageView(frame: CGRect(x: 400, y: 200, width: 200, height: 200))
+
+public let view = UIView()
+
+public func setupView() {
+    view.backgroundColor = .white
+    view.addSubview(someImageView)
+    let label = UILabel()
+    label.frame = CGRect(x: 150, y: 200, width: 200, height: 0)
+    label.text = "Hello Crusty!"
+    label.textColor = .black
+    label.font = UIFont.boldSystemFont(ofSize: 48.0)
+    label.backgroundColor = UIColor.yellow
+    label.textAlignment = .center
+    label.font = label.font.boldItalic
+    
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.distribution = .fillProportionally
+    view.addSubview(stackView)
+    
+    stackView.addArrangedSubview(label)
+    stackView.addArrangedSubview(someImageView)
+    
+    // autolayout constraint
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+}
+
+extension UIFont {
+    var bold: UIFont {
+        return with(.traitBold)
+    }
+    
+    var italic: UIFont {
+        return with(.traitItalic)
+    }
+    
+    var boldItalic: UIFont {
+        return with([.traitBold, .traitItalic])
+    }
+    
+    
+    
+    func with(_ traits: UIFontDescriptor.SymbolicTraits...) -&gt; UIFont {
+        guard let descriptor = self.fontDescriptor.withSymbolicTraits(UIFontDescriptor.SymbolicTraits(traits).union(self.fontDescriptor.symbolicTraits)) else {
+            return self
+        }
+        return UIFont(descriptor: descriptor, size: 0)
+    }
+    
+    func without(_ traits: UIFontDescriptor.SymbolicTraits...) -&gt; UIFont {
+        guard let descriptor = self.fontDescriptor.withSymbolicTraits(self.fontDescriptor.symbolicTraits.subtracting(UIFontDescriptor.SymbolicTraits(traits))) else {
+            return self
+        }
+        return UIFont(descriptor: descriptor, size: 0)
+    }
+}
+</string>
+			<key>OriginalRange</key>
+			<string>{76, 1989}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

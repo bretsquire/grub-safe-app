@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string></string>
+			<key>ModifiedRange</key>
+			<string>{442, 0}</string>
+			<key>OriginalContent</key>
+			<string>
+
+</string>
+			<key>OriginalRange</key>
+			<string>{442, 2}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string> </string>
+			<key>ModifiedRange</key>
+			<string>{652, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{654, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>.</string>
+			<key>ModifiedRange</key>
+			<string>{722, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{723, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>// Schedule a notification block to be submitted to the myGlobalQueue
+// when all tasks associated with the dispatch group have been completed.
+// The notification block will print "Done" to the console output.
+</string>
+			<key>ModifiedRange</key>
+			<string>{865, 211}</string>
+			<key>OriginalContent</key>
+			<string>//Schedule a notification block to be submitted to the myGlobalQueue
+//when all tasks associated with the dispatch group have been completed.
+//The notification block will print "Done" to the console output
+
+
+</string>
+			<key>OriginalRange</key>
+			<string>{865, 209}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string></string>
+			<key>ModifiedRange</key>
+			<string>{121, 0}</string>
+			<key>OriginalContent</key>
+			<string>i</string>
+			<key>OriginalRange</key>
+			<string>{121, 1}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>i</string>
+			<key>ModifiedRange</key>
+			<string>{122, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{123, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>d</string>
+			<key>ModifiedRange</key>
+			<string>{132, 1}</string>
+			<key>OriginalContent</key>
+			<string>D</string>
+			<key>OriginalRange</key>
+			<string>{132, 1}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>a</string>
+			<key>ModifiedRange</key>
+			<string>{148, 1}</string>
+			<key>OriginalContent</key>
+			<string>A</string>
+			<key>OriginalRange</key>
+			<string>{148, 1}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>P</string>
+			<key>ModifiedRange</key>
+			<string>{186, 1}</string>
+			<key>OriginalContent</key>
+			<string>p</string>
+			<key>OriginalRange</key>
+			<string>{186, 1}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>.</string>
+			<key>ModifiedRange</key>
+			<string>{207, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{207, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>.</string>
+			<key>ModifiedRange</key>
+			<string>{331, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{330, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>U</string>
+			<key>ModifiedRange</key>
+			<string>{431, 1}</string>
+			<key>OriginalContent</key>
+			<string>u</string>
+			<key>OriginalRange</key>
+			<string>{429, 1}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>.</string>
+			<key>ModifiedRange</key>
+			<string>{445, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{443, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string></string>
+			<key>ModifiedRange</key>
+			<string>{510, 0}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{507, 1}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string> </string>
+			<key>ModifiedRange</key>
+			<string>{902, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{900, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>d</string>
+			<key>ModifiedRange</key>
+			<string>{942, 1}</string>
+			<key>OriginalContent</key>
+			<string>D</string>
+			<key>OriginalRange</key>
+			<string>{939, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
