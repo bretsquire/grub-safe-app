@@ -27,10 +27,9 @@ workItem = DispatchWorkItem{
 }
 
 // Cancel the work item after 10 seconds using the asyncAfter provided. 
-DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(15)) {
 </string>
 			<key>ModifiedRange</key>
-			<string>{487, 359}</string>
+			<string>{487, 290}</string>
 			<key>OriginalContent</key>
 			<string>
 // create a work item for both task 
@@ -41,10 +40,9 @@ DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(15)) {
 
 
 // cancel the work item after 10 seconds using the asyncAfter provided. 
-DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(10)) {
 </string>
 			<key>OriginalRange</key>
-			<string>{486, 261}</string>
+			<string>{486, 192}</string>
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
@@ -65,9 +63,12 @@ DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(10)) {
 			<key>ModifiedContent</key>
 			<string>// Call perform on the work item. 
 workItem.perform()
+
+//sleep(3)
+//workItem.perform()
 </string>
 			<key>ModifiedRange</key>
-			<string>{984, 54}</string>
+			<string>{984, 87}</string>
 			<key>OriginalContent</key>
 			<string>
 // call perform on the workitem 
@@ -78,10 +79,16 @@ workItem.perform()
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>// Question: why is the Movie task completed yet the dispatch work item has been cancelled?
+			<string>/*
+ 
+ Assignment Question: why is the Movie task completed yet the dispatch work item has been cancelled?
+ 
+ Answer: Cancelation only prevents the Dispatch Work Item from being displatched in the future. Any currently running will be allowed to complete
+ 
+ */
 </string>
 			<key>ModifiedRange</key>
-			<string>{1081, 92}</string>
+			<string>{1114, 260}</string>
 			<key>OriginalContent</key>
 			<string>
 // Qestion: why is the Movie task completed yet the dispatch work item has been cancelled ?
