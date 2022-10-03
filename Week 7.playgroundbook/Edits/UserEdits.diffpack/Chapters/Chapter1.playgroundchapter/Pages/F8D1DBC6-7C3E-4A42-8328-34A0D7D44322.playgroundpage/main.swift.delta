@@ -34,7 +34,8 @@ class ImageLoader: ObservableObject {
             print("Image data Downloaded \(data)")
             
             //........................................//
-            DispatchQueue.main.async {
+            let operations = OperationQueue.main
+            operations.addOperation{
                 print(Thread.isMainThread ? "Execution on Main Thread" : "Execution on other Thread" )
                 self.data = data
             }
@@ -77,7 +78,7 @@ let view = ImageView(withURL: "https://www.swiftbysundell.com/images/discover/sw
 PlaygroundPage.current.setLiveView(view)
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 2087}</string>
+			<string>{0, 2134}</string>
 			<key>OriginalContent</key>
 			<string>
 </string>
