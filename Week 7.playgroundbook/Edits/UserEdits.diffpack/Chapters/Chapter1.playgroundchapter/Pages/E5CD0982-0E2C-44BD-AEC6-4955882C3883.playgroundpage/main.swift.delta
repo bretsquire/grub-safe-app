@@ -46,9 +46,23 @@
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
+			<string>let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1", qos: .background)
+let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2", qos: .userInteractive)
+</string>
+			<key>ModifiedRange</key>
+			<string>{186, 189}</string>
+			<key>OriginalContent</key>
+			<string>let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1")
+let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
+</string>
+			<key>OriginalRange</key>
+			<string>{184, 148}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
 			<string>2</string>
 			<key>ModifiedRange</key>
-			<string>{380, 1}</string>
+			<string>{421, 1}</string>
 			<key>OriginalContent</key>
 			<string>1</string>
 			<key>OriginalRange</key>
@@ -58,7 +72,7 @@
 			<key>ModifiedContent</key>
 			<string>2</string>
 			<key>ModifiedRange</key>
-			<string>{463, 1}</string>
+			<string>{504, 1}</string>
 			<key>OriginalContent</key>
 			<string>1</string>
 			<key>OriginalRange</key>
@@ -66,16 +80,34 @@
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string></string>
+			<string>// experiment
+// before
+//let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1")
+//let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
+// after
+//let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1", qos: .background)
+//let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2", qos: .utility)
+//
+//pineapplePizzaQueue.async {
+//    for i in 1..&lt;200 {
+//        breakfast("🍕🍍")
+//    }
+//}
+//
+//avocadoToastQueue.async {
+//    for i in 1..&lt;200 {
+//        breakfast("🥑🥪")
+//    }
+//}
+</string>
 			<key>ModifiedRange</key>
-			<string>{503, 0}</string>
+			<string>{544, 564}</string>
 			<key>OriginalContent</key>
 			<string>
 
-
 </string>
 			<key>OriginalRange</key>
-			<string>{501, 3}</string>
+			<string>{501, 2}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>
