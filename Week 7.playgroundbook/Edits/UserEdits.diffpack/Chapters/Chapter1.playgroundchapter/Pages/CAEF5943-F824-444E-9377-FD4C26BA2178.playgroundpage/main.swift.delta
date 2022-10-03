@@ -8,16 +8,58 @@
 			<key>ModifiedContent</key>
 			<string>// Currently Tomatoes &amp; Apples are printed synchronously.
 // Modify the DispatchQueues so Tomatoes &amp; Apples are printed asynchronously. 
+
+DispatchQueue(label: "com.raywenderlich.queue1").async {
 </string>
 			<key>ModifiedRange</key>
-			<string>{100, 137}</string>
+			<string>{100, 195}</string>
 			<key>OriginalContent</key>
 			<string>//Currently Tomatoes &amp; Apples are printed synchronously.
 //Modify the DispatchQueue's so Tomatoes &amp; Apples are printed Asynchronous. 
 
+
+DispatchQueue(label: "com.raywenderlich.queue1").sync {
 </string>
 			<key>OriginalRange</key>
-			<string>{100, 135}</string>
+			<string>{100, 192}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>a</string>
+			<key>ModifiedRange</key>
+			<string>{399, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{396, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>
+
+// verifying
+//duration {
+//    DispatchQueue(label: "com.raywenderlich.queue1").async {
+//        for i in 0..&lt;500 {
+//            print("🍅 ", i)
+//        }
+//    }
+//    
+//    DispatchQueue(label: "com.raywenderlich.queue2").async {
+//        for i in 500..&lt;1000 {
+//            print("🍏 ", i)
+//        }
+//    }
+//}
+//sleep(5)
+//PlaygroundPage.current.finishExecution()
+</string>
+			<key>ModifiedRange</key>
+			<string>{465, 380}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{461, 0}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>

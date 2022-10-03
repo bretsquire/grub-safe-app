@@ -76,6 +76,22 @@ extension UIFont {
 			<key>OriginalRange</key>
 			<string>{76, 1989}</string>
 		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>
+public func duration(_ block: () -&gt; ()) -&gt; TimeInterval {
+    let startTime = Date()
+    block()
+    return Date().timeIntervalSince(startTime) * 1000
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{380, 154}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{2351, 0}</string>
+		</dict>
 	</array>
 	<key>FormatVersion</key>
 	<integer>2</integer>
