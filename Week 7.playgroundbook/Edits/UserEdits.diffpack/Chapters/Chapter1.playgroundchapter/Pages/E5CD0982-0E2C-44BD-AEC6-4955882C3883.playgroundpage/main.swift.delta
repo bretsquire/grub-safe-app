@@ -80,7 +80,15 @@ let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>// experiment
+			<string>/*
+ 
+ Assignment Question: Once you have added the Quality of Service try running the playground several times and you will notice that sometimes the CPU doesn’t obey the QoS priority. Why is that? 
+ 
+ Answer: Queues can run on different threads so if there is nothing else (on the OS?) running on a thread shared by a specific QOS priority then the different priority queues will proceed in the same amount of time.
+ 
+ */
+
+// experiment
 // before
 //let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1")
 //let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
@@ -101,7 +109,7 @@ let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
 //}
 </string>
 			<key>ModifiedRange</key>
-			<string>{544, 564}</string>
+			<string>{544, 988}</string>
 			<key>OriginalContent</key>
 			<string>
 
