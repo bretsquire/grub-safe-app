@@ -107,23 +107,74 @@
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string> </string>
+			<string>//dataProcessQueue.addOperation {
+//    performDownload()
+//}
+//
+//dataProcessQueue.addOperation {
+//    performJSONParsing()
+//}
+//
+//dataProcessQueue.addOperation {
+//    performDBUpdate()
+//}
+
+// Using BlockOperations fix the order of data processing. 
+let downloadOperation = BlockOperation()
+downloadOperation.addExecutionBlock { 
+</string>
 			<key>ModifiedRange</key>
-			<string>{902, 1}</string>
+			<string>{726, 336}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>dataProcessQueue.addOperation {
+</string>
 			<key>OriginalRange</key>
-			<string>{900, 0}</string>
+			<string>{724, 32}</string>
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>d</string>
+			<string>downloadOperation.addExecutionBlock {
+</string>
 			<key>ModifiedRange</key>
-			<string>{942, 1}</string>
+			<string>{1086, 38}</string>
 			<key>OriginalContent</key>
-			<string>D</string>
+			<string>
+dataProcessQueue.addOperation {
+</string>
 			<key>OriginalRange</key>
-			<string>{939, 1}</string>
+			<string>{780, 33}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>let dBUpdateOperation = BlockOperation()
+dBUpdateOperation.addExecutionBlock {
+</string>
+			<key>ModifiedRange</key>
+			<string>{1152, 79}</string>
+			<key>OriginalContent</key>
+			<string>dataProcessQueue.addOperation {
+</string>
+			<key>OriginalRange</key>
+			<string>{841, 32}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>dBUpdateOperation.addDependency(downloadOperation)
+
+dataProcessQueue.addOperations([downloadOperation, dBUpdateOperation], waitUntilFinished: true)
+
+
+
+
+PlaygroundPage.current.finishExecution()
+</string>
+			<key>ModifiedRange</key>
+			<string>{1256, 193}</string>
+			<key>OriginalContent</key>
+			<string>//Using BlockOperations fix the order of Data processing. 
+</string>
+			<key>OriginalRange</key>
+			<string>{898, 59}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>
