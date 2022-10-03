@@ -22,6 +22,51 @@
 			<key>OriginalRange</key>
 			<string>{143, 229}</string>
 		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>a</string>
+			<key>ModifiedRange</key>
+			<string>{583, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{576, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>// expiriment
+//duration {
+//    waiterQueue.sync {
+//        print("waiter: Can i get you a drink dear Sir")
+//        print("- before bondQueue")
+//        bondQueue.sync {
+//            sleep(3)
+//            print("-- start bondQueue")
+//            print("James Bond: sure thing! vodka; &amp; add a slice of lemon peel.")
+//            waiterQueue.async {
+//                //sleep(5)
+//                print("--- start waiterQueue 2")
+//                print("waiter: Shaken or Stirred?")
+//                print("--- end waiterQueue 2")
+//            }
+//            //sleep(5)
+//            print("-- end bondQueue")
+//        }
+//        print("- after bondQueue")
+//        //sleep(3)
+//        print("- end waiterQueue 1")
+//    }
+//}
+//sleep(10)
+//PlaygroundPage.current.finishExecution()
+</string>
+			<key>ModifiedRange</key>
+			<string>{659, 797}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{651, 0}</string>
+		</dict>
 	</array>
 	<key>FormatVersion</key>
 	<integer>2</integer>
