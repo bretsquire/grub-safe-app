@@ -18,13 +18,19 @@
 		<dict>
 			<key>ModifiedContent</key>
 			<string>// Create a work item for both tasks. 
+var workItem: DispatchWorkItem
 
-// Add the getActorTask and getMovieTask to the Dispatch Work Item created. 
+// Add the getActorTask and getMovieTask to the Dispatch Work Item created.
+workItem = DispatchWorkItem{
+    getActorTask()
+    getMovieTask()
+}
 
 // Cancel the work item after 10 seconds using the asyncAfter provided. 
+DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(15)) {
 </string>
 			<key>ModifiedRange</key>
-			<string>{487, 191}</string>
+			<string>{487, 359}</string>
 			<key>OriginalContent</key>
 			<string>
 // create a work item for both task 
@@ -35,26 +41,33 @@
 
 
 // cancel the work item after 10 seconds using the asyncAfter provided. 
+DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(10)) {
 </string>
 			<key>OriginalRange</key>
-			<string>{486, 192}</string>
+			<string>{486, 261}</string>
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>.</string>
+			<string>    // Add Code to cancel workItem here.
+    if !workItem.isCancelled {
+        workItem.cancel()
+    }
+</string>
 			<key>ModifiedRange</key>
-			<string>{817, 1}</string>
+			<string>{877, 104}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>    // Add Code to cancel workItem here
+</string>
 			<key>OriginalRange</key>
-			<string>{817, 0}</string>
+			<string>{778, 40}</string>
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
 			<string>// Call perform on the work item. 
+workItem.perform()
 </string>
 			<key>ModifiedRange</key>
-			<string>{822, 35}</string>
+			<string>{984, 54}</string>
 			<key>OriginalContent</key>
 			<string>
 // call perform on the workitem 
@@ -68,7 +81,7 @@
 			<string>// Question: why is the Movie task completed yet the dispatch work item has been cancelled?
 </string>
 			<key>ModifiedRange</key>
-			<string>{900, 92}</string>
+			<string>{1081, 92}</string>
 			<key>OriginalContent</key>
 			<string>
 // Qestion: why is the Movie task completed yet the dispatch work item has been cancelled ?
