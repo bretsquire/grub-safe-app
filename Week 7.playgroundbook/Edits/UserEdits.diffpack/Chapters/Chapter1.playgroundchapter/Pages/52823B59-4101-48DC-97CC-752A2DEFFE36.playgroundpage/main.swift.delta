@@ -83,12 +83,12 @@ workItem.perform()
  
  Assignment Question: why is the Movie task completed yet the dispatch work item has been cancelled?
  
- Answer: Cancelation only prevents the Dispatch Work Item from being displatched in the future. Any currently running will be allowed to complete
+ Answer: Cancelation only prevents future work items from being dispatched. Any currently dispatched work itemd are allowed to complete.
  
  */
 </string>
 			<key>ModifiedRange</key>
-			<string>{1114, 260}</string>
+			<string>{1114, 251}</string>
 			<key>OriginalContent</key>
 			<string>
 // Qestion: why is the Movie task completed yet the dispatch work item has been cancelled ?

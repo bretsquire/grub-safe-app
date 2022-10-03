@@ -18,32 +18,29 @@
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string> </string>
+			<string>// Modify DispatchGroup timeout to get "All tasks completed" printed out.
+if group.wait(timeout: .now() + 12) == .timedOut {
+</string>
 			<key>ModifiedRange</key>
-			<string>{652, 1}</string>
+			<string>{650, 125}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>//Modify DispatchGroup timeout to get "All tasks completed" printed out
+if group.wait(timeout: .now() + 5) == .timedOut {
+</string>
 			<key>OriginalRange</key>
-			<string>{654, 0}</string>
-		</dict>
-		<dict>
-			<key>ModifiedContent</key>
-			<string>.</string>
-			<key>ModifiedRange</key>
-			<string>{722, 1}</string>
-			<key>OriginalContent</key>
-			<string></string>
-			<key>OriginalRange</key>
-			<string>{723, 0}</string>
+			<string>{652, 122}</string>
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
 			<string>// Schedule a notification block to be submitted to the myGlobalQueue
 // when all tasks associated with the dispatch group have been completed.
 // The notification block will print "Done" to the console output.
+group.notify(queue: myGlobalQueue) {
+    print("Done")
+}
 </string>
 			<key>ModifiedRange</key>
-			<string>{865, 211}</string>
+			<string>{866, 268}</string>
 			<key>OriginalContent</key>
 			<string>//Schedule a notification block to be submitted to the myGlobalQueue
 //when all tasks associated with the dispatch group have been completed.
