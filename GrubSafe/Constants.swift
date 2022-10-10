@@ -10,7 +10,7 @@ import UIKit
 
 enum Constants {
     enum Api {
-        public static let endpoint = "https://foodbukka.herokuapp.com/api/v1/"
+        public static let endpoint = "http://foodbukka.herokuapp.com/api/v1/"
         public static let menuPath = "menu"
     }
     enum SFSymbols {
