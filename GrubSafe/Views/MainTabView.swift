@@ -18,6 +18,9 @@ struct MainTabView: View {
     // MARK: - Singleton Pattern: Used for loading favorites from memento pattern
     @State private var favorites = appSettings.favorites
     
+    // MARK: - Menu Api
+    private var menuApi = MenuApi()
+    
     let userName = "[userName]"
     let menu = Menu()
     var body: some View {
@@ -54,6 +57,18 @@ struct MainTabView: View {
             }
             Spacer()
         }
+        .onAppear(perform: {
+            Task {
+                await fetchAPIData()
+            }
+        })
+    }
+    
+    // MARK: Functions
+    private func fetchAPIData() async {
+        // MARK: Assignment #2 - Download & Print
+        let data = await menuApi.download()
+        print("Data Downloaded \(data)")
     }
 }
 
