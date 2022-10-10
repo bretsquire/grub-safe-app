@@ -14,6 +14,7 @@ struct MainTabView: View {
     @State private var onboardingIsVisable = false
     @State private var selectedTab = "Menu"
     @State private var order = Order()
+    @State private var displaySplashScreen = true
     
     // MARK: - Singleton Pattern: Used for loading favorites from memento pattern
     @State private var favorites = appSettings.favorites
@@ -25,41 +26,50 @@ struct MainTabView: View {
     let menu = Menu()
     var body: some View {
         VStack {
-            HeaderView()
-            HStack {
-                TabView(selection: $selectedTab) {
-                    WelcomeView(userName: userName, onboardingIsVisable: $onboardingIsVisable)
-                        .tabItem {
-                            Image(systemName: "figure.wave")
-                            Text("Welcome")
-                        }
-                        .tag("Welcome")
-                    MenuView(menu: menu, order: $order, favorites: $favorites)
-                        .tabItem {
-                            Image(systemName: "menucard")
-                            Text("Menu")
-                        }
-                        .tag("Menu")
-                    FavoritesView(favorites: $favorites, order: $order)
-                        .tabItem {
-                            Image(systemName: "heart")
-                            Text("Favorites")
-                        }
-                        .tag("Favorites")
-                    OrderView(order: $order)
-                        .tabItem {
-                            Image(systemName: "bag")
-                            Text("Order")
-                        }
-                        .tag("Order")
-                        .badge(order.selection.count)
+            if displaySplashScreen {
+                SplashScreen(duration: Constants.Menu.splashScreenDuration)
+            } else {
+                HeaderView()
+                HStack {
+                    TabView(selection: $selectedTab) {
+                        WelcomeView(userName: userName, onboardingIsVisable: $onboardingIsVisable)
+                            .tabItem {
+                                Image(systemName: "figure.wave")
+                                Text("Welcome")
+                            }
+                            .tag("Welcome")
+                        MenuView(menu: menu, order: $order, favorites: $favorites)
+                            .tabItem {
+                                Image(systemName: "menucard")
+                                Text("Menu")
+                            }
+                            .tag("Menu")
+                        FavoritesView(favorites: $favorites, order: $order)
+                            .tabItem {
+                                Image(systemName: "heart")
+                                Text("Favorites")
+                            }
+                            .tag("Favorites")
+                        OrderView(order: $order)
+                            .tabItem {
+                                Image(systemName: "bag")
+                                Text("Order")
+                            }
+                            .tag("Order")
+                            .badge(order.selection.count)
+                    }
                 }
+                Spacer()
             }
-            Spacer()
         }
         .onAppear(perform: {
             Task {
                 await fetchAPIData()
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + Constants.Menu.splashScreenDuration) {
+                withAnimation {
+                    self.displaySplashScreen = false
+                }
             }
         })
     }

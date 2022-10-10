@@ -31,5 +31,6 @@ enum Constants {
     enum Menu {
         public static let rowsTopPadding = CGFloat(0.1)
         public static let horizontalPadding = CGFloat(5)
+        public static let splashScreenDuration = 5.0
     }
 }
