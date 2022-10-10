@@ -39,4 +39,21 @@ class MenuApi {
         
         return try! Data(contentsOf: downloadURL)
     }
+    
+    // MARK: Assignment #5 - Download & Print
+    func getCookie() async throws {
+        let rwUrl = URL(string: "https://www.raywenderlich.com")!
+        let (_, response) = try await session.download(from: rwUrl)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              let fields = httpResponse.allHeaderFields as? [String: String],
+              let cookie = HTTPCookie.cookies(withResponseHeaderFields: fields, for: rwUrl).first
+        else {
+            print("no cookies?")
+            return
+        }
+        
+        print("Cookie Name: \(cookie.name)")
+        print("Cookie Value: \(cookie.value)")
+    }
 }

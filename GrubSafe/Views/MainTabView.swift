@@ -70,6 +70,9 @@ struct MainTabView: View {
             // MARK: Assignment #2 - Download & Print
             let data = try await menuApi.download()
             print("Data Downloaded \(data)")
+            
+            // MARK: Assignment #5 - Download & Print Cookie
+            try await menuApi.getCookie()
         } catch {
             // MARK: Assignment #3 - Handle Errors Gracefully
             print("Error Fetching Menu: \(error)")
