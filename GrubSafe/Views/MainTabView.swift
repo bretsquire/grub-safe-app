@@ -66,9 +66,14 @@ struct MainTabView: View {
     
     // MARK: Functions
     private func fetchAPIData() async {
-        // MARK: Assignment #2 - Download & Print
-        let data = await menuApi.download()
-        print("Data Downloaded \(data)")
+        do {
+            // MARK: Assignment #2 - Download & Print
+            let data = try await menuApi.download()
+            print("Data Downloaded \(data)")
+        } catch {
+            // MARK: Assignment #3 - Handle Errors Gracefully
+            print("Error Fetching Menu: \(error)")
+        }
     }
 }
 
