@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 enum Constants {
+    enum Api {
+        public static let endpoint = "http://foodbukka.herokuapp.com/api/v1/"
+        public static let menuPath = "menu"
+    }
     enum SFSymbols {
         public static let checkmark = "checkmark"
         public static let circle = "circle"
@@ -27,5 +31,6 @@ enum Constants {
     enum Menu {
         public static let rowsTopPadding = CGFloat(0.1)
         public static let horizontalPadding = CGFloat(5)
+        public static let splashScreenDuration = 5.0
     }
 }
