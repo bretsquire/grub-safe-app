@@ -27,9 +27,9 @@ class MenuApi {
     }
     
     // MARK: Functions
-    func download() async throws -> Data {
+    func download() async throws -> String {
         // MARK: Assignment #2 - Download & Print
-        let (downloadURL, response) = try await session.download(from: menuUrl)
+        let (data, response) = try await session.data(from: menuUrl)
         
         // MARK: Assignment #3 - Handle Errors Gracefully
         if let httpResponse = response as? HTTPURLResponse,
@@ -37,7 +37,13 @@ class MenuApi {
             throw MenuApiError.serverError(statusCode: httpResponse.statusCode)
         }
         
-        return try! Data(contentsOf: downloadURL)
+        //return try! Data(contentsOf: downloadURL)
+        if let string =  String(data: data, encoding: .utf8) {
+            return string
+        }
+        return ""
+        //let jsonObjects: [T] = try JSONDecoder().decode([T].self, from: data)
+       // return jsonObjects
     }
     
     // MARK: Assignment #5 - Download & Print
