@@ -11,17 +11,13 @@ public struct MenuItem: Identifiable, Hashable, Codable {
     let name: String
     let description: String?
     let images: [String]
-    //let v: Int
     let cost: Double = 1.99
-    //let allergens: String?
-    //let imageName: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case name = "menuname"
         case description
         case images
-        //case v = "__v"
     }
     
     var costAsString: String {
