@@ -17,10 +17,16 @@ struct MenuItemView: View {
     var body: some View {
         VStack {
             HStack(alignment: .center) {
-                Image(item.imageName ?? "beefHotdog")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 160)
+                AsyncImage(url: URL(string: item.images.count > 0 ? item.images[0] : "https://res.cloudinary.com/jobizil/image/upload/v1602768183/images/menus/x4cspjvzqn2qk76sjhiw.jpg")) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                            } placeholder: {
+                                Image("beefHotdog")
+                            }
+                            //.resizable()
+                            .scaledToFit()
+                            .frame(width: 160)
                 VStack {
                     Text("\(item.name)")
                         .font(.headline)
