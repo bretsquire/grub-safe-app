@@ -15,15 +15,13 @@ struct MainTabView: View {
     @State private var selectedTab = "Menu"
     @State private var order = Order()
     @State private var displaySplashScreen = true
+    @StateObject var menu: Menu = Menu()
     
     // MARK: - Singleton Pattern: Used for loading favorites from memento pattern
     @State private var favorites = appSettings.favorites
     
-    // MARK: - Menu Api
-    private var menuApi = MenuApi()
-    
     let userName = "[userName]"
-    let menu = Menu()
+   
     var body: some View {
         VStack {
             if displaySplashScreen {
@@ -64,7 +62,11 @@ struct MainTabView: View {
         }
         .onAppear(perform: {
             Task {
-                await fetchAPIData()
+                do {
+                    try await menu.fetchMenu()
+                } catch {
+                    print(error)
+                }
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + Constants.Menu.splashScreenDuration) {
                 withAnimation {
@@ -72,21 +74,6 @@ struct MainTabView: View {
                 }
             }
         })
-    }
-    
-    // MARK: Functions
-    private func fetchAPIData() async {
-        do {
-            // MARK: Assignment #2 - Download & Print
-            let data = try await menuApi.download()
-            print("Data Downloaded \(data)")
-            
-            // MARK: Assignment #5 - Download & Print Cookie
-            try await menuApi.getCookie()
-        } catch {
-            // MARK: Assignment #3 - Handle Errors Gracefully
-            print("Error Fetching Menu: \(error)")
-        }
     }
 }
 

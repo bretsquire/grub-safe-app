@@ -4,14 +4,16 @@
 //
 //  Created by Bret Squire on 8/29/22.
 //
+import Combine
 
-class Menu: Codable {
+class Menu: Codable, ObservableObject {
     // MARK: - Properties
-    let itemsCount: Int
     var menuItems: [MenuItem] = []
     
+    // MARK: - Menu Api
+    private var menuApi = MenuApi()
+    
     enum CodingKeys: String, CodingKey {
-        case itemsCount = "Total Menu"
         case menuItems = "Result"
     }
     
@@ -52,10 +54,18 @@ class Menu: Codable {
         menuItems.append(iceCream)
         menuItems.append(colaDrink)
         menuItems.append(rootbeerDrink)
-        itemsCount = menuItems.count
     }
     
     // MARK: - Methods
+    func fetchMenu() async throws {
+        do {
+            let newMenu = try await menuApi.fetchMenu()
+            menuItems = newMenu.menuItems
+        } catch {
+            throw error
+        }
+    }
+    
     func addMenuItem(_ item: MenuItem) {
         menuItems.append(item)
     }
