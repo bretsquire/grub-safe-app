@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Memento Pattern: Caretaker
 public class FavoritesCaretaker {
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
@@ -15,6 +14,9 @@ public class FavoritesCaretaker {
     private let key = "favorites"
     
     public func save(_ favorites: Favorites) throws {
+        print(Bundle.main.bundleURL)
+        print(FileManager.documentsDirectoryURL)
+        
         let data = try encoder.encode(favorites)
         userDefaults.set(data, forKey: key)
     }

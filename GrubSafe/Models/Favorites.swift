@@ -29,7 +29,6 @@ public struct Favorites: Codable {
     }
 }
 
-// MARK: - Interator Pattern: Conforms to interator
 extension Favorites: Sequence {
     public func makeIterator() -> IndexingIterator<[MenuItem]> {
         return Array(items).makeIterator()

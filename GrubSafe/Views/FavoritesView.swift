@@ -27,7 +27,6 @@ struct FavoritesView: View {
     }
 }
 
-// MARK: - Interator Pattern: Favorites is iterable
 struct ScrollableFavoritesView: View {
     @Binding var favorites: Favorites
     @Binding var order: Order

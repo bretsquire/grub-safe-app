@@ -6,12 +6,16 @@
 //
 import Combine
 
-class Menu: Codable, ObservableObject {
+public class Menu: Codable, ObservableObject {
     // MARK: - Properties
     var menuItems: [MenuItem] = []
     
     // MARK: - Menu Api
     private var menuApi = MenuApi()
+    
+    // MARK: - Assignment #2 Data and Plist caretakers
+    private var menuDataFileCaretaker = MenuDataFileCaretaker()
+    private var menuPlistCaretaker = MenuPlistCaretaker()
     
     enum CodingKeys: String, CodingKey {
         case menuItems = "Result"
@@ -59,8 +63,25 @@ class Menu: Codable, ObservableObject {
     // MARK: - Methods
     func fetchMenu() async throws {
         do {
+            // MARK: - Assignment #1
             let newMenu = try await menuApi.fetchMenu()
             menuItems = newMenu.menuItems
+            
+            
+            // MARK: - Assignment #2
+            await menuDataFileCaretaker.save(self)
+            let menuFromDataFile = try menuDataFileCaretaker.load()
+            print("*************")
+            print("Assignment #2")
+            print("*************")
+            print("Menu From Data File: first item")
+            print(menuFromDataFile.menuItems[0])
+            
+            await menuPlistCaretaker.save(self)
+            let menuFromPlist = try menuPlistCaretaker.load()
+            print("*************")
+            print("Menu From Plist: first item")
+            print(menuFromPlist.menuItems[0])
         } catch {
             throw error
         }

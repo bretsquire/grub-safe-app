@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// MARK: - Singleton Pattern: initialize/access
 public let appSettings = AppSettings.shared
 
 struct MainTabView: View {
@@ -17,7 +16,6 @@ struct MainTabView: View {
     @State private var displaySplashScreen = true
     @StateObject var menu: Menu = Menu()
     
-    // MARK: - Singleton Pattern: Used for loading favorites from memento pattern
     @State private var favorites = appSettings.favorites
     
     let userName = "[userName]"
