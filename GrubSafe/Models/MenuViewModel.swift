@@ -9,8 +9,14 @@ import Foundation
 
 public class MenuViewModel: Codable, ObservableObject {
     // MARK: - Properties
-    var items: [Item] = []
+    @Published var items: [Item] = []
     var menuItems: [MenuItem] = []
+    var sortBy = 0 {
+        didSet {
+            let descriptor = sortTypes[sortBy].descriptors
+            items = PersistenceController.shared.fetchMenuItems(sortBy: descriptor)
+        }
+    }
     
     // MARK: - Menu Api
     private var menuApi = MenuApi()
@@ -24,7 +30,6 @@ public class MenuViewModel: Codable, ObservableObject {
     }
     
     init() {
-        
     }
     
     // MARK: - Methods
@@ -66,4 +71,9 @@ public class MenuViewModel: Codable, ObservableObject {
             print(item)
         }
     }
+    
+    let sortTypes = [
+      (name: "Name Asc", descriptors: NSSortDescriptor(key: "name", ascending: true)),
+      (name: "Name Dec", descriptors: NSSortDescriptor(key: "name", ascending: false))
+    ]
 }

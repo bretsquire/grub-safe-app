@@ -80,14 +80,10 @@ struct PersistenceController {
         }
     }
     
-    func fetchMenuItems() -> [Item] {
-//        let fetchRequest = Item.fetchRequest()
-//        guard let results = try? shared.container.viewContext.fetch(fetchRequest),
-//              !results.isEmpty else { return [] }
-//        return results as [Item]
-        
+    func fetchMenuItems(sortBy: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)) -> [Item] {
         let fetchRequest: NSFetchRequest<Item>
         fetchRequest = Item.fetchRequest()
+        fetchRequest.sortDescriptors = [sortBy]
         let context = container.viewContext
         //let objects = try context.fetch(fetchRequest)
         guard let results = try? context.fetch(fetchRequest),

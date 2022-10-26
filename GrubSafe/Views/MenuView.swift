@@ -11,6 +11,7 @@ struct MenuView: View {
     var menu: MenuViewModel
     @Binding var order: Order
     @Binding var favorites: Favorites
+    @State var activeSortIndex = 0
     var body: some View {
         NavigationView {
             VStack {
@@ -21,8 +22,28 @@ struct MenuView: View {
             }
             .navigationBarTitle("Menu")
             .navigationBarTitleDisplayMode(.inline)
+            .onChange(of: activeSortIndex) { _ in
+                menu.sortBy = activeSortIndex
+            }
+            .toolbar {
+                Menu(content: {
+                    Picker(
+                        selection: $activeSortIndex,
+                        content: {
+                            ForEach(0..<menu.sortTypes.count, id: \.self) { index in
+                                let sortType = menu.sortTypes[index]
+                                Text(sortType.name)
+                            }
+                        },
+                        label: {}
+                    )
+                }, label: {
+                    Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                })
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        
     }
 }
 
