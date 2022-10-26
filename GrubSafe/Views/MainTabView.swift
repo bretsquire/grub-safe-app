@@ -14,7 +14,7 @@ struct MainTabView: View {
     @State private var selectedTab = "Menu"
     @State private var order = Order()
     @State private var displaySplashScreen = true
-    @StateObject var menu: Menu = Menu()
+    @StateObject var menu = MenuViewModel()
     
     @State private var favorites = appSettings.favorites
     
@@ -40,7 +40,7 @@ struct MainTabView: View {
                                 Text("Menu")
                             }
                             .tag("Menu")
-                        FavoritesView(favorites: $favorites, order: $order)
+                        FavoritesView(menu: menu, favorites: $favorites, order: $order)
                             .tabItem {
                                 Image(systemName: "heart")
                                 Text("Favorites")
@@ -61,7 +61,7 @@ struct MainTabView: View {
         .onAppear(perform: {
             Task {
                 do {
-                    try await menu.fetchMenu()
+                    try await menu.fetchMenuItems()
                 } catch {
                     print(error)
                 }

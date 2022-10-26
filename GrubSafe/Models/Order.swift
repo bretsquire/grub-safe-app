@@ -6,7 +6,7 @@
 //
 
 struct Order {
-    var selection: [MenuItem] = []
+    var selection: [Item] = []
     var total: Double {
         get {
             var total = 0.0
@@ -22,14 +22,14 @@ struct Order {
             discount.applyDiscount(total)
         }
     }
-    var description: String {
+    var descriptions: String {
         get {
             String("The discounted order total is \(discountedTotal) with a \"\(discount.description)\" applied to a order total of \(total)")
         }
     }
     
     static func initDummy() -> Order {
-        let menu = Menu()
-        return Order(selection: menu.menuItems)
+        let menu = MenuViewModel()
+        return Order(selection: menu.items)
     }
 }

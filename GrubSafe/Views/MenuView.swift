@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
-    var menu: Menu
+    var menu: MenuViewModel
     @Binding var order: Order
     @Binding var favorites: Favorites
     var body: some View {
@@ -27,13 +27,13 @@ struct MenuView: View {
 }
 
 struct ScrollableMenuView: View {
-    var menu: Menu
+    var menu: MenuViewModel
     @Binding var order: Order
     @Binding var favorites: Favorites
     var body: some View {
         ScrollView {
             Divider()
-            ForEach(menu.menuItems, id: \.id) { item in
+            ForEach(menu.items, id: \.id) { item in
                 NavigationLink(destination: MenuItemView(item: item,
                                                          order: $order,
                                                          favorites: $favorites)) {
@@ -46,7 +46,7 @@ struct ScrollableMenuView: View {
 }
 
 struct MenuItemRow: View {
-    let item: MenuItem
+    let item: Item
     var body: some View {
         HStack {
             Text("\(item.name)")
@@ -63,7 +63,7 @@ struct MenuView_Previews: PreviewProvider {
     @State static var dummyorder = Order.initDummy()
     @State static var dummyFaves = Favorites()
     static var previews: some View {
-        let menu = Menu()
+        let menu = MenuViewModel()
         MenuView(menu: menu, order: $dummyorder,
                  favorites: $dummyFaves)
         MenuView(menu: menu, order: $dummyorder,

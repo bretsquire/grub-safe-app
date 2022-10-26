@@ -27,7 +27,7 @@ class MenuApi {
     }
     
     // MARK: Functions
-    func fetchMenu() async throws -> Menu {
+    func getMenuItems() async throws -> MenuJSON {
         let (data, response) = try await session.data(from: menuUrl)
         
         if let httpResponse = response as? HTTPURLResponse,
@@ -35,7 +35,7 @@ class MenuApi {
             throw MenuApiError.serverError(statusCode: httpResponse.statusCode)
         }
         
-        let jsonMenu = try JSONDecoder().decode(Menu.self, from: data)
+        let jsonMenu = try JSONDecoder().decode(MenuJSON.self, from: data)
         return jsonMenu
     }
 }

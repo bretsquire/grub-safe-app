@@ -9,14 +9,14 @@ public struct MenuItem: Identifiable, Hashable, Codable {
     // MARK: - Properties
     public let id: String
     public var name: String
-    public var description: String?
+    public var descriptions: String?
     public var images: [String]
     public var cost: Double = 1.99
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case name = "menuname"
-        case description
+        case descriptions = "description"
         case images
     }
     
@@ -24,5 +24,14 @@ public struct MenuItem: Identifiable, Hashable, Codable {
         get {
             String(format: "$%.02f", 1.99)
         }
+    }
+    
+    var dictionaryValue: [String: Any] {
+      [
+        "id": id as Any,
+        "name": name as Any,
+        "descriptions": descriptions as Any,
+        "images": images
+      ]
     }
 }

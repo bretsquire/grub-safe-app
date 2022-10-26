@@ -13,7 +13,7 @@ public class MenuDataFileCaretaker {
     let dataFileURL = URL(fileURLWithPath: "MenuData",
                           relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
     
-    public func save(_ menu: Menu) async {
+    public func save(_ menu: MenuJSON) async {
         Task {
             do {
                 let data = try encoder.encode(menu)
@@ -24,13 +24,13 @@ public class MenuDataFileCaretaker {
         }
     }
     
-    public func load() throws -> Menu {
+    public func load() throws -> MenuJSON {
         guard FileManager.default.fileExists(atPath: dataFileURL.path) else {
             throw(Error.dataFileNotFound)
         }
         do {
             let data = try Data(contentsOf: dataFileURL)
-            return try decoder.decode(Menu.self, from: data)
+            return try decoder.decode(MenuJSON.self, from: data)
         } catch let error {
             throw(error)
         }

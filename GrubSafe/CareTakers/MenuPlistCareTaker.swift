@@ -13,7 +13,7 @@ public class MenuPlistCaretaker {
     let plistURL = URL(fileURLWithPath: "MenuData",
                        relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("plist")
     
-    public func save(_ menu: Menu) async {
+    public func save(_ menu: MenuJSON) async {
         Task {
             do {
                 encoder.outputFormat = .xml
@@ -25,13 +25,13 @@ public class MenuPlistCaretaker {
         }
     }
     
-    public func load() throws -> Menu {
+    public func load() throws -> MenuJSON {
         guard FileManager.default.fileExists(atPath: plistURL.path) else {
             throw(Error.plistNotFound)
         }
         do {
             let data = try Data(contentsOf: plistURL)
-            return try decoder.decode(Menu.self, from: data)
+            return try decoder.decode(MenuJSON.self, from: data)
         } catch let error {
             throw(error)
         }
