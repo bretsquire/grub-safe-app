@@ -59,6 +59,16 @@ struct PersistenceController {
         taskContext.name = "importContext"
         taskContext.transactionAuthor = "importMenuItems"
         print("number of menu items \(menuItems.count)")
+        
+        try taskContext.performAndWait {
+            let deleteRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteRequest)
+            do {
+                try taskContext.execute(batchDeleteRequest)
+            } catch {
+                throw MenuDBError.batchInsertError
+            }
+        }
 
         try taskContext.performAndWait {
             let batchInsertRequest = createBatchInsertMenuItemsRequest(from: menuItems)
@@ -81,11 +91,11 @@ struct PersistenceController {
     }
     
     func fetchMenuItems(sortBy: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)) -> [Item] {
+        let context = container.viewContext
         let fetchRequest: NSFetchRequest<Item>
         fetchRequest = Item.fetchRequest()
         fetchRequest.sortDescriptors = [sortBy]
-        let context = container.viewContext
-        //let objects = try context.fetch(fetchRequest)
+        //fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
         guard let results = try? context.fetch(fetchRequest),
               !results.isEmpty else { return [] }
         return results as [Item]

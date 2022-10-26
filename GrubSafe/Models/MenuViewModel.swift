@@ -57,6 +57,7 @@ public class MenuViewModel: Codable, ObservableObject {
             // MARK: - Assignment #3
             try await PersistenceController.getMenuItems()
             items = PersistenceController.shared.fetchMenuItems()
+            print(items)
         } catch {
             throw error
         }

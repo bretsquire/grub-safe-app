@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
-    var menu: MenuViewModel
+    @ObservedObject var menu: MenuViewModel
     @Binding var order: Order
     @Binding var favorites: Favorites
     @State var activeSortIndex = 0
@@ -48,7 +48,7 @@ struct MenuView: View {
 }
 
 struct ScrollableMenuView: View {
-    var menu: MenuViewModel
+    @ObservedObject var menu: MenuViewModel
     @Binding var order: Order
     @Binding var favorites: Favorites
     var body: some View {
@@ -80,24 +80,25 @@ struct MenuItemRow: View {
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
-    @State static var dummyorder = Order.initDummy()
-    @State static var dummyFaves = Favorites()
-    static var previews: some View {
-        let menu = MenuViewModel()
-        MenuView(menu: menu, order: $dummyorder,
-                 favorites: $dummyFaves)
-        MenuView(menu: menu, order: $dummyorder,
-                 favorites: $dummyFaves)
-            .preferredColorScheme(.dark)
-        MenuView(menu: menu, order: $dummyorder,
-                 favorites: $dummyFaves)
-            .previewLayout(.fixed(width: 568, height: 320))
-        MenuView(menu: menu, order: $dummyorder,
-                 favorites: $dummyFaves)
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 568, height: 320))
-    }
-}
+//struct MenuView_Previews: PreviewProvider {
+//    @State static var dummyorder = Order.initDummy()
+//    @State static var dummyFaves = Favorites()
+//    @StateObject static var menu = MenuViewModel()
+//    static var previews: some View {
+//        //let menu = MenuViewModel()
+//        MenuView(menu: $menu, order: $dummyorder,
+//                 favorites: $dummyFaves)
+//        MenuView(menu: $menu, order: $dummyorder,
+//                 favorites: $dummyFaves)
+//            .preferredColorScheme(.dark)
+//        MenuView(menu: $menu, order: $dummyorder,
+//                 favorites: $dummyFaves)
+//            .previewLayout(.fixed(width: 568, height: 320))
+//        MenuView(menu: $menu, order: $dummyorder,
+//                 favorites: $dummyFaves)
+//            .preferredColorScheme(.dark)
+//            .previewLayout(.fixed(width: 568, height: 320))
+//    }
+//}
 
 
