@@ -37,6 +37,7 @@ struct MenuView: View {
                         },
                         label: {}
                     )
+                    .accessibility(identifier: "sortPicker")
                 }, label: {
                     Image(systemName: "line.3.horizontal.decrease.circle.fill")
                 })
