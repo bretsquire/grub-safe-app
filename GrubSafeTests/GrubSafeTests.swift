@@ -11,11 +11,6 @@ import CoreData
 
 final class GrubSafeTests: XCTestCase {
 
-    func test_MenuViewModel_init() throws {
-        let menuViewModel = MenuViewModel()
-        XCTAssertEqual(menuViewModel.items.count, 0, "number of menu items must be 0 initially")
-    }
-
     func test_Favorites() throws {
         let dummyFavorites = Favorites.initDummy()
         let dummyItem = StubItem(id: "1")
@@ -54,6 +49,58 @@ final class GrubSafeTests: XCTestCase {
         XCTAssertFalse(favorites.isFavorite(firstItem))
         XCTAssertFalse(favorites.isFavorite(secondItem))
         XCTAssertEqual(favoriteItems.count, 0, "number of favorite items must be 0 again")
+    }
+    
+    func test_FavoritesCaretaker() throws {
+        let favoritesCaretaker = FavoritesCaretaker()
+        var favorites = Favorites()
+        let firstItem = StubItem(id: "one")
+        let secondItem = StubItem(id: "two")
+        let thirdItem = StubItem(id: "three")
+        let allItems = [firstItem, secondItem, thirdItem]
+        favorites.toggle(firstItem)
+        favorites.toggle(secondItem)
+        favorites.toggle(thirdItem)
+        var favoriteItems = favorites.items(allItems)
+        XCTAssertTrue(favorites.isFavorite(firstItem))
+        XCTAssertTrue(favorites.isFavorite(secondItem))
+        XCTAssertTrue(favorites.isFavorite(thirdItem))
+        XCTAssertEqual(favoriteItems.count, 3, "number of favorite items must be 3 before saving")
+        try favoritesCaretaker.save(favorites)
+        favorites.toggle(firstItem)
+        favorites.toggle(secondItem)
+        favorites.toggle(thirdItem)
+        favorites = try favoritesCaretaker.load()
+        favoriteItems = favorites.items(allItems)
+        XCTAssertEqual(favoriteItems.count, 3, "number of favorite items must be 3 after loading")
+    }
+    
+    func test_AppSettings() throws {
+        let appSettings = AppSettings.shared
+        var favorites = Favorites()
+        appSettings.favorites = favorites
+        let firstItem = StubItem(id: "one")
+        let secondItem = StubItem(id: "two")
+        let thirdItem = StubItem(id: "three")
+        let allItems = [firstItem, secondItem, thirdItem]
+        favorites = appSettings.favorites
+        var favoriteItems = favorites.items(allItems)
+        XCTAssertEqual(favoriteItems.count, 0, "number of favorite items must be 0 after app settings loads from empty")
+        favorites.toggle(firstItem)
+        favorites.toggle(secondItem)
+        favorites.toggle(thirdItem)
+        favoriteItems = favorites.items(allItems)
+        XCTAssertTrue(favorites.isFavorite(firstItem))
+        XCTAssertTrue(favorites.isFavorite(secondItem))
+        XCTAssertTrue(favorites.isFavorite(thirdItem))
+        XCTAssertEqual(favoriteItems.count, 3, "number of favorite items must be 3 before app settings saves")
+        appSettings.favorites = favorites
+        favorites.toggle(firstItem)
+        favorites.toggle(secondItem)
+        favorites.toggle(thirdItem)
+        favorites = appSettings.favorites
+        favoriteItems = favorites.items(allItems)
+        XCTAssertEqual(favoriteItems.count, 3, "number of favorite items must be 3 after app settings loads")
     }
 
     func test_MenuJSON() {
@@ -104,6 +151,40 @@ final class GrubSafeTests: XCTestCase {
         discount = .newYear
         XCTAssertTrue(discount.description.contains("20%"))
         XCTAssertEqual(discount.applyDiscount(1.00), 0.8, "discount not applied correctly")
+    }
+    
+    func test_Order() {
+        let dummyOrder = Order.initDummy()
+        XCTAssertEqual(dummyOrder.total, 0.0, "total of dummy order is not correcrt")
+        var order = Order()
+        XCTAssertEqual(order.total, 0.0, "total of empty order is not correcrt")
+        XCTAssertEqual(order.discountedTotal, 0.0, "default discount total of empty order is not correcrt")
+        let firstItem = StubItem(id: "one")
+        let secondItem = StubItem(id: "two")
+        let thirdItem = StubItem(id: "three")
+        let selection = [firstItem, secondItem, thirdItem]
+        let expectedTotal = firstItem.cost + secondItem.cost + thirdItem.cost
+        let expectedDiscountTotal = expectedTotal - (expectedTotal * 0.05)
+        order.selection = selection
+        XCTAssertEqual(order.total, expectedTotal, "total of order is not correcrt")
+        XCTAssertEqual(order.discountedTotal, expectedDiscountTotal, "default discount total of order is not correcrt")
+        XCTAssertTrue(order.descriptions.contains(String(expectedTotal)))
+    }
+    
+    func test_MenuViewModel_init() async throws {
+        let menuViewModel = MenuViewModel()
+        let decoder = JSONDecoder()
+        let testBundle = Bundle(for: GrubSafeTests.self)
+        do {
+            let jsonFileUrl = try XCTUnwrap(testBundle.url(forResource: "menu", withExtension: "json"))
+            let data = try Data(contentsOf: jsonFileUrl)
+            let menu = try decoder.decode(MenuJSON.self, from: data)
+            try await PersistenceController.addMenu(menu: menu)
+        } catch {
+            XCTFail("\(error)")
+        }
+        menuViewModel.sortBy = 1
+        XCTAssertEqual(menuViewModel.items.count, 122, "number of menu items must be 0 initially")
     }
     
 //    func test_noServerResponse() async throws{

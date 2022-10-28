@@ -20,6 +20,8 @@
 		6F751F072908468500BB32E2 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F751F052908468500BB32E2 /* Item+CoreDataClass.swift */; };
 		6F751F082908468500BB32E2 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F751F062908468500BB32E2 /* Item+CoreDataProperties.swift */; };
 		6F751F0A290926B600BB32E2 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F751F09290926B600BB32E2 /* MenuViewModel.swift */; };
+		6F7F0493290C4E3400CCD685 /* GrubSafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F0492290C4E3400CCD685 /* GrubSafeUITests.swift */; };
+		6F7F0495290C4E3400CCD685 /* GrubSafeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F0494290C4E3400CCD685 /* GrubSafeUITestsLaunchTests.swift */; };
 		6FB393B228F438FE001A45EE /* MenuApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB393B128F438FE001A45EE /* MenuApi.swift */; };
 		6FB393B528F46016001A45EE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB393B428F46016001A45EE /* SplashScreen.swift */; };
 		6FBD673A28BCBA870003B8EA /* MenuJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD673928BCBA870003B8EA /* MenuJSON.swift */; };
@@ -39,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6F7F0496290C4E3400CCD685 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FC5C34128B32EA50070DEEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FC5C34828B32EA50070DEEE;
+			remoteInfo = GrubSafe;
+		};
 		6FD55B61290B5B9400987AB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6FC5C34128B32EA50070DEEE /* Project object */;
@@ -62,6 +71,9 @@
 		6F751F052908468500BB32E2 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6F751F062908468500BB32E2 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6F751F09290926B600BB32E2 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		6F7F0490290C4E3400CCD685 /* GrubSafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrubSafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F7F0492290C4E3400CCD685 /* GrubSafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubSafeUITests.swift; sourceTree = "<group>"; };
+		6F7F0494290C4E3400CCD685 /* GrubSafeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubSafeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6FB393B128F438FE001A45EE /* MenuApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuApi.swift; sourceTree = "<group>"; };
 		6FB393B328F4481A001A45EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6FB393B428F46016001A45EE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
@@ -85,6 +97,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6F7F048D290C4E3400CCD685 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FC5C34628B32EA50070DEEE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +147,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		6F7F0491290C4E3400CCD685 /* GrubSafeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6F7F0492290C4E3400CCD685 /* GrubSafeUITests.swift */,
+				6F7F0494290C4E3400CCD685 /* GrubSafeUITestsLaunchTests.swift */,
+			);
+			path = GrubSafeUITests;
+			sourceTree = "<group>";
+		};
 		6FBD673728BCB9BC0003B8EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +193,7 @@
 			children = (
 				6FC5C34B28B32EA50070DEEE /* GrubSafe */,
 				6FD55B5E290B5B9400987AB2 /* GrubSafeTests */,
+				6F7F0491290C4E3400CCD685 /* GrubSafeUITests */,
 				6FC5C34A28B32EA50070DEEE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -174,6 +203,7 @@
 			children = (
 				6FC5C34928B32EA50070DEEE /* GrubSafe.app */,
 				6FD55B5D290B5B9400987AB2 /* GrubSafeTests.xctest */,
+				6F7F0490290C4E3400CCD685 /* GrubSafeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +246,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6F7F048F290C4E3400CCD685 /* GrubSafeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F7F049A290C4E3400CCD685 /* Build configuration list for PBXNativeTarget "GrubSafeUITests" */;
+			buildPhases = (
+				6F7F048C290C4E3400CCD685 /* Sources */,
+				6F7F048D290C4E3400CCD685 /* Frameworks */,
+				6F7F048E290C4E3400CCD685 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F7F0497290C4E3400CCD685 /* PBXTargetDependency */,
+			);
+			name = GrubSafeUITests;
+			productName = GrubSafeUITests;
+			productReference = 6F7F0490290C4E3400CCD685 /* GrubSafeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		6FC5C34828B32EA50070DEEE /* GrubSafe */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FC5C35728B32EA60070DEEE /* Build configuration list for PBXNativeTarget "GrubSafe" */;
@@ -261,6 +309,10 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					6F7F048F290C4E3400CCD685 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 6FC5C34828B32EA50070DEEE;
+					};
 					6FC5C34828B32EA50070DEEE = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -285,11 +337,19 @@
 			targets = (
 				6FC5C34828B32EA50070DEEE /* GrubSafe */,
 				6FD55B5C290B5B9400987AB2 /* GrubSafeTests */,
+				6F7F048F290C4E3400CCD685 /* GrubSafeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6F7F048E290C4E3400CCD685 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FC5C34728B32EA50070DEEE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,6 +372,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6F7F048C290C4E3400CCD685 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F7F0495290C4E3400CCD685 /* GrubSafeUITestsLaunchTests.swift in Sources */,
+				6F7F0493290C4E3400CCD685 /* GrubSafeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FC5C34528B32EA50070DEEE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +422,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6F7F0497290C4E3400CCD685 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FC5C34828B32EA50070DEEE /* GrubSafe */;
+			targetProxy = 6F7F0496290C4E3400CCD685 /* PBXContainerItemProxy */;
+		};
 		6FD55B62290B5B9400987AB2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6FC5C34828B32EA50070DEEE /* GrubSafe */;
@@ -361,6 +435,44 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6F7F0498290C4E3400CCD685 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP3KZ5678M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bretsquire.GrubSafeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GrubSafe;
+			};
+			name = Debug;
+		};
+		6F7F0499290C4E3400CCD685 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP3KZ5678M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bretsquire.GrubSafeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GrubSafe;
+			};
+			name = Release;
+		};
 		6FC5C35528B32EA60070DEEE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -580,6 +692,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6F7F049A290C4E3400CCD685 /* Build configuration list for PBXNativeTarget "GrubSafeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F7F0498290C4E3400CCD685 /* Debug */,
+				6F7F0499290C4E3400CCD685 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6FC5C34428B32EA50070DEEE /* Build configuration list for PBXProject "GrubSafe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -40,6 +40,17 @@
                ReferencedContainer = "container:GrubSafe.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6F7F048F290C4E3400CCD685"
+               BuildableName = "GrubSafeUITests.xctest"
+               BlueprintName = "GrubSafeUITests"
+               ReferencedContainer = "container:GrubSafe.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
