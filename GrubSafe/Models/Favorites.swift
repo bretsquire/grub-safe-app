@@ -29,7 +29,7 @@ public struct Favorites: Codable {
     }
     
     static func initDummy() -> Favorites {
-        let setOfItemIds = Set<String>()
+        let setOfItemIds: Set<String> = ["1","2","3"]
         return Favorites(itemIds: setOfItemIds)
     }
 }
