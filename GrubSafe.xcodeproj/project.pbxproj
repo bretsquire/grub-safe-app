@@ -88,7 +88,6 @@
 		6FD55B5D290B5B9400987AB2 /* GrubSafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrubSafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD55B5F290B5B9400987AB2 /* GrubSafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubSafeTests.swift; sourceTree = "<group>"; };
 		6FD55B67290BE57A00987AB2 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
-		6FDAF4D028BCA99F007C1EB6 /* GrubSafePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GrubSafePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FE5E38028C632B400283B5F /* Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		6FE5E38228C632E800283B5F /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		6FE5E38428C6336300283B5F /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
@@ -217,7 +216,6 @@
 				6F727B6528FC45DF00B7AE39 /* Utilities */,
 				6F13573028FD8E6300265FB6 /* Resources */,
 				6F360DF128FD95C6009ABFFC /* MenuDB.xcdatamodeld */,
-				6FDAF4D028BCA99F007C1EB6 /* GrubSafePlayground.playground */,
 				6FC5C35228B32EA60070DEEE /* Preview Content */,
 			);
 			path = GrubSafe;
