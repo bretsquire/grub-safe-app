@@ -37,32 +37,13 @@ struct SplashScreen: View {
 
 extension SplashScreen {
     func handleAnimations() {
-        runAnimation()
-        if repeating {
-            restartAnimation()
-        }
-    }
-
-    func runAnimation() {
-        let deadline: DispatchTime = .now()
-        DispatchQueue.main.asyncAfter(deadline: deadline) {
-            withAnimation(Animation.easeIn(duration: duration)) {
-                self.textScale = self.uZoomFactor
-                self.textOpacity = 1
-                self.textColor = .black
-                self.backgndColor = .white
-            }
-        }
-    }
-
-    func restartAnimation() {
-        let deadline: DispatchTime = .now() + duration + 1.0
-        DispatchQueue.main.asyncAfter(deadline: deadline) {
-            self.textScale = 1
-            self.textOpacity = 0
+        let baseAnimation = Animation.easeInOut(duration: duration)
+        let repeated = baseAnimation.repeatForever(autoreverses: repeating)
+        withAnimation(repeated) {
+            self.textScale = self.uZoomFactor
+            self.textOpacity = 1
             self.textColor = .black
-            self.backgndColor = .black
-            self.handleAnimations()
+            self.backgndColor = .white
         }
     }
 }

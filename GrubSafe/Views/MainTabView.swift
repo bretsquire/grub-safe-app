@@ -66,10 +66,9 @@ struct MainTabView: View {
                     print(error)
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + Constants.Menu.splashScreenDuration) {
-                withAnimation {
-                    self.displaySplashScreen = false
-                }
+            Task {
+                try? await Task.sleep(nanoseconds: UInt64(Constants.Menu.splashScreenDuration * 1_000_000_000))
+                self.displaySplashScreen = false
             }
         })
     }
