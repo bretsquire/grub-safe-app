@@ -81,8 +81,7 @@ struct PersistenceController {
         }
     }
     
-    static func getMenuItems() async throws {
-        let menu = try await MenuApi().getMenuItems()
+    static func addMenu(menu: MenuJSON) async throws {
         do {
             try await PersistenceController.shared.importMenuItems(from: menu.menuItems)
         } catch {

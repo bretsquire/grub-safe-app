@@ -20,12 +20,6 @@ public struct MenuItem: Identifiable, Hashable, Codable {
         case images
     }
     
-    var costAsString: String {
-        get {
-            String(format: "$%.02f", 1.99)
-        }
-    }
-    
     var dictionaryValue: [String: Any] {
       [
         "id": id as Any,
