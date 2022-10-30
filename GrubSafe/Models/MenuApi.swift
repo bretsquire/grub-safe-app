@@ -27,33 +27,15 @@ class MenuApi {
     }
     
     // MARK: Functions
-    func download() async throws -> Data {
-        // MARK: Assignment #2 - Download & Print
-        let (downloadURL, response) = try await session.download(from: menuUrl)
+    func getMenuItems() async throws -> MenuJSON {
+        let (data, response) = try await session.data(from: menuUrl)
         
-        // MARK: Assignment #3 - Handle Errors Gracefully
         if let httpResponse = response as? HTTPURLResponse,
            !(200..<300).contains(httpResponse.statusCode) {
             throw MenuApiError.serverError(statusCode: httpResponse.statusCode)
         }
         
-        return try! Data(contentsOf: downloadURL)
-    }
-    
-    // MARK: Assignment #5 - Download & Print
-    func getCookie() async throws {
-        let rwUrl = URL(string: "https://www.raywenderlich.com")!
-        let (_, response) = try await session.download(from: rwUrl)
-        
-        guard let httpResponse = response as? HTTPURLResponse,
-              let fields = httpResponse.allHeaderFields as? [String: String],
-              let cookie = HTTPCookie.cookies(withResponseHeaderFields: fields, for: rwUrl).first
-        else {
-            print("no cookies?")
-            return
-        }
-        
-        print("Cookie Name: \(cookie.name)")
-        print("Cookie Value: \(cookie.value)")
+        let jsonMenu = try JSONDecoder().decode(MenuJSON.self, from: data)
+        return jsonMenu
     }
 }

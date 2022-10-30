@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    var menu: MenuViewModel
     @Binding var favorites: Favorites
     @Binding var order: Order
     var body: some View {
@@ -16,7 +17,8 @@ struct FavoritesView: View {
                 Text("Your Favorites")
                     .font(.largeTitle)
                     .padding()
-                ScrollableFavoritesView(favorites: $favorites,
+                ScrollableFavoritesView(menu: menu,
+                                        favorites: $favorites,
                                         order: $order)
                 Spacer()
             }
@@ -27,14 +29,14 @@ struct FavoritesView: View {
     }
 }
 
-// MARK: - Interator Pattern: Favorites is iterable
 struct ScrollableFavoritesView: View {
+    var menu: MenuViewModel
     @Binding var favorites: Favorites
     @Binding var order: Order
     var body: some View {
         ScrollView {
             Divider()
-            ForEach(Array(favorites), id: \.id) { item in
+            ForEach(favorites.items(menu.items), id: \.id) { item in
                 NavigationLink(destination: MenuItemView(item: item,
                                                          order: $order,
                                                          favorites: $favorites)) {
@@ -47,7 +49,7 @@ struct ScrollableFavoritesView: View {
 }
 
 struct FavoritesItemRow: View {
-    let item: MenuItem
+    let item: Item
     var body: some View {
         HStack {
             Text("\(item.name)")
@@ -64,6 +66,7 @@ struct FavoritesView_Previews: PreviewProvider {
     @State static var dummyFaves = Favorites.initDummy()
     @State static var dummyorder = Order.initDummy()
     static var previews: some View {
-        FavoritesView(favorites: $dummyFaves, order: $dummyorder)
+        let menu = MenuViewModel()
+        FavoritesView(menu: menu, favorites: $dummyFaves, order: $dummyorder)
     }
 }

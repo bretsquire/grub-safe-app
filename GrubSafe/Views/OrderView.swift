@@ -14,7 +14,7 @@ struct OrderView: View {
             Text("Your Order")
                 .font(.largeTitle)
                 .padding()
-            Text(order.description)
+            Text(order.descriptions)
                 .padding()
             ScrollableOrderView(order: $order)
             Spacer()
@@ -36,7 +36,7 @@ struct ScrollableOrderView: View {
 }
 
 struct OrderItemRow: View {
-    let item: MenuItem
+    let item: Item
     var body: some View {
         HStack {
             Text("\(item.name)")

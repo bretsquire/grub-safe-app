@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Singleton Pattern: Singleton
 public class AppSettings {
     // MARK: - Object Lifecycle
     private init() { }
@@ -20,7 +19,6 @@ public class AppSettings {
     public var favorites: Favorites {
       get {
           do {
-              // MARK: - Memento Pattern: load favorites
               return try favoritesCaretaker.load()
           } catch {
               // TODO alert user favorites could not be restored
@@ -28,7 +26,6 @@ public class AppSettings {
           }
       } set {
           do {
-              // MARK: - Memento Pattern: store favorites
               try favoritesCaretaker.save(newValue)
           } catch {
               // TODO alert user favorites could not be saved

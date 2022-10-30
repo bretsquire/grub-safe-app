@@ -8,30 +8,28 @@
 import Foundation
 
 public struct Favorites: Codable {
-    private var items = Set<MenuItem>()
+    private var itemIds = Set<String>()
     
-    func isFavorite(_ item: MenuItem) -> Bool {
-        items.contains(item)
+    func isFavorite(_ item: Item) -> Bool {
+        itemIds.contains(item.id)
     }
     
-    mutating func toggle(_ item: MenuItem) {
-        if items.contains(item) {
-            items.remove(item)
+    func items(_ items: [Item]) -> [Item] {
+        items.filter {
+            isFavorite($0)
+        }
+    }
+    
+    mutating func toggle(_ item: Item) {
+        if itemIds.contains(item.id) {
+            itemIds.remove(item.id)
         } else {
-            items.insert(item)
+            itemIds.insert(item.id)
         }
     }
     
     static func initDummy() -> Favorites {
-        let menu = Menu()
-        let setOfItems = Set(menu.menuItems)
-        return Favorites(items: setOfItems)
-    }
-}
-
-// MARK: - Interator Pattern: Conforms to interator
-extension Favorites: Sequence {
-    public func makeIterator() -> IndexingIterator<[MenuItem]> {
-        return Array(items).makeIterator()
+        let setOfItemIds = Set<String>()
+        return Favorites(itemIds: setOfItemIds)
     }
 }

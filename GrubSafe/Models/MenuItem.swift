@@ -8,15 +8,30 @@
 public struct MenuItem: Identifiable, Hashable, Codable {
     // MARK: - Properties
     public let id: String
-    let name: String
-    let description: String?
-    let cost: Double
-    let allergens: String?
-    let imageName: String?
+    public var name: String
+    public var descriptions: String?
+    public var images: [String]
+    public var cost: Double = 1.99
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name = "menuname"
+        case descriptions = "description"
+        case images
+    }
     
     var costAsString: String {
         get {
-            String(format: "$%.02f", cost)
+            String(format: "$%.02f", 1.99)
         }
+    }
+    
+    var dictionaryValue: [String: Any] {
+      [
+        "id": id as Any,
+        "name": name as Any,
+        "descriptions": descriptions as Any,
+        "images": images
+      ]
     }
 }

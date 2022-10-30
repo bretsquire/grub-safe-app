@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct MenuItemView: View {
-    // MARK: - Singleton Pattern: initialize/access
     public let appSettings = AppSettings.shared
     
-    var item: MenuItem
+    var item: Item
     @Binding var order: Order
     @Binding var favorites: Favorites
     var body: some View {
         VStack {
             HStack(alignment: .center) {
-                Image(item.imageName ?? "beefHotdog")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 160)
+                AsyncImage(url: URL(string: item.images.count > 0 ? item.images[0] : "https://res.cloudinary.com/jobizil/image/upload/v1602768183/images/menus/x4cspjvzqn2qk76sjhiw.jpg")) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                            } placeholder: {
+                                Image("beefHotdog")
+                            }
+                            //.resizable()
+                            .scaledToFit()
+                            .frame(width: 160)
                 VStack {
                     Text("\(item.name)")
                         .font(.headline)
@@ -36,7 +41,6 @@ struct MenuItemView: View {
                     }
                     Button {
                         favorites.toggle(item)
-                        // MARK: - Singleton Pattern: Used for loading favorites from memento pattern
                         appSettings.favorites = favorites
                     } label: {
                         switch favorites.isFavorite(item) {
@@ -49,7 +53,7 @@ struct MenuItemView: View {
                 }
             }
             .padding()
-            Text("\(item.description ?? "")")
+            Text("\(item.descriptions ?? "")")
                 .font(.body)
                 .padding()
             Spacer()
@@ -57,17 +61,17 @@ struct MenuItemView: View {
     }
 }
 
-struct MenuItemView_Previews: PreviewProvider {
-    @State static var dummyorder = Order.initDummy()
-    @State static var dummyFaves = Favorites()
-    static var previews: some View {
-        let menu = Menu()
-        MenuItemView(item: menu.menuItems[3],
-                     order: $dummyorder,
-                     favorites: $dummyFaves)
-        MenuItemView(item: menu.menuItems[0],
-                     order: $dummyorder,
-                     favorites: $dummyFaves)
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
+//struct MenuItemView_Previews: PreviewProvider {
+//    @State static var dummyorder = Order.initDummy()
+//    @State static var dummyFaves = Favorites()
+//    static var previews: some View {
+//        let menu = Menu()
+//        MenuItemView(item: menu.menuItems[3],
+//                     order: $dummyorder,
+//                     favorites: $dummyFaves)
+//        MenuItemView(item: menu.menuItems[0],
+//                     order: $dummyorder,
+//                     favorites: $dummyFaves)
+//            .previewInterfaceOrientation(.landscapeLeft)
+//    }
+//}
