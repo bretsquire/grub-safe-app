@@ -28,14 +28,20 @@ class MenuApi {
     
     // MARK: Functions
     func getMenuItems() async throws -> MenuJSON {
-        let (data, response) = try await session.data(from: menuUrl)
-        
-        if let httpResponse = response as? HTTPURLResponse,
-           !(200..<300).contains(httpResponse.statusCode) {
-            throw MenuApiError.serverError(statusCode: httpResponse.statusCode)
-        }
-        
-        let jsonMenu = try JSONDecoder().decode(MenuJSON.self, from: data)
-        return jsonMenu
+        // TODO: create my own local server endpoint
+//        let (data, response) = try await session.data(from: menuUrl)
+//
+//        if let httpResponse = response as? HTTPURLResponse,
+//           !(200..<300).contains(httpResponse.statusCode) {
+//            throw MenuApiError.serverError(statusCode: httpResponse.statusCode)
+//        }
+//
+//        let jsonMenu = try JSONDecoder().decode(MenuJSON.self, from: data)
+//        return jsonMenu
+
+        let jsonFileUrl = Bundle.main.url(forResource: "menu", withExtension: "json")!
+        let decoder = JSONDecoder()
+        let data = try! Data(contentsOf: jsonFileUrl)
+        return try! decoder.decode(MenuJSON.self, from: data)
     }
 }
