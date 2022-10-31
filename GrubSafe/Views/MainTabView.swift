@@ -15,7 +15,6 @@ struct MainTabView: View {
     @State private var order = Order()
     @State private var displaySplashScreen = true
     @ObservedObject var menu = MenuViewModel()
-    
     @State private var favorites = appSettings.favorites
     
     let userName = "[userName]"
@@ -90,14 +89,34 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct HeaderView: View {
+    @ObservedObject private var networkStatus = appSettings
     var body: some View {
         HStack {
-            Text("GrubSafe")
-                .font(.title)
-                .bold()
-                .padding()
-            Spacer()
+            if networkStatus.hasInternetAccess {
+                Text("GrubSafe")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                Spacer()
+            } else {
+                Image(systemName: Constants.SFSymbols.noConnection)
+                    .foregroundColor(Color.red)
+                Text(" Check Connection ")
+                    .font(.title3)
+                    .foregroundColor(Color.red)
+                    .bold()
+                    .padding()
+                Image(systemName: Constants.SFSymbols.noConnection)
+                    .foregroundColor(Color.red)
+            }
+            
         }
+    }
+}
+
+struct HeaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        HeaderView()
     }
 }
 
