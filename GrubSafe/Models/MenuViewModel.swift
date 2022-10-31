@@ -28,7 +28,9 @@ public class MenuViewModel: ObservableObject {
         do {
             let newMenu = try await menuApi.getMenuItems()
             try await PersistenceController.addMenu(menu: newMenu)
-            items = PersistenceController.shared.fetchMenuItems()
+            await MainActor.run {
+                items = PersistenceController.shared.fetchMenuItems()
+            }
         } catch {
             throw error
         }
