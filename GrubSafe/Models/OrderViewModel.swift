@@ -16,7 +16,7 @@ struct OrderViewModel {
             return total
         }
     }
-    var discount: Discount = .`default`
+    var discount: DiscountViewModel = .`default`
     var discountedTotal: Double {
         get {
             discount.applyDiscount(total)

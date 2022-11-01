@@ -142,7 +142,7 @@ final class GrubSafeTests: XCTestCase {
     }
     
     func test_Discount() {
-        var discount: Discount = .default
+        var discount: DiscountViewModel = .default
         XCTAssertTrue(discount.description.contains("5%"))
         discount = .thanksgiving
         XCTAssertTrue(discount.description.contains("10%"))

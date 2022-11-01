@@ -35,7 +35,7 @@
 		6FC5C36128B360C90070DEEE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5C36028B360C90070DEEE /* Constants.swift */; };
 		6FD55B60290B5B9400987AB2 /* GrubSafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD55B5F290B5B9400987AB2 /* GrubSafeTests.swift */; };
 		6FD55B68290BE57A00987AB2 /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FD55B67290BE57A00987AB2 /* menu.json */; };
-		6FE5E38128C632B400283B5F /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5E38028C632B400283B5F /* Discount.swift */; };
+		6FE5E38128C632B400283B5F /* DiscountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5E38028C632B400283B5F /* DiscountViewModel.swift */; };
 		6FE5E38328C632E800283B5F /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5E38228C632E800283B5F /* OrderViewModel.swift */; };
 		6FE5E38528C6336300283B5F /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5E38428C6336300283B5F /* OrderView.swift */; };
 /* End PBXBuildFile section */
@@ -90,7 +90,7 @@
 		6FD55B5D290B5B9400987AB2 /* GrubSafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrubSafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD55B5F290B5B9400987AB2 /* GrubSafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubSafeTests.swift; sourceTree = "<group>"; };
 		6FD55B67290BE57A00987AB2 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
-		6FE5E38028C632B400283B5F /* Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
+		6FE5E38028C632B400283B5F /* DiscountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountViewModel.swift; sourceTree = "<group>"; };
 		6FE5E38228C632E800283B5F /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		6FE5E38428C6336300283B5F /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,7 +178,7 @@
 				6FBD673B28BCBB010003B8EA /* MenuItem.swift */,
 				6F5F26E428E19AF700C5E6E4 /* FavoritesViewModel.swift */,
 				6FE5E38228C632E800283B5F /* OrderViewModel.swift */,
-				6FE5E38028C632B400283B5F /* Discount.swift */,
+				6FE5E38028C632B400283B5F /* DiscountViewModel.swift */,
 				6FB393B128F438FE001A45EE /* MenuApi.swift */,
 				6F360E0E28FDA673009ABFFC /* Persistence.swift */,
 				6F751F052908468500BB32E2 /* Item+CoreDataClass.swift */,
@@ -393,7 +393,7 @@
 				6F751F082908468500BB32E2 /* Item+CoreDataProperties.swift in Sources */,
 				6F360E0F28FDA673009ABFFC /* Persistence.swift in Sources */,
 				6F2D7CCB28CF692E008FBA9F /* MenuItemView.swift in Sources */,
-				6FE5E38128C632B400283B5F /* Discount.swift in Sources */,
+				6FE5E38128C632B400283B5F /* DiscountViewModel.swift in Sources */,
 				6FE5E38328C632E800283B5F /* OrderViewModel.swift in Sources */,
 				6F360DF328FD95C7009ABFFC /* MenuDB.xcdatamodeld in Sources */,
 				6F727B6728FC45FE00B7AE39 /* FileManager.swift in Sources */,
