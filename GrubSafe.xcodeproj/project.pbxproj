@@ -120,6 +120,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F0138DE2911A22100332F9C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6F751F09290926B600BB32E2 /* MenuViewModel.swift */,
+				6F5F26E428E19AF700C5E6E4 /* FavoritesViewModel.swift */,
+				6FE5E38228C632E800283B5F /* OrderViewModel.swift */,
+				6FE5E38028C632B400283B5F /* DiscountViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6F0138DF2911A24C00332F9C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6FB393B128F438FE001A45EE /* MenuApi.swift */,
+				6F5F26E928E1B1B800C5E6E4 /* FavoritesCaretaker.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6F0138E02911A27200332F9C /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				6FBD673B28BCBB010003B8EA /* MenuItem.swift */,
+				6FBD673928BCBA870003B8EA /* MenuJSON.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
 		6F13573028FD8E6300265FB6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,14 +158,6 @@
 				6F0138DC29100A9900332F9C /* menu.json */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		6F5F26E828E1B17000C5E6E4 /* CareTakers */ = {
-			isa = PBXGroup;
-			children = (
-				6F5F26E928E1B1B800C5E6E4 /* FavoritesCaretaker.swift */,
-			);
-			path = CareTakers;
 			sourceTree = "<group>";
 		};
 		6F727B6528FC45DF00B7AE39 /* Utilities */ = {
@@ -173,13 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */,
-				6F751F09290926B600BB32E2 /* MenuViewModel.swift */,
-				6FBD673928BCBA870003B8EA /* MenuJSON.swift */,
-				6FBD673B28BCBB010003B8EA /* MenuItem.swift */,
-				6F5F26E428E19AF700C5E6E4 /* FavoritesViewModel.swift */,
-				6FE5E38228C632E800283B5F /* OrderViewModel.swift */,
-				6FE5E38028C632B400283B5F /* DiscountViewModel.swift */,
-				6FB393B128F438FE001A45EE /* MenuApi.swift */,
 				6F360E0E28FDA673009ABFFC /* Persistence.swift */,
 				6F751F052908468500BB32E2 /* Item+CoreDataClass.swift */,
 				6F751F062908468500BB32E2 /* Item+CoreDataProperties.swift */,
@@ -214,8 +228,10 @@
 				6FC5C34C28B32EA50070DEEE /* GrubSafeApp.swift */,
 				6FC5C36028B360C90070DEEE /* Constants.swift */,
 				6FBD673728BCB9BC0003B8EA /* Views */,
+				6F0138DE2911A22100332F9C /* ViewModels */,
 				6FBD673828BCBA260003B8EA /* Models */,
-				6F5F26E828E1B17000C5E6E4 /* CareTakers */,
+				6F0138E02911A27200332F9C /* DTOs */,
+				6F0138DF2911A24C00332F9C /* Services */,
 				6F727B6528FC45DF00B7AE39 /* Utilities */,
 				6F13573028FD8E6300265FB6 /* Resources */,
 				6F360DF128FD95C6009ABFFC /* MenuDB.xcdatamodeld */,
