@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoritesView: View {
     var menu: MenuViewModel
-    @Binding var favorites: Favorites
+    @Binding var favorites: FavoritesViewModel
     @Binding var order: OrderViewModel
     var body: some View {
         NavigationView {
@@ -31,7 +31,7 @@ struct FavoritesView: View {
 
 struct ScrollableFavoritesView: View {
     var menu: MenuViewModel
-    @Binding var favorites: Favorites
+    @Binding var favorites: FavoritesViewModel
     @Binding var order: OrderViewModel
     var body: some View {
         ScrollView {
@@ -63,7 +63,7 @@ struct FavoritesItemRow: View {
 }
 
 struct FavoritesView_Previews: PreviewProvider {
-    @State static var dummyFaves = Favorites.initDummy()
+    @State static var dummyFaves = FavoritesViewModel.initDummy()
     @State static var dummyorder = OrderViewModel.initDummy()
     static var previews: some View {
         let menu = MenuViewModel()

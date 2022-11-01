@@ -12,7 +12,7 @@ struct MenuItemView: View {
     
     var item: Item
     @Binding var order: OrderViewModel
-    @Binding var favorites: Favorites
+    @Binding var favorites: FavoritesViewModel
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -63,7 +63,7 @@ struct MenuItemView: View {
 
 //struct MenuItemView_Previews: PreviewProvider {
 //    @State static var dummyorder = OrderViewModel.initDummy()
-//    @State static var dummyFaves = Favorites()
+//    @State static var dummyFaves = FavoritesViewModel()
 //    static var previews: some View {
 //        let menu = Menu()
 //        MenuItemView(item: menu.menuItems[3],

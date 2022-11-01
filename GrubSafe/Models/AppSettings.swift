@@ -31,13 +31,13 @@ public class AppSettings: ObservableObject {
     private let monitor = NWPathMonitor()
     @Published var hasInternetAccess = true
     private var favoritesCaretaker = FavoritesCaretaker()
-    public var favorites: Favorites {
+    public var favorites: FavoritesViewModel {
       get {
           do {
               return try favoritesCaretaker.load()
           } catch {
               // TODO alert user favorites could not be restored
-              return Favorites()
+              return FavoritesViewModel()
           }
       } set {
           do {

@@ -1,5 +1,5 @@
 //
-//  Favorites.swift
+//  FavoritesViewModel.swift
 //  GrubSafe
 //
 //  Created by Bret Squire on 9/26/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Favorites: Codable {
+public struct FavoritesViewModel: Codable {
     private var itemIds = Set<String>()
     
     func isFavorite(_ item: Item) -> Bool {
@@ -28,8 +28,8 @@ public struct Favorites: Codable {
         }
     }
     
-    static func initDummy() -> Favorites {
+    static func initDummy() -> FavoritesViewModel {
         let setOfItemIds: Set<String> = ["1","2","3"]
-        return Favorites(itemIds: setOfItemIds)
+        return FavoritesViewModel(itemIds: setOfItemIds)
     }
 }

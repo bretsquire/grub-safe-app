@@ -12,11 +12,11 @@ import CoreData
 final class GrubSafeTests: XCTestCase {
 
     func test_Favorites() throws {
-        let dummyFavorites = Favorites.initDummy()
+        let dummyFavorites = FavoritesViewModel.initDummy()
         let dummyItem = StubItem(id: "1")
         XCTAssertTrue(dummyFavorites.isFavorite(dummyItem))
 
-        var favorites = Favorites()
+        var favorites = FavoritesViewModel()
         let firstItem = StubItem(id: "12345")
         let secondItem = StubItem(id: "differentId")
         let allItems = [firstItem, secondItem]
@@ -53,7 +53,7 @@ final class GrubSafeTests: XCTestCase {
     
     func test_FavoritesCaretaker() throws {
         let favoritesCaretaker = FavoritesCaretaker()
-        var favorites = Favorites()
+        var favorites = FavoritesViewModel()
         let firstItem = StubItem(id: "one")
         let secondItem = StubItem(id: "two")
         let thirdItem = StubItem(id: "three")
@@ -77,7 +77,7 @@ final class GrubSafeTests: XCTestCase {
     
     func test_AppSettings() throws {
         let appSettings = AppSettings.shared
-        var favorites = Favorites()
+        var favorites = FavoritesViewModel()
         appSettings.favorites = favorites
         let firstItem = StubItem(id: "one")
         let secondItem = StubItem(id: "two")

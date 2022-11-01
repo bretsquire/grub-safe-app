@@ -13,7 +13,7 @@ public class FavoritesCaretaker {
     private let userDefaults = UserDefaults.standard
     private let key = "favorites"
     
-    public func save(_ favorites: Favorites) throws {
+    public func save(_ favorites: FavoritesViewModel) throws {
         print(Bundle.main.bundleURL)
         print(FileManager.documentsDirectoryURL)
         
@@ -21,9 +21,9 @@ public class FavoritesCaretaker {
         userDefaults.set(data, forKey: key)
     }
     
-    public func load() throws -> Favorites {
+    public func load() throws -> FavoritesViewModel {
         guard let data = userDefaults.data(forKey: key),
-              let favorites = try? decoder.decode(Favorites.self, from: data) else {
+              let favorites = try? decoder.decode(FavoritesViewModel.self, from: data) else {
             throw Error.favoritesNotFound
         }
         return favorites
