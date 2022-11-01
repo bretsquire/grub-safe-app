@@ -1,11 +1,11 @@
 //
-//  Order.swift
+//  OrderViewModel.swift
 //  GrubSafe
 //
 //  Created by Bret Squire on 9/5/22.
 //
 
-struct Order {
+struct OrderViewModel {
     var selection: [Item] = []
     var total: Double {
         get {
@@ -28,8 +28,8 @@ struct Order {
         }
     }
     
-    static func initDummy() -> Order {
+    static func initDummy() -> OrderViewModel {
         let menu = MenuViewModel()
-        return Order(selection: menu.items)
+        return OrderViewModel(selection: menu.items)
     }
 }

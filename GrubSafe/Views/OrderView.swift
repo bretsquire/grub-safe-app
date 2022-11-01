@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OrderView: View {
-    @Binding var order: Order
+    @Binding var order: OrderViewModel
     var body: some View {
         VStack {
             Text("Your Order")
@@ -23,7 +23,7 @@ struct OrderView: View {
 }
 
 struct ScrollableOrderView: View {
-    @Binding var order: Order
+    @Binding var order: OrderViewModel
     var body: some View {
         ScrollView {
             Divider()
@@ -50,7 +50,7 @@ struct OrderItemRow: View {
 }
 
 struct OrderView_Previews: PreviewProvider {
-    @State static var dummyorder = Order.initDummy()
+    @State static var dummyorder = OrderViewModel.initDummy()
     static var previews: some View {
         OrderView(order: $dummyorder)
     }

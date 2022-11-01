@@ -12,7 +12,7 @@ public let appSettings = AppSettings.shared
 struct MainTabView: View {
     @State private var onboardingIsVisable = false
     @State private var selectedTab = "Menu"
-    @State private var order = Order()
+    @State private var order = OrderViewModel()
     @State private var displaySplashScreen = true
     @ObservedObject var menu = MenuViewModel()
     @State private var favorites = appSettings.favorites

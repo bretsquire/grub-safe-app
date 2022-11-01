@@ -11,7 +11,7 @@ struct MenuItemView: View {
     public let appSettings = AppSettings.shared
     
     var item: Item
-    @Binding var order: Order
+    @Binding var order: OrderViewModel
     @Binding var favorites: Favorites
     var body: some View {
         VStack {
@@ -62,7 +62,7 @@ struct MenuItemView: View {
 }
 
 //struct MenuItemView_Previews: PreviewProvider {
-//    @State static var dummyorder = Order.initDummy()
+//    @State static var dummyorder = OrderViewModel.initDummy()
 //    @State static var dummyFaves = Favorites()
 //    static var previews: some View {
 //        let menu = Menu()

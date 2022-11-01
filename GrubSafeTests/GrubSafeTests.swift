@@ -154,9 +154,9 @@ final class GrubSafeTests: XCTestCase {
     }
     
     func test_Order() {
-        let dummyOrder = Order.initDummy()
+        let dummyOrder = OrderViewModel.initDummy()
         XCTAssertEqual(dummyOrder.total, 0.0, "total of dummy order is not correcrt")
-        var order = Order()
+        var order = OrderViewModel()
         XCTAssertEqual(order.total, 0.0, "total of empty order is not correcrt")
         XCTAssertEqual(order.discountedTotal, 0.0, "default discount total of empty order is not correcrt")
         let firstItem = StubItem(id: "one")

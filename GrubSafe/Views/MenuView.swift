@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @ObservedObject var menu: MenuViewModel
-    @Binding var order: Order
+    @Binding var order: OrderViewModel
     @Binding var favorites: Favorites
     @State var activeSortIndex = 0
     var body: some View {
@@ -50,7 +50,7 @@ struct MenuView: View {
 
 struct ScrollableMenuView: View {
     @ObservedObject var menu: MenuViewModel
-    @Binding var order: Order
+    @Binding var order: OrderViewModel
     @Binding var favorites: Favorites
     var body: some View {
         ScrollView {
@@ -82,7 +82,7 @@ struct MenuItemRow: View {
 }
 
 //struct MenuView_Previews: PreviewProvider {
-//    @State static var dummyorder = Order.initDummy()
+//    @State static var dummyorder = OrderViewModel.initDummy()
 //    @State static var dummyFaves = Favorites()
 //    @StateObject static var menu = MenuViewModel()
 //    static var previews: some View {
