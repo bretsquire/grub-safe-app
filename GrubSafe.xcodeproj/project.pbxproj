@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F0138DD29100A9900332F9C /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F0138DC29100A9900332F9C /* menu.json */; };
 		6F13573728FD8F1600265FB6 /* MenuData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F13573528FD8F1600265FB6 /* MenuData.json */; };
 		6F13573A28FD8FE600265FB6 /* MenuData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F13573928FD8FE600265FB6 /* MenuData.plist */; };
 		6F2D7CCB28CF692E008FBA9F /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D7CCA28CF692E008FBA9F /* MenuItemView.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F0138DC29100A9900332F9C /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = menu.json; path = GrubSafeTests/menu.json; sourceTree = SOURCE_ROOT; };
 		6F13573528FD8F1600265FB6 /* MenuData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MenuData.json; sourceTree = "<group>"; };
 		6F13573928FD8FE600265FB6 /* MenuData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MenuData.plist; sourceTree = "<group>"; };
 		6F2D7CCA28CF692E008FBA9F /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
@@ -88,7 +90,6 @@
 		6FD55B5D290B5B9400987AB2 /* GrubSafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrubSafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD55B5F290B5B9400987AB2 /* GrubSafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubSafeTests.swift; sourceTree = "<group>"; };
 		6FD55B67290BE57A00987AB2 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
-		6FDAF4D028BCA99F007C1EB6 /* GrubSafePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GrubSafePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FE5E38028C632B400283B5F /* Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		6FE5E38228C632E800283B5F /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		6FE5E38428C6336300283B5F /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 				6FC5C35028B32EA60070DEEE /* Assets.xcassets */,
 				6F13573528FD8F1600265FB6 /* MenuData.json */,
 				6F13573928FD8FE600265FB6 /* MenuData.plist */,
+				6F0138DC29100A9900332F9C /* menu.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -217,7 +219,6 @@
 				6F727B6528FC45DF00B7AE39 /* Utilities */,
 				6F13573028FD8E6300265FB6 /* Resources */,
 				6F360DF128FD95C6009ABFFC /* MenuDB.xcdatamodeld */,
-				6FDAF4D028BCA99F007C1EB6 /* GrubSafePlayground.playground */,
 				6FC5C35228B32EA60070DEEE /* Preview Content */,
 			);
 			path = GrubSafe;
@@ -351,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F0138DD29100A9900332F9C /* menu.json in Resources */,
 				6FC5C35428B32EA60070DEEE /* Preview Assets.xcassets in Resources */,
 				6FC5C35128B32EA60070DEEE /* Assets.xcassets in Resources */,
 				6F13573728FD8F1600265FB6 /* MenuData.json in Resources */,

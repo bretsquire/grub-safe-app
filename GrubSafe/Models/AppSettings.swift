@@ -6,15 +6,30 @@
 //
 
 import Foundation
+import Network
 
-public class AppSettings {
+public class AppSettings: ObservableObject {
     // MARK: - Object Lifecycle
-    private init() { }
+    private init() {
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                print("CONNECTED")
+                self.hasInternetAccess =  true
+            } else {
+                print("NOT_CONNECTED")
+                self.hasInternetAccess =  false
+            }
+        }
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
+    }
     
     // MARK: - Static Properties
     static let shared = AppSettings()
     
     // MARK: - Instance Properties
+    private let monitor = NWPathMonitor()
+    @Published var hasInternetAccess = true
     private var favoritesCaretaker = FavoritesCaretaker()
     public var favorites: Favorites {
       get {
@@ -32,5 +47,6 @@ public class AppSettings {
           }
       }
     }
+    
     
 }
