@@ -134,6 +134,7 @@
 		6F0138DF2911A24C00332F9C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */,
 				6FB393B128F438FE001A45EE /* MenuApi.swift */,
 				6F5F26E928E1B1B800C5E6E4 /* FavoritesCaretaker.swift */,
 			);
@@ -193,7 +194,6 @@
 		6FBD673828BCBA260003B8EA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */,
 				6F360E0E28FDA673009ABFFC /* Persistence.swift */,
 				6F751F052908468500BB32E2 /* Item+CoreDataClass.swift */,
 				6F751F062908468500BB32E2 /* Item+CoreDataProperties.swift */,
