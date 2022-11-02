@@ -1,5 +1,5 @@
 //
-//  FavoritesCaretaker.swift
+//  FavoritesStore.swift
 //  GrubSafe
 //
 //  Created by Bret Squire on 9/26/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class FavoritesCaretaker {
+public class FavoritesStore {
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     private let userDefaults = UserDefaults.standard

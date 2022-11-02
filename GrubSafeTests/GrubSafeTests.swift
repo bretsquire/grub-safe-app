@@ -51,8 +51,8 @@ final class GrubSafeTests: XCTestCase {
         XCTAssertEqual(favoriteItems.count, 0, "number of favorite items must be 0 again")
     }
     
-    func test_FavoritesCaretaker() throws {
-        let favoritesCaretaker = FavoritesCaretaker()
+    func test_FavoritesStore() throws {
+        let favoritesStore = FavoritesStore()
         var favorites = FavoritesViewModel()
         let firstItem = StubItem(id: "one")
         let secondItem = StubItem(id: "two")
@@ -66,11 +66,11 @@ final class GrubSafeTests: XCTestCase {
         XCTAssertTrue(favorites.isFavorite(secondItem))
         XCTAssertTrue(favorites.isFavorite(thirdItem))
         XCTAssertEqual(favoriteItems.count, 3, "number of favorite items must be 3 before saving")
-        try favoritesCaretaker.save(favorites)
+        try favoritesStore.save(favorites)
         favorites.toggle(firstItem)
         favorites.toggle(secondItem)
         favorites.toggle(thirdItem)
-        favorites = try favoritesCaretaker.load()
+        favorites = try favoritesStore.load()
         favoriteItems = favorites.items(allItems)
         XCTAssertEqual(favoriteItems.count, 3, "number of favorite items must be 3 after loading")
     }

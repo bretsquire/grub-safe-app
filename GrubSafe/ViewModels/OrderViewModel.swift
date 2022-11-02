@@ -5,7 +5,9 @@
 //  Created by Bret Squire on 9/5/22.
 //
 
-struct OrderViewModel {
+import Foundation
+
+public class OrderViewModel: ObservableObject {
     var selection: [Item] = []
     var total: Double {
         get {
@@ -26,6 +28,12 @@ struct OrderViewModel {
         get {
             String("The discounted order total is \(discountedTotal) with a \"\(discount.description)\" applied to a order total of \(total)")
         }
+    }
+    
+    init() { }
+    
+    init(selection: [Item]) {
+        self.selection = selection
     }
     
     static func initDummy() -> OrderViewModel {

@@ -9,14 +9,14 @@ import SwiftUI
 
 struct MenuView: View {
     @ObservedObject var menu: MenuViewModel
-    @Binding var order: OrderViewModel
+    @ObservedObject var order: OrderViewModel
     @Binding var favorites: FavoritesViewModel
     @State var activeSortIndex = 0
     var body: some View {
         NavigationView {
             VStack {
                 ScrollableMenuView(menu: menu,
-                                   order: $order,
+                                   order: order,
                                    favorites: $favorites)
                 Spacer()
             }
@@ -50,14 +50,14 @@ struct MenuView: View {
 
 struct ScrollableMenuView: View {
     @ObservedObject var menu: MenuViewModel
-    @Binding var order: OrderViewModel
+    @ObservedObject var order: OrderViewModel
     @Binding var favorites: FavoritesViewModel
     var body: some View {
         ScrollView {
             Divider()
             ForEach(menu.items, id: \.id) { item in
                 NavigationLink(destination: MenuItemView(item: item,
-                                                         order: $order,
+                                                         order: order,
                                                          favorites: $favorites)) {
                     MenuItemRow(item: item)
                 }

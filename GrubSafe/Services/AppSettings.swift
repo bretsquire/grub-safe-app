@@ -30,18 +30,18 @@ public class AppSettings: ObservableObject {
     // MARK: - Instance Properties
     private let monitor = NWPathMonitor()
     @Published var hasInternetAccess = true
-    private var favoritesCaretaker = FavoritesCaretaker()
+    private var favoritesStore = FavoritesStore()
     public var favorites: FavoritesViewModel {
       get {
           do {
-              return try favoritesCaretaker.load()
+              return try favoritesStore.load()
           } catch {
               // TODO alert user favorites could not be restored
               return FavoritesViewModel()
           }
       } set {
           do {
-              try favoritesCaretaker.save(newValue)
+              try favoritesStore.save(newValue)
           } catch {
               // TODO alert user favorites could not be saved
           }

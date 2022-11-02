@@ -10,7 +10,7 @@ import SwiftUI
 struct FavoritesView: View {
     var menu: MenuViewModel
     @Binding var favorites: FavoritesViewModel
-    @Binding var order: OrderViewModel
+    @ObservedObject var order: OrderViewModel
     var body: some View {
         NavigationView {
             VStack {
@@ -19,7 +19,7 @@ struct FavoritesView: View {
                     .padding()
                 ScrollableFavoritesView(menu: menu,
                                         favorites: $favorites,
-                                        order: $order)
+                                        order: order)
                 Spacer()
             }
             .navigationBarTitle("Menu")
@@ -32,13 +32,13 @@ struct FavoritesView: View {
 struct ScrollableFavoritesView: View {
     var menu: MenuViewModel
     @Binding var favorites: FavoritesViewModel
-    @Binding var order: OrderViewModel
+    @ObservedObject var order: OrderViewModel
     var body: some View {
         ScrollView {
             Divider()
             ForEach(favorites.items(menu.items), id: \.id) { item in
                 NavigationLink(destination: MenuItemView(item: item,
-                                                         order: $order,
+                                                         order: order,
                                                          favorites: $favorites)) {
                     FavoritesItemRow(item: item)
                 }
@@ -64,9 +64,9 @@ struct FavoritesItemRow: View {
 
 struct FavoritesView_Previews: PreviewProvider {
     @State static var dummyFaves = FavoritesViewModel.initDummy()
-    @State static var dummyorder = OrderViewModel.initDummy()
+    @ObservedObject static var dummyorder = OrderViewModel.initDummy()
     static var previews: some View {
         let menu = MenuViewModel()
-        FavoritesView(menu: menu, favorites: $dummyFaves, order: $dummyorder)
+        FavoritesView(menu: menu, favorites: $dummyFaves, order: dummyorder)
     }
 }
