@@ -11,7 +11,7 @@ struct MenuItemView: View {
     public let appSettings = AppSettings.shared
     
     var item: Item
-    @ObservedObject var order: OrderViewModel
+    @Binding var order: OrderViewModel
     @Binding var favorites: FavoritesViewModel
     var body: some View {
         VStack {
