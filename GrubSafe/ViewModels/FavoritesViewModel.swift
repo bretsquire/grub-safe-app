@@ -28,8 +28,17 @@ public struct FavoritesViewModel: Codable {
         }
     }
     
+//    mutating func replaceWith(_ items: [Item]) {
+//        itemIds = Set(items.map { $0.id })
+//    }
+    
     static func initDummy() -> FavoritesViewModel {
         let setOfItemIds: Set<String> = ["1","2","3"]
+        return FavoritesViewModel(itemIds: setOfItemIds)
+    }
+    
+    static func initPreview() -> FavoritesViewModel {
+        let setOfItemIds: Set<String> = ["5f5eccf4e923d0aca3e7d442","5f5eccf4e923d0aca3e7d441","5f5eccf4e923d0aca3e7d445"]
         return FavoritesViewModel(itemIds: setOfItemIds)
     }
 }

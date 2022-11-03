@@ -28,7 +28,7 @@ struct MenuView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
-                        Text("GrubSafe")
+                        Text("GrubSafe - Menu")
                             .font(.title)
                             .bold()
                         Spacer()

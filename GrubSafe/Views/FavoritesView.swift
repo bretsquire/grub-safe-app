@@ -14,16 +14,23 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Your Favorites")
-                    .font(.largeTitle)
-                    .padding()
                 ScrollableFavoritesView(menu: menu,
                                         favorites: $favorites,
                                         order: $order)
                 Spacer()
             }
-            .navigationBarTitle("Menu")
+            .navigationBarTitle("")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("GrubSafe - Favorites")
+                            .font(.title)
+                            .bold()
+                        Spacer()
+                    }
+                }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -63,10 +70,10 @@ struct FavoritesItemRow: View {
 }
 
 struct FavoritesView_Previews: PreviewProvider {
-    @State static var dummyFaves = FavoritesViewModel.initDummy()
+    @ObservedObject static var menu = MenuViewModel.initPreview()
+    @State static var dummyFaves = FavoritesViewModel.initPreview()
     @State static var dummyorder = OrderViewModel.initDummy()
     static var previews: some View {
-        let menu = MenuViewModel()
-        FavoritesView(menu: menu, favorites: $dummyFaves, order: $dummyorder)
+        return FavoritesView(menu: menu, favorites: $dummyFaves, order: $dummyorder)
     }
 }
