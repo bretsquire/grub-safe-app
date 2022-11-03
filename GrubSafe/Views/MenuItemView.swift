@@ -22,6 +22,8 @@ struct MenuItemView: View {
                                     .aspectRatio(contentMode: .fill)
                             } placeholder: {
                                 Image("beefHotdog")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
                             }
                             //.resizable()
                             .scaledToFit()
