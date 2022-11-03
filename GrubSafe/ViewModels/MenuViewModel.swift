@@ -16,6 +16,7 @@ public class MenuViewModel: ObservableObject {
             items = PersistenceController.shared.fetchMenuItems(sortBy: descriptor)
         }
     }
+    private var isPreview = false
     
     // MARK: - Menu Api
     private var menuApi = MenuApi()
@@ -23,10 +24,32 @@ public class MenuViewModel: ObservableObject {
     init() {
     }
     
+    static func initPreview() -> MenuViewModel {
+        let menu = MenuViewModel()
+        menu.isPreview = true
+        Task {
+            do {
+                try await menu.fetchMenuItems()
+            } catch {
+                print(error)
+            }
+        }
+        return menu
+    }
+    
     // MARK: - Methods
     func fetchMenuItems() async throws {
+        let newMenu: MenuJSON
         do {
-            let newMenu = try await menuApi.getMenuItems()
+            if isPreview {
+                newMenu = try await menuApi.getMenuItemsForPreview()
+            } else {
+                // TODO: create my own local server endpoint
+                //newMenu = MenuJSON()
+                //newMenu = try await menuApi.getMenuItems()
+                newMenu = try await menuApi.getMenuItemsForPreview()
+                
+            }
             try await PersistenceController.addMenu(menu: newMenu)
             await MainActor.run {
                 items = PersistenceController.shared.fetchMenuItems()

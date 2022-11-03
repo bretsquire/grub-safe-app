@@ -73,18 +73,17 @@ struct MainTabView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainTabView_Previews: PreviewProvider {
+    @ObservedObject static var menu = MenuViewModel.initPreview()
     static var previews: some View {
-        MainTabView()
-        MainTabView()
+        MainTabView(menu: menu)
+            .previewDisplayName("Portrait")
+        MainTabView(menu: menu)
             .previewInterfaceOrientation(.landscapeLeft)
-        MainTabView()
+            .previewDisplayName("Landscape")
+        MainTabView(menu: menu)
             .preferredColorScheme(.dark)
-        MainTabView()
-            .previewLayout(.fixed(width: 568, height: 320))
-        MainTabView()
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 568, height: 320))
+            .previewDisplayName("Dark")
     }
 }
 

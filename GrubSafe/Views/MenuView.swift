@@ -81,25 +81,25 @@ struct MenuItemRow: View {
     }
 }
 
-//struct MenuView_Previews: PreviewProvider {
-//    @State static var dummyorder = OrderViewModel.initDummy()
-//    @State static var dummyFaves = FavoritesViewModel()
-//    @StateObject static var menu = MenuViewModel()
-//    static var previews: some View {
-//        //let menu = MenuViewModel()
-//        MenuView(menu: $menu, order: $dummyorder,
-//                 favorites: $dummyFaves)
-//        MenuView(menu: $menu, order: $dummyorder,
-//                 favorites: $dummyFaves)
-//            .preferredColorScheme(.dark)
-//        MenuView(menu: $menu, order: $dummyorder,
-//                 favorites: $dummyFaves)
-//            .previewLayout(.fixed(width: 568, height: 320))
-//        MenuView(menu: $menu, order: $dummyorder,
-//                 favorites: $dummyFaves)
-//            .preferredColorScheme(.dark)
-//            .previewLayout(.fixed(width: 568, height: 320))
-//    }
-//}
+struct MenuView_Previews: PreviewProvider {
+    @State static var dummyorder = OrderViewModel.initDummy()
+    @State static var dummyFaves = FavoritesViewModel()
+    @ObservedObject static var menu = MenuViewModel.initPreview()
+    static var previews: some View {
+        //let menu = MenuViewModel()
+        MenuView(menu: menu, order: $dummyorder,
+                 favorites: $dummyFaves)
+        MenuView(menu: menu, order: $dummyorder,
+                 favorites: $dummyFaves)
+            .preferredColorScheme(.dark)
+        MenuView(menu: menu, order: $dummyorder,
+                 favorites: $dummyFaves)
+            .previewLayout(.fixed(width: 568, height: 320))
+        MenuView(menu: menu, order: $dummyorder,
+                 favorites: $dummyFaves)
+            .preferredColorScheme(.dark)
+            .previewLayout(.fixed(width: 568, height: 320))
+    }
+}
 
 
