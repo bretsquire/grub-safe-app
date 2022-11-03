@@ -25,7 +25,7 @@ struct FavoritesView: View {
                 ToolbarItem(placement: .principal) {
                     HStack {
                         Text("GrubSafe - Favorites")
-                            .font(.title)
+                            .font(.title2)
                             .bold()
                         Spacer()
                     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
+    @State private var onboardingIsVisable = false
     @ObservedObject var menu: MenuViewModel
     @Binding var order: OrderViewModel
     @Binding var favorites: FavoritesViewModel
@@ -29,9 +30,19 @@ struct MenuView: View {
                 ToolbarItem(placement: .principal) {
                     HStack {
                         Text("GrubSafe - Menu")
-                            .font(.title)
+                            .font(.title2)
                             .bold()
+                        
                         Spacer()
+                        Button {
+                            onboardingIsVisable.toggle()
+                        } label: {
+                            Image(systemName: Constants.SFSymbols.questionmark)
+                                .font(.title3)
+                        }
+                        .sheet(isPresented: $onboardingIsVisable) {
+                            OnboardingView()
+                        }
                         Menu(content: {
                             Picker(
                                 selection: $activeSortIndex,
@@ -46,6 +57,7 @@ struct MenuView: View {
                             .accessibility(identifier: "sortPicker")
                         }, label: {
                             Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                                .font(.title3)
                         })
                     }
                 }

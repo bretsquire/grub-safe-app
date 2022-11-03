@@ -29,12 +29,6 @@ struct MainTabView: View {
                 }
                 HStack {
                     TabView(selection: $selectedTab) {
-                        WelcomeView(userName: userName, onboardingIsVisable: $onboardingIsVisable)
-                            .tabItem {
-                                Image(systemName: "figure.wave")
-                                Text("Welcome")
-                            }
-                            .tag("Welcome")
                         MenuView(menu: menu, order: $order, favorites: $favorites)
                             .tabItem {
                                 Image(systemName: "menucard")
@@ -108,29 +102,5 @@ struct NetworkAlertView: View {
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         NetworkAlertView()
-    }
-}
-
-struct WelcomeView: View {
-    var userName: String
-    @Binding var onboardingIsVisable: Bool
-    var body: some View {
-        HStack {
-            Text("Welcome, \(userName).")
-                .font(.title)
-                .bold()
-                .padding()
-            Spacer()
-            Button {
-                onboardingIsVisable.toggle()
-            } label: {
-                Image(systemName: Constants.SFSymbols.questionmark)
-                    .font(.title)
-            }
-            .padding()
-            .sheet(isPresented: $onboardingIsVisable) {
-                OnboardingView()
-            }
-        }
     }
 }
