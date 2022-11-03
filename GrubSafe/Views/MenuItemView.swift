@@ -33,11 +33,24 @@ struct MenuItemView: View {
                     Text("\(item.costAsString)")
                         .font(.body)
                         .padding()
-                    Button {
-                        order.selection.append(item)
-                    } label: {
-                        Image(systemName: Constants.SFSymbols.addToOrder)
-                            .font(.title)
+                    HStack {
+                        Spacer()
+                        Button {
+                            order.subtract(item)
+                        } label: {
+                            Image(systemName: Constants.SFSymbols.removeFromOrder)
+                                .font(.title)
+                        }
+                        Text("\(order.itemsCount(item))")
+                            .font(.body)
+                            .padding()
+                        Button {
+                            order.add(item)
+                        } label: {
+                            Image(systemName: Constants.SFSymbols.addToOrder)
+                                .font(.title)
+                        }
+                        Spacer()
                     }
                     Button {
                         favorites.toggle(item)

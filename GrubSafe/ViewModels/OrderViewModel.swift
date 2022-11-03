@@ -30,6 +30,21 @@ struct OrderViewModel {
         }
     }
     
+    public func itemsCount(_ item: Item) -> Int {
+        let items = selection.filter { $0.id == item.id }
+        return items.count
+    }
+    
+    public mutating func add(_ item: Item) {
+        selection.append(item)
+    }
+    
+    public mutating func subtract(_ item: Item) {
+        if let idx = selection.firstIndex(where: { $0.id == item.id }) {
+            selection.remove(at: idx)
+        }
+    }
+    
     static func initDummy() -> OrderViewModel {
         let menu = MenuViewModel()
         return OrderViewModel(selection: menu.items)
