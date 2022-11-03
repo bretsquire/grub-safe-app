@@ -24,7 +24,9 @@ struct MainTabView: View {
             if displaySplashScreen {
                 SplashScreen(duration: Constants.Menu.splashScreenDuration)
             } else {
-                HeaderView()
+                if !appSettings.hasInternetAccess {
+                    NetworkAlertView()
+                }
                 HStack {
                     TabView(selection: $selectedTab) {
                         WelcomeView(userName: userName, onboardingIsVisable: $onboardingIsVisable)
@@ -77,45 +79,35 @@ struct MainTabView_Previews: PreviewProvider {
     @ObservedObject static var menu = MenuViewModel.initPreview()
     static var previews: some View {
         MainTabView(menu: menu)
-            .previewDisplayName("Portrait")
+            .previewDisplayName("portrait")
         MainTabView(menu: menu)
             .previewInterfaceOrientation(.landscapeLeft)
-            .previewDisplayName("Landscape")
+            .previewDisplayName("landscape")
         MainTabView(menu: menu)
             .preferredColorScheme(.dark)
-            .previewDisplayName("Dark")
+            .previewDisplayName("dark")
     }
 }
 
-struct HeaderView: View {
-    @ObservedObject private var networkStatus = appSettings
+struct NetworkAlertView: View {
     var body: some View {
         HStack {
-            if networkStatus.hasInternetAccess {
-                Text("GrubSafe")
-                    .font(.title)
-                    .bold()
-                    .padding()
-                Spacer()
-            } else {
-                Image(systemName: Constants.SFSymbols.noConnection)
-                    .foregroundColor(Color.red)
-                Text(" Check Connection ")
-                    .font(.title3)
-                    .foregroundColor(Color.red)
-                    .bold()
-                    .padding()
-                Image(systemName: Constants.SFSymbols.noConnection)
-                    .foregroundColor(Color.red)
-            }
-            
+            Image(systemName: Constants.SFSymbols.noConnection)
+                .foregroundColor(Color.red)
+            Text(" Check Connection ")
+                .font(.title3)
+                .foregroundColor(Color.red)
+                .bold()
+                .padding()
+            Image(systemName: Constants.SFSymbols.noConnection)
+                .foregroundColor(Color.red)
         }
     }
 }
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView()
+        NetworkAlertView()
     }
 }
 

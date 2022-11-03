@@ -20,27 +20,35 @@ struct MenuView: View {
                                    favorites: $favorites)
                 Spacer()
             }
-            .navigationBarTitle("Menu")
+            .navigationBarTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .onChange(of: activeSortIndex) { _ in
                 menu.sortBy = activeSortIndex
             }
             .toolbar {
-                Menu(content: {
-                    Picker(
-                        selection: $activeSortIndex,
-                        content: {
-                            ForEach(0..<menu.sortTypes.count, id: \.self) { index in
-                                let sortType = menu.sortTypes[index]
-                                Text(sortType.name)
-                            }
-                        },
-                        label: {}
-                    )
-                    .accessibility(identifier: "sortPicker")
-                }, label: {
-                    Image(systemName: "line.3.horizontal.decrease.circle.fill")
-                })
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("GrubSafe")
+                            .font(.title)
+                            .bold()
+                        Spacer()
+                        Menu(content: {
+                            Picker(
+                                selection: $activeSortIndex,
+                                content: {
+                                    ForEach(0..<menu.sortTypes.count, id: \.self) { index in
+                                        let sortType = menu.sortTypes[index]
+                                        Text(sortType.name)
+                                    }
+                                },
+                                label: {}
+                            )
+                            .accessibility(identifier: "sortPicker")
+                        }, label: {
+                            Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                        })
+                    }
+                }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -86,19 +94,14 @@ struct MenuView_Previews: PreviewProvider {
     @State static var dummyFaves = FavoritesViewModel()
     @ObservedObject static var menu = MenuViewModel.initPreview()
     static var previews: some View {
-        //let menu = MenuViewModel()
-        MenuView(menu: menu, order: $dummyorder,
-                 favorites: $dummyFaves)
-        MenuView(menu: menu, order: $dummyorder,
-                 favorites: $dummyFaves)
+        MenuView(menu: menu, order: $dummyorder, favorites: $dummyFaves)
+            .previewDisplayName("portrait")
+        MenuView(menu: menu, order: $dummyorder, favorites: $dummyFaves)
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDisplayName("lanscape")
+        MenuView(menu: menu, order: $dummyorder, favorites: $dummyFaves)
             .preferredColorScheme(.dark)
-        MenuView(menu: menu, order: $dummyorder,
-                 favorites: $dummyFaves)
-            .previewLayout(.fixed(width: 568, height: 320))
-        MenuView(menu: menu, order: $dummyorder,
-                 favorites: $dummyFaves)
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 568, height: 320))
+            .previewDisplayName("dark")
     }
 }
 
