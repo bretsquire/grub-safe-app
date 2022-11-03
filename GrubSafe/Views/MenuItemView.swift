@@ -61,17 +61,17 @@ struct MenuItemView: View {
     }
 }
 
-//struct MenuItemView_Previews: PreviewProvider {
-//    @State static var dummyorder = OrderViewModel.initDummy()
-//    @State static var dummyFaves = FavoritesViewModel()
-//    static var previews: some View {
-//        let menu = Menu()
-//        MenuItemView(item: menu.menuItems[3],
-//                     order: $dummyorder,
-//                     favorites: $dummyFaves)
-//        MenuItemView(item: menu.menuItems[0],
-//                     order: $dummyorder,
-//                     favorites: $dummyFaves)
-//            .previewInterfaceOrientation(.landscapeLeft)
-//    }
-//}
+struct MenuItemView_Previews: PreviewProvider {
+    @ObservedObject static var menu = MenuViewModel.initPreview()
+    @State static var previewOrder = OrderViewModel.initPreview()
+    @State static var previewFaves = FavoritesViewModel()
+    static var previews: some View {
+        MenuItemView(item: menu.items[0],
+                     order: $previewOrder,
+                     favorites: $previewFaves)
+        MenuItemView(item: menu.items[0],
+                     order: $previewOrder,
+                     favorites: $previewFaves)
+            .previewInterfaceOrientation(.landscapeLeft)
+    }
+}

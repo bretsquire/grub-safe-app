@@ -47,7 +47,7 @@ struct MainTabView: View {
                                 Text("Favorites")
                             }
                             .tag("Favorites")
-                        OrderView(order: $order)
+                        OrderView(order: $order, favorites: $favorites)
                             .tabItem {
                                 Image(systemName: "bag")
                                 Text("Order")

@@ -40,7 +40,7 @@ class MenuApi {
         return jsonMenu
     }
     
-    func getMenuItemsForPreview() async throws -> MenuJSON {
+    func getMenuItemsFromLocalFile() async throws -> MenuJSON {
         let jsonFileUrl = Bundle.main.url(forResource: "menu", withExtension: "json")!
         let decoder = JSONDecoder()
         let data = try! Data(contentsOf: jsonFileUrl)

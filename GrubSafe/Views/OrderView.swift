@@ -9,26 +9,36 @@ import SwiftUI
 
 struct OrderView: View {
     @Binding var order: OrderViewModel
+    @Binding var favorites: FavoritesViewModel
     var body: some View {
-        VStack {
-            Text("Your Order")
-                .font(.largeTitle)
-                .padding()
-            Text(order.descriptions)
-                .padding()
-            ScrollableOrderView(order: $order)
-            Spacer()
-        }
+        NavigationView {
+            VStack {
+                Text("Your GrubSafe Order")
+                    .font(.largeTitle)
+                    .padding()
+                Text(order.descriptions)
+                    .padding()
+                ScrollableOrderView(order: $order,
+                                    favorites: $favorites)
+                Spacer()
+            }
+            
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 struct ScrollableOrderView: View {
     @Binding var order: OrderViewModel
+    @Binding var favorites: FavoritesViewModel
     var body: some View {
         ScrollView {
             Divider()
             ForEach(order.selection, id: \.id) { item in
-                OrderItemRow(item: item)
+                NavigationLink(destination: MenuItemView(item: item,
+                                                         order: $order,
+                                                         favorites: $favorites)) {
+                    OrderItemRow(item: item)
+                }
                 Divider()
             }
         }
@@ -50,8 +60,9 @@ struct OrderItemRow: View {
 }
 
 struct OrderView_Previews: PreviewProvider {
-    @State static var dummyorder = OrderViewModel.initDummy()
+    @State static var previewOrder = OrderViewModel.initPreview()
+    @State static var previewFaves = FavoritesViewModel.initPreview()
     static var previews: some View {
-        OrderView(order: $dummyorder)
+        OrderView(order: $previewOrder, favorites: $previewFaves)
     }
 }

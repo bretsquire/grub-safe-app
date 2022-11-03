@@ -5,6 +5,8 @@
 //  Created by Bret Squire on 9/5/22.
 //
 
+import Foundation
+
 struct OrderViewModel {
     var selection: [Item] = []
     var total: Double {
@@ -31,5 +33,12 @@ struct OrderViewModel {
     static func initDummy() -> OrderViewModel {
         let menu = MenuViewModel()
         return OrderViewModel(selection: menu.items)
+    }
+    
+    static func initPreview() -> OrderViewModel {
+        let menu = MenuViewModel.initPreview()
+        var order = OrderViewModel()
+        order.selection = Array(menu.items[0...2])
+        return order
     }
 }

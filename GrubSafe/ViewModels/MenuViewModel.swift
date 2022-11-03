@@ -13,7 +13,11 @@ public class MenuViewModel: ObservableObject {
     var sortBy = 0 {
         didSet {
             let descriptor = sortTypes[sortBy].descriptors
-            items = PersistenceController.shared.fetchMenuItems(sortBy: descriptor)
+            if isPreview {
+                items = PersistenceController.preview.fetchMenuItems(sortBy: descriptor)
+            } else {
+                items = PersistenceController.shared.fetchMenuItems(sortBy: descriptor)
+            }
         }
     }
     private var isPreview = false
@@ -27,35 +31,28 @@ public class MenuViewModel: ObservableObject {
     static func initPreview() -> MenuViewModel {
         let menu = MenuViewModel()
         menu.isPreview = true
-        Task {
-            do {
-                try await menu.fetchMenuItems()
-            } catch {
-                print(error)
-            }
-        }
+        menu.items = PersistenceController.preview.fetchMenuItems()
         return menu
     }
     
     // MARK: - Methods
     func fetchMenuItems() async throws {
-        let newMenu: MenuJSON
-        do {
-            if isPreview {
-                newMenu = try await menuApi.getMenuItemsForPreview()
-            } else {
+        if isPreview {
+            items = PersistenceController.preview.fetchMenuItems()
+        } else {
+            let newMenu: MenuJSON
+            do {
                 // TODO: create my own local server endpoint
                 //newMenu = MenuJSON()
                 //newMenu = try await menuApi.getMenuItems()
-                newMenu = try await menuApi.getMenuItemsForPreview()
-                
+                newMenu = try await menuApi.getMenuItemsFromLocalFile()
+                try await PersistenceController.addMenu(menu: newMenu)
+                await MainActor.run {
+                    items = PersistenceController.shared.fetchMenuItems()
+                }
+            } catch {
+                throw error
             }
-            try await PersistenceController.addMenu(menu: newMenu)
-            await MainActor.run {
-                items = PersistenceController.shared.fetchMenuItems()
-            }
-        } catch {
-            throw error
         }
     }
     
