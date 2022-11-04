@@ -14,9 +14,6 @@ public class FavoritesStore {
     private let key = "favorites"
     
     public func save(_ favorites: FavoritesViewModel) throws {
-        print(Bundle.main.bundleURL)
-        print(FileManager.documentsDirectoryURL)
-        
         let data = try encoder.encode(favorites)
         userDefaults.set(data, forKey: key)
     }

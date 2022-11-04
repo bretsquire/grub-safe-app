@@ -71,9 +71,9 @@ struct FavoritesItemRow: View {
 
 struct FavoritesView_Previews: PreviewProvider {
     @ObservedObject static var menu = MenuViewModel.initPreview()
-    @State static var dummyFaves = FavoritesViewModel.initPreview()
-    @State static var dummyorder = OrderViewModel.initDummy()
+    @State static var favorites = FavoritesViewModel.initPreview()
+    @State static var order = OrderViewModel.initPreview()
     static var previews: some View {
-        return FavoritesView(menu: menu, favorites: $dummyFaves, order: $dummyorder)
+        return FavoritesView(menu: menu, favorites: $favorites, order: $order)
     }
 }

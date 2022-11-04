@@ -13,10 +13,8 @@ public class AppSettings: ObservableObject {
     private init() {
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
-                print("CONNECTED")
                 self.hasInternetAccess =  true
             } else {
-                print("NOT_CONNECTED")
                 self.hasInternetAccess =  false
             }
         }
@@ -36,7 +34,6 @@ public class AppSettings: ObservableObject {
           do {
               return try favoritesStore.load()
           } catch {
-              // TODO alert user favorites could not be restored
               return FavoritesViewModel()
           }
       } set {

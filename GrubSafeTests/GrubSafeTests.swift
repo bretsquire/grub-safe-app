@@ -186,19 +186,6 @@ final class GrubSafeTests: XCTestCase {
         menuViewModel.sortBy = 1
         XCTAssertEqual(menuViewModel.items.count, 122, "number of menu items must be 0 initially")
     }
-    
-//    func test_noServerResponse() async throws{
-//        //var expectation = expectation(description: "Server responds in reasonable time")
-//        let menuApi = MenuApi()
-//        do {
-//            let newMenu = try await menuApi.getMenuItems()
-//            //expectation.fulfill()
-//            //waitForExpectations(timeout: 3)
-//            XCTAssertTrue(newMenu.menuItems.count > 0, "Menu API should returns many menu items")
-//        } catch {
-//            print(error)
-//        }
-//    }
 
 }
 

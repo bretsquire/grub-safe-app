@@ -25,7 +25,6 @@ struct MenuItemView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                             }
-                            //.resizable()
                             .scaledToFit()
                             .frame(width: 160)
                 VStack {

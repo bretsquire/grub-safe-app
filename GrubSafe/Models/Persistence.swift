@@ -83,7 +83,6 @@ struct PersistenceController {
         let taskContext = newTaskContext()
         taskContext.name = "importContext"
         taskContext.transactionAuthor = "importMenuItems"
-        print("number of menu items \(menuItems.count)")
         
         try taskContext.performAndWait {
             let deleteRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
@@ -119,7 +118,6 @@ struct PersistenceController {
         let fetchRequest: NSFetchRequest<Item>
         fetchRequest = Item.fetchRequest()
         fetchRequest.sortDescriptors = [sortBy]
-        //fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
         guard let results = try? context.fetch(fetchRequest),
               !results.isEmpty else { return [] }
         return results as [Item]

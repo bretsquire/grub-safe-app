@@ -102,16 +102,16 @@ struct MenuItemRow: View {
 }
 
 struct MenuView_Previews: PreviewProvider {
-    @State static var dummyorder = OrderViewModel.initDummy()
-    @State static var dummyFaves = FavoritesViewModel()
+    @State static var order = OrderViewModel.initPreview()
+    @State static var favorites = FavoritesViewModel()
     @ObservedObject static var menu = MenuViewModel.initPreview()
     static var previews: some View {
-        MenuView(menu: menu, order: $dummyorder, favorites: $dummyFaves)
+        MenuView(menu: menu, order: $order, favorites: $favorites)
             .previewDisplayName("portrait")
-        MenuView(menu: menu, order: $dummyorder, favorites: $dummyFaves)
+        MenuView(menu: menu, order: $order, favorites: $favorites)
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDisplayName("lanscape")
-        MenuView(menu: menu, order: $dummyorder, favorites: $dummyFaves)
+        MenuView(menu: menu, order: $order, favorites: $favorites)
             .preferredColorScheme(.dark)
             .previewDisplayName("dark")
     }
