@@ -26,7 +26,9 @@ struct OrderViewModel {
     }
     var descriptions: String {
         get {
-            String("The discounted order total is \(discountedTotal) with a \"\(discount.description)\" applied to a order total of \(total)")
+            let discountString = String(format: "%.2f", discountedTotal)
+            let totalString = String(format: "%.2f", total)
+            return String("The discounted order total is $\(discountString) with a \"\(discount.description)\" applied to a order total of $\(totalString)")
         }
     }
     
