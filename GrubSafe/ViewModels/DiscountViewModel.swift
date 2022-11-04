@@ -1,11 +1,11 @@
 //
-//  Discount.swift
+//  DiscountViewModel.swift
 //  GrubSafe
 //
 //  Created by Bret Squire on 9/5/22.
 //
 
-enum Discount: Double {
+enum DiscountViewModel: Double {
     case `default` = 0.05
     case thanksgiving = 0.10
     case christmas = 0.15

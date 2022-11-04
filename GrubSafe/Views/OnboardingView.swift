@@ -26,8 +26,7 @@ struct OnboardingView: View {
             VStack(alignment: .leading) {
                 FeaturesRow(text: "View the full menu.")
                 FeaturesRow(text: "Select and order your meals.")
-                FeaturesRow(text: "Add photos of your meals.")
-                FeaturesRow(text: "Write reviews of your meals.")
+                FeaturesRow(text: "Save your favorite menu items.")
             }
             Spacer()
             Button("Press to dismiss") {

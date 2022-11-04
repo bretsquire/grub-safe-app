@@ -11,8 +11,8 @@ struct MenuItemView: View {
     public let appSettings = AppSettings.shared
     
     var item: Item
-    @Binding var order: Order
-    @Binding var favorites: Favorites
+    @Binding var order: OrderViewModel
+    @Binding var favorites: FavoritesViewModel
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -22,8 +22,9 @@ struct MenuItemView: View {
                                     .aspectRatio(contentMode: .fill)
                             } placeholder: {
                                 Image("beefHotdog")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
                             }
-                            //.resizable()
                             .scaledToFit()
                             .frame(width: 160)
                 VStack {
@@ -33,11 +34,24 @@ struct MenuItemView: View {
                     Text("\(item.costAsString)")
                         .font(.body)
                         .padding()
-                    Button {
-                        order.selection.append(item)
-                    } label: {
-                        Image(systemName: Constants.SFSymbols.addToOrder)
-                            .font(.title)
+                    HStack {
+                        Spacer()
+                        Button {
+                            order.subtract(item)
+                        } label: {
+                            Image(systemName: Constants.SFSymbols.removeFromOrder)
+                                .font(.title)
+                        }
+                        Text("\(order.itemsCount(item))")
+                            .font(.body)
+                            .padding()
+                        Button {
+                            order.add(item)
+                        } label: {
+                            Image(systemName: Constants.SFSymbols.addToOrder)
+                                .font(.title)
+                        }
+                        Spacer()
                     }
                     Button {
                         favorites.toggle(item)
@@ -61,17 +75,17 @@ struct MenuItemView: View {
     }
 }
 
-//struct MenuItemView_Previews: PreviewProvider {
-//    @State static var dummyorder = Order.initDummy()
-//    @State static var dummyFaves = Favorites()
-//    static var previews: some View {
-//        let menu = Menu()
-//        MenuItemView(item: menu.menuItems[3],
-//                     order: $dummyorder,
-//                     favorites: $dummyFaves)
-//        MenuItemView(item: menu.menuItems[0],
-//                     order: $dummyorder,
-//                     favorites: $dummyFaves)
-//            .previewInterfaceOrientation(.landscapeLeft)
-//    }
-//}
+struct MenuItemView_Previews: PreviewProvider {
+    @ObservedObject static var menu = MenuViewModel.initPreview()
+    @State static var previewOrder = OrderViewModel.initPreview()
+    @State static var previewFaves = FavoritesViewModel()
+    static var previews: some View {
+        MenuItemView(item: menu.items[0],
+                     order: $previewOrder,
+                     favorites: $previewFaves)
+        MenuItemView(item: menu.items[0],
+                     order: $previewOrder,
+                     favorites: $previewFaves)
+            .previewInterfaceOrientation(.landscapeLeft)
+    }
+}

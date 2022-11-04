@@ -12,7 +12,7 @@ public let appSettings = AppSettings.shared
 struct MainTabView: View {
     @State private var onboardingIsVisable = false
     @State private var selectedTab = "Menu"
-    @State private var order = Order()
+    @State private var order = OrderViewModel()
     @State private var displaySplashScreen = true
     @ObservedObject var menu = MenuViewModel()
     @State private var favorites = appSettings.favorites
@@ -24,15 +24,11 @@ struct MainTabView: View {
             if displaySplashScreen {
                 SplashScreen(duration: Constants.Menu.splashScreenDuration)
             } else {
-                HeaderView()
+                if !appSettings.hasInternetAccess {
+                    NetworkAlertView()
+                }
                 HStack {
                     TabView(selection: $selectedTab) {
-                        WelcomeView(userName: userName, onboardingIsVisable: $onboardingIsVisable)
-                            .tabItem {
-                                Image(systemName: "figure.wave")
-                                Text("Welcome")
-                            }
-                            .tag("Welcome")
                         MenuView(menu: menu, order: $order, favorites: $favorites)
                             .tabItem {
                                 Image(systemName: "menucard")
@@ -45,7 +41,7 @@ struct MainTabView: View {
                                 Text("Favorites")
                             }
                             .tag("Favorites")
-                        OrderView(order: $order)
+                        OrderView(order: $order, favorites: $favorites)
                             .tabItem {
                                 Image(systemName: "bag")
                                 Text("Order")
@@ -73,73 +69,38 @@ struct MainTabView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainTabView_Previews: PreviewProvider {
+    @ObservedObject static var menu = MenuViewModel.initPreview()
     static var previews: some View {
-        MainTabView()
-        MainTabView()
+        MainTabView(menu: menu)
+            .previewDisplayName("portrait")
+        MainTabView(menu: menu)
             .previewInterfaceOrientation(.landscapeLeft)
-        MainTabView()
+            .previewDisplayName("landscape")
+        MainTabView(menu: menu)
             .preferredColorScheme(.dark)
-        MainTabView()
-            .previewLayout(.fixed(width: 568, height: 320))
-        MainTabView()
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 568, height: 320))
+            .previewDisplayName("dark")
     }
 }
 
-struct HeaderView: View {
-    @ObservedObject private var networkStatus = appSettings
+struct NetworkAlertView: View {
     var body: some View {
         HStack {
-            if networkStatus.hasInternetAccess {
-                Text("GrubSafe")
-                    .font(.title)
-                    .bold()
-                    .padding()
-                Spacer()
-            } else {
-                Image(systemName: Constants.SFSymbols.noConnection)
-                    .foregroundColor(Color.red)
-                Text(" Check Connection ")
-                    .font(.title3)
-                    .foregroundColor(Color.red)
-                    .bold()
-                    .padding()
-                Image(systemName: Constants.SFSymbols.noConnection)
-                    .foregroundColor(Color.red)
-            }
-            
+            Image(systemName: Constants.SFSymbols.noConnection)
+                .foregroundColor(Color.red)
+            Text(" Check Connection ")
+                .font(.title3)
+                .foregroundColor(Color.red)
+                .bold()
+                .padding()
+            Image(systemName: Constants.SFSymbols.noConnection)
+                .foregroundColor(Color.red)
         }
     }
 }
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView()
-    }
-}
-
-struct WelcomeView: View {
-    var userName: String
-    @Binding var onboardingIsVisable: Bool
-    var body: some View {
-        HStack {
-            Text("Welcome, \(userName).")
-                .font(.title)
-                .bold()
-                .padding()
-            Spacer()
-            Button {
-                onboardingIsVisable.toggle()
-            } label: {
-                Image(systemName: Constants.SFSymbols.questionmark)
-                    .font(.title)
-            }
-            .padding()
-            .sheet(isPresented: $onboardingIsVisable) {
-                OnboardingView()
-            }
-        }
+        NetworkAlertView()
     }
 }

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct MenuView: View {
+    @State private var onboardingIsVisable = false
     @ObservedObject var menu: MenuViewModel
-    @Binding var order: Order
-    @Binding var favorites: Favorites
+    @Binding var order: OrderViewModel
+    @Binding var favorites: FavoritesViewModel
     @State var activeSortIndex = 0
     var body: some View {
         NavigationView {
@@ -20,27 +21,46 @@ struct MenuView: View {
                                    favorites: $favorites)
                 Spacer()
             }
-            .navigationBarTitle("Menu")
+            .navigationBarTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .onChange(of: activeSortIndex) { _ in
                 menu.sortBy = activeSortIndex
             }
             .toolbar {
-                Menu(content: {
-                    Picker(
-                        selection: $activeSortIndex,
-                        content: {
-                            ForEach(0..<menu.sortTypes.count, id: \.self) { index in
-                                let sortType = menu.sortTypes[index]
-                                Text(sortType.name)
-                            }
-                        },
-                        label: {}
-                    )
-                    .accessibility(identifier: "sortPicker")
-                }, label: {
-                    Image(systemName: "line.3.horizontal.decrease.circle.fill")
-                })
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("GrubSafe - Menu")
+                            .font(.title2)
+                            .bold()
+                        
+                        Spacer()
+                        Button {
+                            onboardingIsVisable.toggle()
+                        } label: {
+                            Image(systemName: Constants.SFSymbols.questionmark)
+                                .font(.title3)
+                        }
+                        .sheet(isPresented: $onboardingIsVisable) {
+                            OnboardingView()
+                        }
+                        Menu(content: {
+                            Picker(
+                                selection: $activeSortIndex,
+                                content: {
+                                    ForEach(0..<menu.sortTypes.count, id: \.self) { index in
+                                        let sortType = menu.sortTypes[index]
+                                        Text(sortType.name)
+                                    }
+                                },
+                                label: {}
+                            )
+                            .accessibility(identifier: "sortPicker")
+                        }, label: {
+                            Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                                .font(.title3)
+                        })
+                    }
+                }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -50,8 +70,8 @@ struct MenuView: View {
 
 struct ScrollableMenuView: View {
     @ObservedObject var menu: MenuViewModel
-    @Binding var order: Order
-    @Binding var favorites: Favorites
+    @Binding var order: OrderViewModel
+    @Binding var favorites: FavoritesViewModel
     var body: some View {
         ScrollView {
             Divider()
@@ -81,25 +101,20 @@ struct MenuItemRow: View {
     }
 }
 
-//struct MenuView_Previews: PreviewProvider {
-//    @State static var dummyorder = Order.initDummy()
-//    @State static var dummyFaves = Favorites()
-//    @StateObject static var menu = MenuViewModel()
-//    static var previews: some View {
-//        //let menu = MenuViewModel()
-//        MenuView(menu: $menu, order: $dummyorder,
-//                 favorites: $dummyFaves)
-//        MenuView(menu: $menu, order: $dummyorder,
-//                 favorites: $dummyFaves)
-//            .preferredColorScheme(.dark)
-//        MenuView(menu: $menu, order: $dummyorder,
-//                 favorites: $dummyFaves)
-//            .previewLayout(.fixed(width: 568, height: 320))
-//        MenuView(menu: $menu, order: $dummyorder,
-//                 favorites: $dummyFaves)
-//            .preferredColorScheme(.dark)
-//            .previewLayout(.fixed(width: 568, height: 320))
-//    }
-//}
+struct MenuView_Previews: PreviewProvider {
+    @State static var order = OrderViewModel.initPreview()
+    @State static var favorites = FavoritesViewModel()
+    @ObservedObject static var menu = MenuViewModel.initPreview()
+    static var previews: some View {
+        MenuView(menu: menu, order: $order, favorites: $favorites)
+            .previewDisplayName("portrait")
+        MenuView(menu: menu, order: $order, favorites: $favorites)
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDisplayName("lanscape")
+        MenuView(menu: menu, order: $order, favorites: $favorites)
+            .preferredColorScheme(.dark)
+            .previewDisplayName("dark")
+    }
+}
 
 

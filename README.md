@@ -1,27 +1,15 @@
 # GrubSafe
 
-This is a minimal contact restaurant app allowing users to view and order meals as well as add reviews and photos. 
+This is a minimal contact restaurant app allowing users to view and order meals as well as save their favorite menu items. This app uses an MVVM architecture with SwiftUI, Core Data, Modern Concurrency and Combine.
 
 Class Diagram:
 <img src="./GrubSafe_UML_class_diagram.svg">
 
-The following are the next set of todo items to complete for the app.
-- [ ] add a list of menu items
-- [ ] add a button to add item to order
-- [ ] add a button to view current order
-- [ ] add a buttton to checkout
-- [ ] add a number field in checkout view
-- [ ] display total amount of order
-- [ ] add network call to fetch menu items from an API
-- [ ] add button to add review to menu item
-- [ ] add text field to add review text
-- [ ] display review for menu item
-- [ ] add button to add photo to menu item
-- [ ] display added photo for menu item
-
-Food images sourced from the following sites:
-- pork hotdog https://www.bestrecipes.com.au/recipes/glorified-pork-hot-dogs-recipe/43kdcmth
-- beef hotdog https://www.kansascitysteaks.com/product/all-beef-hot-dogs
-- french fries https://commons.wikimedia.org/wiki/File:French_Fries.JPG
-- softserve ice cream https://havediaperswilltravel.com/2020/02/05/the-best-ice-cream-in-orlando/
-- large drink https://www.mediapost.com/publications/article/228864/appeals-court-kills-new-york-citys-big-soda-ban.html?edition=
+The following are the next set of todo items to refine the app.
+- [ ] build a new local testing API with vapor
+- [ ] display thumbnail of menu items in menu list view
+- [ ] enlarge image on the menu items detail page
+- [ ] add cache to the AsyncImage call
+- [ ] add feature for user to add a review
+- [ ] add feature for user to add image
+- [ ] move direct access to the Core Data objectes out of the views

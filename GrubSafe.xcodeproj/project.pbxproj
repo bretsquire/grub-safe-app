@@ -13,9 +13,9 @@
 		6F2D7CCB28CF692E008FBA9F /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D7CCA28CF692E008FBA9F /* MenuItemView.swift */; };
 		6F360DF328FD95C7009ABFFC /* MenuDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F360DF128FD95C6009ABFFC /* MenuDB.xcdatamodeld */; };
 		6F360E0F28FDA673009ABFFC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F360E0E28FDA673009ABFFC /* Persistence.swift */; };
-		6F5F26E528E19AF700C5E6E4 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26E428E19AF700C5E6E4 /* Favorites.swift */; };
+		6F5F26E528E19AF700C5E6E4 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26E428E19AF700C5E6E4 /* FavoritesViewModel.swift */; };
 		6F5F26E728E19BB200C5E6E4 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26E628E19BB200C5E6E4 /* FavoritesView.swift */; };
-		6F5F26EA28E1B1B800C5E6E4 /* FavoritesCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26E928E1B1B800C5E6E4 /* FavoritesCaretaker.swift */; };
+		6F5F26EA28E1B1B800C5E6E4 /* FavoritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26E928E1B1B800C5E6E4 /* FavoritesStore.swift */; };
 		6F5F26EC28E1B4A700C5E6E4 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */; };
 		6F727B6728FC45FE00B7AE39 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F727B6628FC45FE00B7AE39 /* FileManager.swift */; };
 		6F751F072908468500BB32E2 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F751F052908468500BB32E2 /* Item+CoreDataClass.swift */; };
@@ -35,8 +35,8 @@
 		6FC5C36128B360C90070DEEE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC5C36028B360C90070DEEE /* Constants.swift */; };
 		6FD55B60290B5B9400987AB2 /* GrubSafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD55B5F290B5B9400987AB2 /* GrubSafeTests.swift */; };
 		6FD55B68290BE57A00987AB2 /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FD55B67290BE57A00987AB2 /* menu.json */; };
-		6FE5E38128C632B400283B5F /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5E38028C632B400283B5F /* Discount.swift */; };
-		6FE5E38328C632E800283B5F /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5E38228C632E800283B5F /* Order.swift */; };
+		6FE5E38128C632B400283B5F /* DiscountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5E38028C632B400283B5F /* DiscountViewModel.swift */; };
+		6FE5E38328C632E800283B5F /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5E38228C632E800283B5F /* OrderViewModel.swift */; };
 		6FE5E38528C6336300283B5F /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5E38428C6336300283B5F /* OrderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,9 +64,9 @@
 		6F2D7CCA28CF692E008FBA9F /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		6F360DF228FD95C7009ABFFC /* Menu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Menu.xcdatamodel; sourceTree = "<group>"; };
 		6F360E0E28FDA673009ABFFC /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		6F5F26E428E19AF700C5E6E4 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		6F5F26E428E19AF700C5E6E4 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		6F5F26E628E19BB200C5E6E4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		6F5F26E928E1B1B800C5E6E4 /* FavoritesCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCaretaker.swift; sourceTree = "<group>"; };
+		6F5F26E928E1B1B800C5E6E4 /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
 		6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		6F727B6628FC45FE00B7AE39 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		6F751F052908468500BB32E2 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 		6FD55B5D290B5B9400987AB2 /* GrubSafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrubSafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD55B5F290B5B9400987AB2 /* GrubSafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubSafeTests.swift; sourceTree = "<group>"; };
 		6FD55B67290BE57A00987AB2 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
-		6FE5E38028C632B400283B5F /* Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
-		6FE5E38228C632E800283B5F /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		6FE5E38028C632B400283B5F /* DiscountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountViewModel.swift; sourceTree = "<group>"; };
+		6FE5E38228C632E800283B5F /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		6FE5E38428C6336300283B5F /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +120,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F0138DE2911A22100332F9C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6F751F09290926B600BB32E2 /* MenuViewModel.swift */,
+				6F5F26E428E19AF700C5E6E4 /* FavoritesViewModel.swift */,
+				6FE5E38228C632E800283B5F /* OrderViewModel.swift */,
+				6FE5E38028C632B400283B5F /* DiscountViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6F0138DF2911A24C00332F9C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */,
+				6FB393B128F438FE001A45EE /* MenuApi.swift */,
+				6F5F26E928E1B1B800C5E6E4 /* FavoritesStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6F0138E02911A27200332F9C /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				6FBD673B28BCBB010003B8EA /* MenuItem.swift */,
+				6FBD673928BCBA870003B8EA /* MenuJSON.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
 		6F13573028FD8E6300265FB6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,14 +159,6 @@
 				6F0138DC29100A9900332F9C /* menu.json */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		6F5F26E828E1B17000C5E6E4 /* CareTakers */ = {
-			isa = PBXGroup;
-			children = (
-				6F5F26E928E1B1B800C5E6E4 /* FavoritesCaretaker.swift */,
-			);
-			path = CareTakers;
 			sourceTree = "<group>";
 		};
 		6F727B6528FC45DF00B7AE39 /* Utilities */ = {
@@ -172,14 +194,6 @@
 		6FBD673828BCBA260003B8EA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6F5F26EB28E1B4A700C5E6E4 /* AppSettings.swift */,
-				6F751F09290926B600BB32E2 /* MenuViewModel.swift */,
-				6FBD673928BCBA870003B8EA /* MenuJSON.swift */,
-				6FBD673B28BCBB010003B8EA /* MenuItem.swift */,
-				6F5F26E428E19AF700C5E6E4 /* Favorites.swift */,
-				6FE5E38228C632E800283B5F /* Order.swift */,
-				6FE5E38028C632B400283B5F /* Discount.swift */,
-				6FB393B128F438FE001A45EE /* MenuApi.swift */,
 				6F360E0E28FDA673009ABFFC /* Persistence.swift */,
 				6F751F052908468500BB32E2 /* Item+CoreDataClass.swift */,
 				6F751F062908468500BB32E2 /* Item+CoreDataProperties.swift */,
@@ -214,8 +228,10 @@
 				6FC5C34C28B32EA50070DEEE /* GrubSafeApp.swift */,
 				6FC5C36028B360C90070DEEE /* Constants.swift */,
 				6FBD673728BCB9BC0003B8EA /* Views */,
+				6F0138DE2911A22100332F9C /* ViewModels */,
 				6FBD673828BCBA260003B8EA /* Models */,
-				6F5F26E828E1B17000C5E6E4 /* CareTakers */,
+				6F0138E02911A27200332F9C /* DTOs */,
+				6F0138DF2911A24C00332F9C /* Services */,
 				6F727B6528FC45DF00B7AE39 /* Utilities */,
 				6F13573028FD8E6300265FB6 /* Resources */,
 				6F360DF128FD95C6009ABFFC /* MenuDB.xcdatamodeld */,
@@ -387,14 +403,14 @@
 				6FC5C35B28B3406A0070DEEE /* OnboardingView.swift in Sources */,
 				6F751F072908468500BB32E2 /* Item+CoreDataClass.swift in Sources */,
 				6F751F0A290926B600BB32E2 /* MenuViewModel.swift in Sources */,
-				6F5F26EA28E1B1B800C5E6E4 /* FavoritesCaretaker.swift in Sources */,
+				6F5F26EA28E1B1B800C5E6E4 /* FavoritesStore.swift in Sources */,
 				6FB393B228F438FE001A45EE /* MenuApi.swift in Sources */,
 				6F5F26E728E19BB200C5E6E4 /* FavoritesView.swift in Sources */,
 				6F751F082908468500BB32E2 /* Item+CoreDataProperties.swift in Sources */,
 				6F360E0F28FDA673009ABFFC /* Persistence.swift in Sources */,
 				6F2D7CCB28CF692E008FBA9F /* MenuItemView.swift in Sources */,
-				6FE5E38128C632B400283B5F /* Discount.swift in Sources */,
-				6FE5E38328C632E800283B5F /* Order.swift in Sources */,
+				6FE5E38128C632B400283B5F /* DiscountViewModel.swift in Sources */,
+				6FE5E38328C632E800283B5F /* OrderViewModel.swift in Sources */,
 				6F360DF328FD95C7009ABFFC /* MenuDB.xcdatamodeld in Sources */,
 				6F727B6728FC45FE00B7AE39 /* FileManager.swift in Sources */,
 				6FC5C34F28B32EA50070DEEE /* MainTabView.swift in Sources */,
@@ -403,7 +419,7 @@
 				6FC5C34D28B32EA50070DEEE /* GrubSafeApp.swift in Sources */,
 				6FBD673C28BCBB010003B8EA /* MenuItem.swift in Sources */,
 				6FC5C36128B360C90070DEEE /* Constants.swift in Sources */,
-				6F5F26E528E19AF700C5E6E4 /* Favorites.swift in Sources */,
+				6F5F26E528E19AF700C5E6E4 /* FavoritesViewModel.swift in Sources */,
 				6FBD673A28BCBA870003B8EA /* MenuJSON.swift in Sources */,
 				6FE5E38528C6336300283B5F /* OrderView.swift in Sources */,
 			);

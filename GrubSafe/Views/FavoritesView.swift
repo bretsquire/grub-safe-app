@@ -9,21 +9,28 @@ import SwiftUI
 
 struct FavoritesView: View {
     var menu: MenuViewModel
-    @Binding var favorites: Favorites
-    @Binding var order: Order
+    @Binding var favorites: FavoritesViewModel
+    @Binding var order: OrderViewModel
     var body: some View {
         NavigationView {
             VStack {
-                Text("Your Favorites")
-                    .font(.largeTitle)
-                    .padding()
                 ScrollableFavoritesView(menu: menu,
                                         favorites: $favorites,
                                         order: $order)
                 Spacer()
             }
-            .navigationBarTitle("Menu")
+            .navigationBarTitle("")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("GrubSafe - Favorites")
+                            .font(.title2)
+                            .bold()
+                        Spacer()
+                    }
+                }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -31,8 +38,8 @@ struct FavoritesView: View {
 
 struct ScrollableFavoritesView: View {
     var menu: MenuViewModel
-    @Binding var favorites: Favorites
-    @Binding var order: Order
+    @Binding var favorites: FavoritesViewModel
+    @Binding var order: OrderViewModel
     var body: some View {
         ScrollView {
             Divider()
@@ -63,10 +70,10 @@ struct FavoritesItemRow: View {
 }
 
 struct FavoritesView_Previews: PreviewProvider {
-    @State static var dummyFaves = Favorites.initDummy()
-    @State static var dummyorder = Order.initDummy()
+    @ObservedObject static var menu = MenuViewModel.initPreview()
+    @State static var favorites = FavoritesViewModel.initPreview()
+    @State static var order = OrderViewModel.initPreview()
     static var previews: some View {
-        let menu = MenuViewModel()
-        FavoritesView(menu: menu, favorites: $dummyFaves, order: $dummyorder)
+        return FavoritesView(menu: menu, favorites: $favorites, order: $order)
     }
 }
